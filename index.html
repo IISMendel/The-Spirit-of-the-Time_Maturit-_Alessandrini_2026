@@ -250,6 +250,15 @@
     font-size: 0.8rem;
     border-top: 1px solid var(--border);
   }
+  /* Q&A ITEMS */
+  .qa-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.7rem; overflow: hidden; }
+  .qa-q { padding: 0.75rem 1rem; cursor: pointer; font-size: 0.92rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.6rem; transition: background 0.2s; }
+  .qa-q:hover { background: rgba(255,255,255,0.04); }
+  .qa-arrow { color: var(--gold); font-size: 0.7rem; flex-shrink: 0; margin-top: 0.25rem; transition: transform 0.25s; }
+  .qa-item.open .qa-arrow { transform: rotate(90deg); }
+  .qa-a { display: none; padding: 0.75rem 1rem 0.9rem 1rem; border-top: 1px solid var(--border); font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+  .qa-item.open .qa-a { display: block; }
+  .qa-a strong { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -915,241 +924,427 @@
   </div><!-- /jobs -->
 
 
+
   <!-- ===== QUESTIONS ===== -->
   <div class="module" id="questions" style="scroll-margin-top:90px;">
     <div class="module-header">
       <div class="module-icon">❓</div>
-      <h2 class="module-title" style="color:#e74c3c;">Questions for Students</h2>
+      <h2 class="module-title" style="color:#e74c3c;">Questions &amp; Answers</h2>
     </div>
+    <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem;">Domande con risposta modello. Clicca su ogni domanda per vedere la risposta. Pensate per studenti di quinta superiore indirizzo informatico.</p>
 
-    <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem;">Domande pensate per studenti di quinta superiore indirizzo informatico. Le domande sui romanzi richiedono riflessione letteraria e collegamenti tematici; quelle su Jobs invitano a connettere la storia della tecnologia con l'esperienza diretta degli studenti.</p>
-
-    <!-- INDIA -->
-    <div class="topic">
+    <!-- ===== INDIA ===== -->
+    <div class="topic open">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>India — Religion, Culture & History</h3>
+        <h3>🇮🇳 India — Religion, Culture &amp; History</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
+
         <h4>Religions</h4>
-        <ul>
-          <li>India is the birthplace of Hinduism and Buddhism. What are the key differences between the two religions?</li>
-          <li>What are the four main concepts of Hinduism: dharma, karma, samsara and moksha? Explain each one briefly.</li>
-          <li>Sikhism was founded in the 15th century. What are its core values, and how does it differ from Hinduism?</li>
-          <li>Why is India considered one of the most religiously diverse countries in the world? Give at least three examples.</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> India is the birthplace of Hinduism and Buddhism. What are the key differences between the two religions?</div>
+          <div class="qa-a"><strong>A.</strong> Hinduism is polytheistic — it worships many deities as manifestations of one universal spirit (Brahman) — and is organised around concepts like dharma, karma and caste. Buddhism, founded by Siddhartha Gautama in the 5th century BCE, is non-theistic: it does not centre on a god but on the path to end suffering through the Four Noble Truths and the Eightfold Path. Hinduism emphasises ritual and devotion; Buddhism emphasises meditation and ethical conduct. Both share the concept of karma and reincarnation, but Buddhism explicitly rejects the caste system and the authority of the Vedas.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are dharma, karma, samsara and moksha?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Dharma</strong>: one's duty or role in the cosmic order — moral and social obligations determined by caste, age and gender. <strong>Karma</strong>: the law of cause and effect — every action has consequences that affect one's current and future lives. <strong>Samsara</strong>: the cycle of birth, death and rebirth that all souls are trapped in. <strong>Moksha</strong>: liberation from samsara — the ultimate goal of Hindu life, achieved through devotion, knowledge or right action.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the core values of Sikhism, and how does it differ from Hinduism?</div>
+          <div class="qa-a"><strong>A.</strong> Sikhism was founded in the Punjab in the 15th century by Guru Nanak. It is strictly <strong>monotheistic</strong> — one formless God — unlike Hinduism's many deities. Its core values are: equality of all humans regardless of caste or gender, <em>sewa</em> (selfless service), and community meals (<em>langar</em>) open to everyone. Sikhs reject the caste system and idol worship. The five Ks (Kesh, Kangha, Kara, Kachera, Kirpan) are articles of faith worn by initiated Sikhs.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is India considered one of the most religiously diverse countries in the world?</div>
+          <div class="qa-a"><strong>A.</strong> India is the birthplace of four world religions: Hinduism (~80%), Buddhism, Jainism and Sikhism. It also hosts the world's third-largest Muslim population (~14%), significant Christian communities (especially in the south and northeast), and the Zoroastrian Parsi community. This diversity reflects thousands of years of migration, trade and cultural exchange. The Indian Constitution guarantees freedom of religion to all citizens.</div>
+        </div>
+
         <h4>Festivals</h4>
-        <ul>
-          <li>What is the mythological story behind Holi? Who are Hiranyakashipu, Prahlad and Holika?</li>
-          <li>What is Holika Dahan, and on which night does it take place?</li>
-          <li>What is the mythological story behind Diwali? Which Hindu god does it celebrate the return of?</li>
-          <li>Diwali is celebrated by Hindus, Sikhs and Jains, each for a different reason. Can you explain each community's connection to the festival?</li>
-          <li>Compare Holi and Diwali: what do they have in common, and how are they different in terms of season, mood and religious meaning?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the mythological story behind Holi? Who are Hiranyakashipu, Prahlad and Holika?</div>
+          <div class="qa-a"><strong>A.</strong> The demon king <strong>Hiranyakashipu</strong> demanded to be worshipped as a god, but his son <strong>Prahlad</strong> refused and remained devoted to Vishnu. Furious, the king asked his sister <strong>Holika</strong> — who was immune to fire — to sit in a bonfire holding Prahlad. Through divine intervention, Prahlad was protected and Holika burned instead. The story symbolises the triumph of good (devotion, faith) over evil (arrogance, tyranny). The bonfire ritual (<em>Holika Dahan</em>) on the eve of Holi re-enacts this myth.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is Holika Dahan, and on which night does it take place?</div>
+          <div class="qa-a"><strong>A.</strong> Holika Dahan is the bonfire ritual performed on the <strong>night before</strong> the main day of Holi (called <em>Chhoti Holi</em> or "little Holi"). Communities gather to light large bonfires symbolising the burning of Holika and the destruction of evil. People sometimes burn an effigy of Holika and throw grains or wood into the fire. The following morning is the famous festival of colours.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the mythological story behind Diwali? Which Hindu god does it celebrate the return of?</div>
+          <div class="qa-a"><strong>A.</strong> The most widely told story celebrates the return of <strong>Rama</strong> — hero of the epic <em>Ramayana</em> — to his kingdom of Ayodhya after 14 years of exile and his defeat of the demon king Ravana. People lit oil lamps (<em>diyas</em>) to guide him home in the dark. Diwali is also strongly associated with the goddess <strong>Lakshmi</strong> (wealth and prosperity), who is worshipped on the main night. New business accounts are traditionally opened at Diwali.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Diwali is celebrated by Hindus, Sikhs and Jains for different reasons. Can you explain each?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Hindus</strong>: celebrate Rama's return and worship Lakshmi. <strong>Sikhs</strong>: celebrate <em>Bandi Chhor Divas</em> — the release of the sixth Guru, Guru Hargobind, from Mughal imprisonment in 1619. <strong>Jains</strong>: mark the moment of <em>nirvana</em> (spiritual liberation) of Mahavira, the 24th and last tirthankara (spiritual teacher), in the 5th century BCE. This shared date shows how different religious traditions in India have developed parallel meanings for the same time of year.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare Holi and Diwali: similarities and differences.</div>
+          <div class="qa-a"><strong>A.</strong> Both celebrate the victory of good over evil and involve light (fire/lamps). <strong>Differences</strong>: Holi falls in <em>spring</em> (February–March); Diwali in <em>autumn</em> (October–November). Holi is loud, joyful and chaotic — colours, water, social boundaries dissolved; Diwali is more formal — lamp-lighting, puja, gifts, fireworks. Holi is primarily linked to Krishna's playfulness and Prahlad's devotion; Diwali to Rama's homecoming and Lakshmi's blessing. Holi is more associated with rural/folk celebration; Diwali has a stronger commercial dimension.</div>
+        </div>
+
         <h4>The Puja</h4>
-        <ul>
-          <li>What is a puja? How does it differ from a Christian church service?</li>
-          <li>Name four typical offerings made during a puja and explain their significance.</li>
-          <li>What is prasad, and what role does it play in Hindu worship?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a puja? How does it differ from a Christian church service?</div>
+          <div class="qa-a"><strong>A.</strong> A puja is a Hindu act of worship — an intimate, personal ritual of offering to a deity, performed at a home shrine or in a temple. Unlike a Christian service, it is not a collective prayer led by a minister at a fixed time; it is an individual act performed whenever the devotee chooses. The deity is treated as a honoured guest: welcomed, bathed (symbolically), offered food, flowers, light and incense, and thanked. The priest (<em>pandit</em>) mediates in formal temple settings. This reflects the Hindu idea that the divine is immanent — present in images and objects — not transcendent and separate.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Name four typical offerings in a puja and explain each.</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Pushpa</strong> (flowers) — offered for their beauty and purity. <strong>Dhupa</strong> (incense) — the smoke carries prayers upward and purifies the space. <strong>Dipa</strong> (oil lamp or candle) — light symbolises knowledge dispelling ignorance. <strong>Naivedya</strong> (food) — offered to nourish the deity; afterwards distributed as <em>prasad</em>. The ritual of waving the lamp before the deity is called <em>arati</em> and is accompanied by devotional singing (<em>bhajans</em>).</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is prasad?</div>
+          <div class="qa-a"><strong>A.</strong> Prasad (or prasāda) is food that has been offered to a deity during puja and is then distributed to worshippers. It is considered sacred and blessed — by accepting it, the devotee receives the grace of the deity. It can be fruit, sweets, or cooked food. The concept reinforces the communal dimension of worship and the idea that the divine shares its gifts with humanity.</div>
+        </div>
+
         <h4>Myths — Bon Bibi</h4>
-        <ul>
-          <li>Where does the myth of Bon Bibi come from? Who does she protect, and from whom?</li>
-          <li>Who is Dokkhin Rai, and what form does he take in the myth?</li>
-          <li>What is the story of Dukhey? What moral lesson does it teach?</li>
-          <li>Bon Bibi is worshipped by both Hindus and Muslims. What does this tell us about religion in the Sundarbans region?</li>
-          <li>How does Amitav Ghosh use the Bon Bibi myth in his work? What modern meaning does he give to it?</li>
-        </ul>
-        <h4>Amitav Ghosh & Colonialism</h4>
-        <ul>
-          <li>Who is Amitav Ghosh and why is he significant in postcolonial literature?</li>
-          <li>According to Ghosh, colonialism was not just political domination — it was also economic and ecological. What does he mean by this?</li>
-          <li>Ghosh writes in English, the language of the former coloniser. Do you think this is a contradiction, or can it be a deliberate choice? What does it say about the legacy of colonialism?</li>
-          <li>Compare Ghosh's view of colonialism with Conrad's in <em>Heart of Darkness</em>. Whose perspective is closer to that of the colonised, and whose to that of the coloniser?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Where does the myth of Bon Bibi come from? Who does she protect, and from whom?</div>
+          <div class="qa-a"><strong>A.</strong> Bon Bibi ("Lady of the Forest") is a folk deity of the <strong>Sundarbans</strong> — the vast mangrove delta shared by India (West Bengal) and Bangladesh. She was sent by Allah to protect humans — fishermen, honey-gatherers, woodcutters — who enter the dangerous forest. She protects them from <strong>Dokkhin Rai</strong>, a powerful spirit who rules the forest and appears in the form of a tiger, demanding human sacrifice. Her myth is uniquely syncretic: she is worshipped by both Hindus and Muslims in the region.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the story of Dukhey? What moral lesson does it teach?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Dukhey</strong> is a poor boy whose greedy uncle <strong>Dhona</strong> takes him into the forest to harvest honey. When Dokkhin Rai demands a human sacrifice, Dhona abandons Dukhey and flees. As Dokkhin Rai is about to devour him, Dukhey prays to Bon Bibi, who appears instantly with her brother Shah Jongoli and rescues him. The moral lesson is twofold: <strong>human greed</strong> (taking more than one needs from the forest) provokes nature's wrath; and <strong>faith and humility</strong> offer protection where greed fails. The myth encodes an ecological warning: enter the forest only to take what you need.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Bon Bibi is worshipped by both Hindus and Muslims. What does this tell us?</div>
+          <div class="qa-a"><strong>A.</strong> It shows that in the Sundarbans, lived religion does not always follow strict theological boundaries. Faced with the same daily dangers — tigers, floods, the unpredictability of the forest — Hindus and Muslims developed a shared protective deity. This is an example of <strong>syncretism</strong>: the blending of different religious traditions into a locally meaningful form. It also suggests that ecological conditions can shape religious practice as powerfully as doctrine.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does Amitav Ghosh use the Bon Bibi myth?</div>
+          <div class="qa-a"><strong>A.</strong> Ghosh retells the Bon Bibi myth in his novel <em>The Hungry Tide</em> (2004) and later in the verse narrative <em>Jungle Nama</em> (2021). He uses it as a lens to explore the relationship between humans and the natural world in an era of climate change and environmental destruction. In his reading, Dokkhin Rai represents not just a demon but <strong>nature's justified anger</strong> at human exploitation. The myth becomes an ecological parable for the modern world: if we take more than we need from nature, we will face consequences. Ghosh sees the myth as encoding ancient wisdom that modern environmentalism is only now rediscovering.</div>
+        </div>
+
+        <h4>Amitav Ghosh &amp; Colonialism</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who is Amitav Ghosh and why is he significant?</div>
+          <div class="qa-a"><strong>A.</strong> Amitav Ghosh (born 1956, Calcutta) is one of the most important Indian writers in English. He works at the intersection of history, ecology and postcolonial theory. His major works include <em>The Shadow Lines</em>, <em>The Hungry Tide</em>, the Ibis Trilogy (on the opium trade), and <em>The Great Derangement</em> (on climate change). He is significant because he centres Asian and subaltern voices in stories about colonialism — a direct contrast to writers like Conrad, who centre European consciousness. Writing in English, the coloniser's language, he uses that language to dismantle colonial narratives from within.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> According to Ghosh, colonialism was also economic and ecological. What does he mean?</div>
+          <div class="qa-a"><strong>A.</strong> Ghosh argues that the British did not just rule India politically — they restructured its entire economy and environment. They forced farmers to grow <strong>opium</strong> (for export to China) and <strong>indigo</strong> instead of food crops, causing famines. They destroyed India's textile industry to protect British mills. They built railways primarily to extract resources from the interior and ship them to ports. They disrupted ancient Indian Ocean trade networks that had existed for centuries. Colonialism also damaged ecosystems: forests were cleared, rivers managed for British commercial purposes. For Ghosh, these economic and ecological wounds outlast formal political independence.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Ghosh writes in English. Is this a contradiction for a postcolonial writer?</div>
+          <div class="qa-a"><strong>A.</strong> This is a genuine debate in postcolonial literature. The Kenyan writer Ngũgĩ wa Thiong'o argued that African and Asian writers must write in their native languages to truly decolonise their minds. However, Ghosh and others argue that English in India is no longer simply the coloniser's language — it is a <strong>world language</strong> that Indians have taken possession of and transformed. Writing in English allows Ghosh to reach global audiences and tell India's story on a world stage. It also raises uncomfortable questions: who can read him in India? The English-educated elite, not the fishing communities of the Sundarbans he writes about. There is no simple answer — the tension is productive and honest.</div>
+        </div>
+
         <h4>The Taj Mahal</h4>
-        <ul>
-          <li>Who built the Taj Mahal, and why? What personal tragedy inspired it?</li>
-          <li>What architectural style does the Taj Mahal represent? What three traditions does it blend?</li>
-          <li>The Taj Mahal was built during the Mughal period, not the British colonial period. Why is this distinction historically important?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who built the Taj Mahal, and why?</div>
+          <div class="qa-a"><strong>A.</strong> The Taj Mahal was built by Mughal Emperor <strong>Shah Jahan</strong> in memory of his beloved wife <strong>Mumtaz Mahal</strong>, who died in 1631 giving birth to their 14th child. Construction began in 1632 and the main mausoleum was completed in 1648; the full complex was finished around 1653. Over 20,000 workers were employed; the white Makrana marble was inlaid with semi-precious stones (lapis lazuli, jade, turquoise) using the <em>pietra dura</em> technique. The central dome rises 73 metres. It is a UNESCO World Heritage Site and one of the Seven Wonders of the Modern World.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What architectural style does the Taj Mahal represent, and what three traditions does it blend?</div>
+          <div class="qa-a"><strong>A.</strong> The Taj Mahal represents <strong>Mughal architecture</strong>, a distinctive style that emerged from the synthesis of three traditions: <strong>Persian</strong> (the symmetrical garden, the iwan arch, the dome on a drum), <strong>Islamic</strong> (Quranic calligraphy, geometric decoration, the minarets), and <strong>Hindu/Indian</strong> (the lotus motif on the dome, the <em>chattris</em> — small domed kiosks — the overall sense of organic decoration). This blending reflects the Mughal Empire at its cultural peak: an Islamic dynasty that ruled a predominantly Hindu subcontinent and produced a genuinely hybrid civilisation.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is it important that the Taj Mahal was built during the Mughal period, not the British colonial period?</div>
+          <div class="qa-a"><strong>A.</strong> It is a common misconception to associate all of India's great monuments with the British. In fact, the British Raj only began formally in 1858 — the Taj was completed two centuries earlier, in 1653, under a Muslim Mughal emperor. This matters because it shows that India had a rich, sophisticated civilisation long before European colonisation. The Taj is evidence of the Mughal Empire's wealth, artistic sophistication and cultural synthesis. Attributing it to the "colonial period" would erase this pre-colonial history and implicitly suggest that India's greatness came from outside.</div>
+        </div>
+
         <h4>Languages</h4>
-        <ul>
-          <li>How many official languages does India have? Which are the two languages of the Union government?</li>
-          <li>What are the two main language families of India? Give two examples of each.</li>
-          <li>English is widely used in India today despite being the language of the former coloniser. What are the practical reasons for this? What tensions does it create?</li>
-        </ul>
-        <h4>History & Gandhi</h4>
-        <ul>
-          <li>What was the East India Company? When was it founded, and what was its original purpose?</li>
-          <li>What was the Indian Mutiny of 1857, and what were its consequences for India's political status?</li>
-          <li>What is satyagraha? How did Gandhi use it as a political tool?</li>
-          <li>What was the Salt March of 1930? Why was salt such a powerful symbol to choose?</li>
-          <li>Gandhi said: "Our quarrel is not with the British people, we fight their imperialism." What does this distinction mean, and why is it important for his philosophy of non-violence?</li>
-          <li>Gandhi's methods inspired Martin Luther King Jr. and Nelson Mandela. What do these three figures have in common? Where did their strategies differ?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How many official languages does India have? Which two are the languages of the Union government?</div>
+          <div class="qa-a"><strong>A.</strong> The Indian Constitution recognises <strong>22 official languages</strong>, and there are over 1,600 mother tongues spoken across the country. The two languages of the Union (federal) government are <strong>Hindi</strong> — spoken as a first language by about 30% of the population — and <strong>English</strong>, which serves as the language of higher education, law, science and inter-regional communication. This dual system reflects the compromise reached at independence: Hindi-speaking northern states wanted Hindi as the sole national language, but southern states (especially Tamil Nadu) strongly resisted, as Hindi is foreign to them.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the two main language families of India? Give two examples of each.</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Indo-Aryan</strong> (north India, descended from Sanskrit): Hindi, Bengali, Punjabi, Gujarati, Marathi, Urdu. <strong>Dravidian</strong> (south India, entirely separate family unrelated to Sanskrit): Tamil, Telugu, Kannada, Malayalam. These two families are as different from each other as English is from Arabic — a speaker of Hindi cannot understand Tamil at all. This linguistic divide partly explains why southern states resist Hindi imposition: to them it is a foreign language, not a national one.</div>
+        </div>
+
+        <h4>History &amp; Gandhi</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the East India Company? When was it founded and what was its original purpose?</div>
+          <div class="qa-a"><strong>A.</strong> The East India Company (EIC) was a <strong>British trading company</strong> founded in 1600 by royal charter of Queen Elizabeth I. Its original purpose was to trade in spices, textiles and tea with Asia, competing with the Dutch and Portuguese. It established trading posts (called "factories") at Surat, Madras, Bombay and Calcutta. Over time, it built a private army and gradually transformed from a trading company into a territorial power. After the Battle of Plassey (1757), it effectively controlled Bengal, and by 1840 it ruled most of the Indian subcontinent — making it one of the most powerful private companies in history.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the Indian Mutiny of 1857, and what were its consequences?</div>
+          <div class="qa-a"><strong>A.</strong> The Indian Uprising of 1857 (called "Indian Mutiny" by the British, "First War of Independence" by Indians) began as a revolt by Indian soldiers (<em>sepoys</em>) in the EIC's army, triggered by the introduction of rifle cartridges greased with animal fat (offensive to both Hindus and Muslims). It quickly spread to include civilian rebellions across northern India. The British suppressed it with great violence. The main consequence: in <strong>1858</strong> the British Crown dissolved the EIC and assumed direct rule of India — the beginning of the <strong>British Raj</strong>. Queen Victoria became Empress of India in 1877.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is satyagraha, and how did Gandhi use it?</div>
+          <div class="qa-a"><strong>A.</strong> <em>Satyagraha</em> (Sanskrit: "truth-force" or "soul-force") was Gandhi's philosophy of non-violent resistance. Instead of responding to injustice with violence, the practitioner accepts suffering voluntarily — through protest, fasting, or civil disobedience — to appeal to the moral conscience of the oppressor. Gandhi used it through mass campaigns of non-cooperation: Indians boycotted British goods, courts and schools; civil servants went on strike; people refused to pay unjust taxes. The goal was not to defeat the enemy but to transform them — to make the cost of oppression morally unbearable. The method inspired freedom movements worldwide.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the Salt March of 1930? Why was salt such a powerful symbol?</div>
+          <div class="qa-a"><strong>A.</strong> The Salt March (Dandi March) was a 386-kilometre walk Gandhi led from his ashram to the sea at Dandi, where he made salt from seawater, directly defying the British <strong>Salt Acts</strong> that taxed salt and prohibited Indians from producing it themselves. Salt was the perfect symbol because: it is a basic necessity that every Indian — rich or poor, Hindu or Muslim — needs; the tax was universally felt as unjust; and making salt from the sea was a simple, dignified act of self-sufficiency that anyone could understand and replicate. The march attracted worldwide press attention and triggered mass civil disobedience across India.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Gandhi said: "Our quarrel is not with the British people, we fight their imperialism." What does this mean?</div>
+          <div class="qa-a"><strong>A.</strong> Gandhi distinguished between ordinary British people — who he considered victims of a system as much as Indians were — and the system of imperialism itself. He argued that hating the British as a people was both morally wrong and strategically counterproductive: it would simply replace one form of enslavement with another. By directing anger at the <em>system</em> rather than the <em>people</em>, Gandhi kept the door open for dialogue, appealed to British conscience, and maintained the moral high ground. This distinction between person and system is a key principle of non-violent resistance.</div>
+        </div>
+
       </div>
     </div>
 
-    <!-- SOUTH AFRICA -->
+    <!-- ===== SOUTH AFRICA ===== -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>South Africa — Colonialism, Apartheid & Literature</h3>
+        <h3>🌍 South Africa — Colonialism, Apartheid &amp; Literature</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
-        <h4>Colonialism & the VOC</h4>
-        <ul>
-          <li>Who was Jan van Riebeeck, and what did he establish at the Cape of Good Hope in 1652?</li>
-          <li>What was the VOC (Dutch East India Company)? How does it compare to the British East India Company in India?</li>
-          <li>Who were the Boers? Where did they come from, and why did they undertake the Great Trek?</li>
-          <li>What were the Boer Wars (1899–1902)? Who fought, who won, and what was created as a result?</li>
-          <li>The British introduced concentration camps during the Boer Wars. What does this tell us about colonial violence — even when directed at white settlers?</li>
-        </ul>
+
+        <h4>Colonialism &amp; the VOC</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who was Jan van Riebeeck, and what did he establish in 1652?</div>
+          <div class="qa-a"><strong>A.</strong> Jan van Riebeeck was a Dutch colonial administrator sent by the <strong>VOC</strong> (Dutch East India Company) to establish a <strong>refreshment station</strong> at the Cape of Good Hope in 1652. The original purpose was purely logistical: a halfway point where VOC ships sailing between the Netherlands and Asia could resupply with fresh water, vegetables and meat. It was not initially intended as a colony. However, the station grew into the <strong>Cape Colony</strong> as Dutch settlers spread inland, displaced indigenous Khoikhoi and San peoples, and imported enslaved people from Madagascar, Mozambique and Asia.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the VOC? How does it compare to the British EIC?</div>
+          <div class="qa-a"><strong>A.</strong> The VOC (<em>Vereenigde Oost-Indische Compagnie</em>) was founded in Amsterdam in <strong>1602</strong> — two years after the British EIC — and is considered the world's first publicly traded company. Like the EIC, it was a trading company with its own army, navy and judicial powers. The VOC dominated the spice trade from Asia (especially Indonesia/the Dutch East Indies) and established colonies across the Indian Ocean. The EIC focused more on India. Both companies were private enterprises that functioned as colonial governments. The VOC went bankrupt in 1799; the EIC was dissolved in 1858 after the Indian Uprising.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who were the Boers, and why did they undertake the Great Trek?</div>
+          <div class="qa-a"><strong>A.</strong> The <strong>Boers</strong> (Dutch: "farmers") were descendants of Dutch, German and French Huguenot settlers in the Cape Colony. When Britain took over the Cape in 1806 and then abolished slavery in 1833, many Boers felt their way of life was threatened. Between 1835 and 1846, around 12,000 Boers left the Cape Colony in covered wagons — the <strong>Great Trek</strong> — to establish independent republics in the interior: the <strong>Transvaal</strong> and the <strong>Orange Free State</strong>. Their descendants became known as <strong>Afrikaners</strong>. The Trek is a founding myth of Afrikaner identity, celebrated but also deeply associated with the violent displacement of Zulu, Xhosa and other African peoples.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What were the Boer Wars, and what resulted from them?</div>
+          <div class="qa-a"><strong>A.</strong> There were two Boer Wars: the first (1880–81) ended in a Boer victory and British recognition of Transvaal independence. The second (1899–1902) was triggered by the discovery of gold and diamonds in Boer territories, which Britain wanted to control. After initial Boer successes, Britain deployed 500,000 troops, burned Boer farms and placed Boer women, children and Black Africans in <strong>concentration camps</strong> where over 26,000 died of disease and neglect. Britain won. The result was the <strong>Union of South Africa</strong> (1910): a self-governing dominion combining the Boer republics and British colonies, with full political rights reserved for white citizens only.</div>
+        </div>
+
         <h4>Apartheid</h4>
-        <ul>
-          <li>What does the word "apartheid" mean, and when was it officially introduced in South Africa?</li>
-          <li>Name three laws that enforced apartheid and explain what each one did.</li>
-          <li>What were the Pass Laws? Why were they particularly humiliating and oppressive?</li>
-          <li>What happened at Sharpeville in 1960? What were the consequences for the ANC?</li>
-          <li>What was the Soweto Uprising of 1976? What triggered it, and what was the students' slogan?</li>
-          <li>How did apartheid finally end? Name at least two factors that contributed to its collapse.</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What does "apartheid" mean and when was it officially introduced?</div>
+          <div class="qa-a"><strong>A.</strong> <em>Apartheid</em> is an Afrikaans word meaning <strong>"separateness"</strong>. It was the system of institutionalised racial segregation and white minority rule in South Africa. It was officially introduced in <strong>1948</strong> when the National Party won the general elections and began systematically legislating racial separation. However, racial segregation had existed informally under both Dutch and British rule long before 1948 — apartheid formalised and intensified a pre-existing system. It remained in force until the early 1990s.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Name three laws that enforced apartheid and explain what each one did.</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Population Registration Act (1950)</strong>: classified every South African at birth as White, Coloured, Indian or Native (Black) — your race was a legal identity that determined every aspect of your life. <strong>Group Areas Act (1950)</strong>: forced racial residential segregation; non-white communities were evicted from desirable areas and relocated to distant "townships" or "homelands" (Bantustans). <strong>Pass Laws</strong>: Black South Africans were required to carry a passbook at all times when in "white areas"; failure to produce it meant immediate arrest. The passbook controlled where a person could live, work and travel.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What happened at Sharpeville in 1960? What were the consequences for the ANC?</div>
+          <div class="qa-a"><strong>A.</strong> On 21 March 1960, a crowd of about 5,000–7,000 Black South Africans gathered at the Sharpeville police station to protest against the Pass Laws. Police opened fire on the unarmed crowd, killing <strong>69 people</strong> (most shot in the back while fleeing) and wounding 180. The <strong>Sharpeville Massacre</strong> caused international outrage and marked a turning point: the South African government declared a state of emergency and <strong>banned the ANC</strong> (and the Pan Africanist Congress). This forced the ANC underground; Mandela subsequently helped form its armed wing, <em>Umkhonto we Sizwe</em> ("Spear of the Nation").</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the Soweto Uprising of 1976? What triggered it and what was the students' slogan?</div>
+          <div class="qa-a"><strong>A.</strong> In 1974 the government issued the <strong>Afrikaans Medium Decree</strong>, requiring all Black secondary schools to use Afrikaans — the language of the oppressor — as the medium of instruction for half of all subjects. On 16 June 1976, students at schools in Soweto went on strike. The protest march was met with police gunfire; the violence spread across the country over the following months, with an estimated <strong>566 students killed</strong>. The students' slogan was <strong>"Liberation before education"</strong> — meaning: what is the point of education within a system designed to keep us oppressed? The Soweto Uprising radicalised a generation and intensified international pressure on the apartheid regime.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How did apartheid finally end?</div>
+          <div class="qa-a"><strong>A.</strong> Several factors combined to bring apartheid down: sustained <strong>internal resistance</strong> (ANC, trade unions, student movements); <strong>international economic sanctions</strong> and cultural boycotts that isolated South Africa; the <strong>armed struggle</strong> of Umkhonto we Sizwe; and growing divisions within the white community. In 1989 F.W. de Klerk became president and signalled a change of direction. In <strong>February 1990</strong> he unbanned the ANC and other political organisations and released Mandela after 27 years. Negotiations led to the first democratic elections in <strong>April 1994</strong>, won overwhelmingly by the ANC. Mandela became the first democratically elected president of South Africa.</div>
+        </div>
+
         <h4>Nelson Mandela</h4>
-        <ul>
-          <li>What was Mandela's role in the ANC, and why was he arrested and imprisoned?</li>
-          <li>Mandela spent 27 years in prison, 18 of them on Robben Island. How did imprisonment change him politically?</li>
-          <li>What is <em>ubuntu</em>? How does this philosophy reflect Mandela's approach to post-apartheid reconciliation?</li>
-          <li>Mandela chose reconciliation over revenge after becoming president. Do you think this was the right choice? What were the risks and benefits of this approach?</li>
-          <li>Compare Mandela and Gandhi: both fought colonial oppression, both were imprisoned, both became world symbols of resistance. Where do their methods and philosophies most differ?</li>
-        </ul>
-        <h4>Doris Lessing & The Antheap</h4>
-        <ul>
-          <li>Doris Lessing grew up in Southern Rhodesia (now Zimbabwe) but spent most of her adult life in London. How does this biographical background influence her writing about Africa?</li>
-          <li>What is the main theme of "The Antheap"? Sum it up in one sentence.</li>
-          <li>Lessing won the Nobel Prize in Literature in 2007. Based on what you know of "The Antheap," what qualities of her writing do you think the Nobel committee was recognising?</li>
-          <li>"The Antheap" was first published in 1953, just five years after apartheid was officially introduced in South Africa. Does knowing this historical context change how you read the story?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was Mandela's role in the ANC, and why was he imprisoned?</div>
+          <div class="qa-a"><strong>A.</strong> Mandela joined the ANC in 1942 and co-founded its Youth League. After the Sharpeville Massacre and the banning of the ANC in 1960, he helped form its armed wing, <em>Umkhonto we Sizwe</em>, and became its commander-in-chief. He was arrested in 1962 and at the <strong>Rivonia Trial</strong> (1963–64) was convicted of sabotage and conspiracy — crimes that carried the death penalty, commuted to life imprisonment due to international pressure. He spent 27 years in prison, 18 of them on <strong>Robben Island</strong>, refusing conditional release offers that would have required him to renounce the armed struggle.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is ubuntu and how does it reflect Mandela's approach?</div>
+          <div class="qa-a"><strong>A.</strong> <em>Ubuntu</em> is a Nguni Bantu concept often translated as <strong>"I am because we are"</strong> — the idea that a person's humanity is defined by their relationships with and responsibilities to others. It emphasises community, compassion and interdependence over individual self-interest. Mandela drew on ubuntu to justify his approach to post-apartheid reconciliation: rather than prosecuting former oppressors, South Africa established the <strong>Truth and Reconciliation Commission</strong> (TRC), where perpetrators could confess their crimes in exchange for amnesty, and victims could have their stories heard. The goal was to heal the nation rather than divide it further through retribution.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare Mandela and Gandhi: similarities and differences.</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Similarities</strong>: both fought against racial oppression by European colonial powers; both were imprisoned; both became global symbols of resistance and dignity; both drew on moral authority rather than just political power. <strong>Differences</strong>: Gandhi rejected violence absolutely throughout his life; Mandela initially advocated non-violence but concluded after Sharpeville that armed resistance was justified when peaceful protest was met with massacre. Gandhi's movement was ultimately successful through non-cooperation alone; Mandela combined political negotiation, armed struggle and international pressure. Gandhi was assassinated; Mandela lived to govern the country he had fought for. Both, however, consistently distinguished between the oppressive system and the people within it.</div>
+        </div>
+
+        <h4>Doris Lessing &amp; The Antheap</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does Lessing's biographical background influence her writing?</div>
+          <div class="qa-a"><strong>A.</strong> Lessing grew up in <strong>Southern Rhodesia</strong> (now Zimbabwe) from the age of 5, the daughter of British settlers. She experienced colonial society from the inside — as a white person who benefited from the system but rejected it intellectually and morally. She left school at 13, was twice married and divorced, and in 1949 moved to London, taking with her the manuscript of her first novel. This outsider position — white but anti-colonial, African but British, self-educated — gives her writing its particular double vision: she understands how colonialism works from within, and she refuses to excuse it. "The Antheap" draws directly on this experience of watching white children absorb racist ideology as they grow up.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the main theme of "The Antheap" in one sentence?</div>
+          <div class="qa-a"><strong>A.</strong> A racist colonial society forces even well-meaning white people to perpetuate injustice, while denying intelligence and opportunity to those it has racially excluded — but resistance through friendship and education is possible, even if the victory is incomplete and its meaning uncertain.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> "The Antheap" was published in 1953, five years after apartheid began. Does this context change how you read it?</div>
+          <div class="qa-a"><strong>A.</strong> Yes, significantly. In 1953, apartheid was being systematically built — the Population Registration Act, the Group Areas Act and the Separate Amenities Act had all just been passed. Lessing was writing at the precise moment when the racial hierarchy she depicts in Rhodesia was being turned into law in neighbouring South Africa. The story is therefore not just historical: it is a direct commentary on contemporary events. The denial of education to Dirk mirrors the Bantu Education Act (1953), which deliberately provided inferior schooling to Black South Africans to limit their opportunities. Reading the story in this context makes its urgency and anger much clearer.</div>
+        </div>
+
       </div>
     </div>
 
     <!-- HEART OF DARKNESS -->
-
-    <div class="topic open">
+    <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>Heart of Darkness – Conrad</h3>
+        <h3>✒️ Heart of Darkness – Conrad</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
+
         <h4>Comprehension</h4>
-        <ul>
-          <li>Who is Marlow, and who is he telling his story to? Where does the conversation take place?</li>
-          <li>What is Marlow's job in Africa, and who is he sent to find?</li>
-          <li>What does Marlow discover when he finally reaches Kurtz's Inner Station?</li>
-          <li>What are Kurtz's last words, and what do you think they mean?</li>
-          <li>Why does Marlow lie to Kurtz's fiancée at the end of the novel?</li>
-        </ul>
-        <h4>Analysis & Themes</h4>
-        <ul>
-          <li>The novel uses a <em>frame narrative</em> (racconto-cornice). What effect does this technique have on the reader? Why does Conrad not let Marlow tell the story directly?</li>
-          <li>"The horror! The horror!" — what do you think Kurtz is referring to? Is it Africa, himself, or European civilisation? Justify your answer.</li>
-          <li>What is the "heart of darkness" of the title? Is it a place, a person, or something inside all of us?</li>
-          <li>Conrad was writing at the height of the British Empire. How does he portray colonialism — as heroic, evil, or something more ambiguous?</li>
-          <li>The Nigerian novelist Chinua Achebe accused Conrad of racism because African characters have no voice in the novel. Do you agree with this criticism? Can a novel be anti-colonial and racist at the same time?</li>
-        </ul>
-        <h4>Language & Style</h4>
-        <ul>
-          <li>Find three examples of <em>darkness</em> imagery in the novel. What does darkness symbolise in each case?</li>
-          <li>How does Conrad use the journey up the river as a metaphor? What does the journey inward represent?</li>
-        </ul>
-        <h4>Cross-text Connection</h4>
-        <ul>
-          <li>Both Conrad and Doris Lessing write about colonialism in Africa. Compare their perspectives: whose critique do you find more powerful, and why?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who is Marlow, and who is he telling his story to?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Charles Marlow</strong> is the main narrator — an experienced British sailor who has worked in various parts of the world. He tells his story to a group of friends (including an unnamed narrator who frames the whole tale) aboard a cruising yawl called the <em>Nellie</em>, anchored on the <strong>River Thames</strong> at dusk, waiting for the tide to change. The setting is significant: the Thames, heart of the British Empire, mirrors the Congo River in the story — suggesting that "darkness" is not only in Africa but at the very centre of civilisation.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What does Marlow discover at Kurtz's Inner Station?</div>
+          <div class="qa-a"><strong>A.</strong> Marlow finds that Kurtz — once a brilliant, idealistic agent sent to bring "civilisation" to Africa — has completely abandoned European moral constraints. He has set himself up as a <strong>god-like figure</strong> among the local people, who worship him and raid neighbouring territories on his behalf. Human heads on poles surround his compound. He has written a report for the International Society for the Suppression of Savage Customs that begins nobly but ends with a scrawled postscript: "Exterminate all the brutes!" Kurtz is dying when Marlow arrives and must be carried back on the steamboat.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are Kurtz's last words, and what might they mean?</div>
+          <div class="qa-a"><strong>A.</strong> Kurtz's last words are <strong>"The horror! The horror!"</strong> — and Conrad deliberately leaves them ambiguous. They could refer to: the horror of what Kurtz has done (his own crimes in Africa); the horror of what he has discovered about himself (that civilisation is a thin veneer over barbarism); the horror of the colonial enterprise itself (what Europeans are truly doing in Africa); or the horror of human nature in general. Marlow sees them as a moment of lucid self-judgement — a final act of honesty in a life of self-deception. The ambiguity is the point: Conrad will not give a simple explanation.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why does Marlow lie to Kurtz's fiancée?</div>
+          <div class="qa-a"><strong>A.</strong> When Kurtz's fiancée (the "Intended") asks Marlow what Kurtz's last words were, he lies and tells her that Kurtz spoke her name. He cannot bring himself to tell her the truth — that Kurtz's last words were "The horror! The horror!" This lie is deeply ambiguous: is Marlow protecting her out of compassion? Or is he protecting the comforting illusions that European society needs to sustain its colonial project? Many critics read this as Marlow's own complicity — he, too, cannot face "the horror" and retreats into comfortable fiction. It also reflects the Victorian ideal of protecting women from unpleasant truths.</div>
+        </div>
+
+        <h4>Analysis &amp; Themes</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a frame narrative, and what effect does it create in Heart of Darkness?</div>
+          <div class="qa-a"><strong>A.</strong> A <strong>frame narrative</strong> (racconto-cornice) is a story-within-a-story structure: an outer narrator introduces an inner narrator who tells the main tale. In <em>Heart of Darkness</em>, an unnamed narrator on the Thames tells us that Marlow is speaking; Marlow then narrates his Congo experience; within that, he quotes Kurtz. This creates multiple layers of distance and unreliability: we never hear Kurtz directly; we hear Marlow's version of Kurtz; we hear the narrator's version of Marlow. This technique is modernist — it emphasises that truth is always mediated, partial and subjective. It also implicates the listener (and the reader) in the colonial story being told.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Can a novel be anti-colonial and racist at the same time? (Chinua Achebe's critique)</div>
+          <div class="qa-a"><strong>A.</strong> This is one of the most important debates in 20th-century literary criticism. Chinua Achebe, in his 1977 essay "An Image of Africa," argued that Conrad was a "thoroughgoing racist" because African characters in <em>Heart of Darkness</em> are voiceless, nameless and dehumanised — they exist only as background to a European psychological drama. Africa is a "setting and backdrop" with no independent existence. The counter-argument is that Conrad was critiquing imperialism more explicitly than almost any writer of his era. Both can be true simultaneously: Conrad may genuinely oppose the colonial system while still being unable to escape the Eurocentric framework in which he was formed. This limitation does not cancel his critique — but it does reveal its boundaries.</div>
+        </div>
+
       </div>
     </div>
 
     <!-- THE ANTHEAP -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>The Antheap – Doris Lessing</h3>
+        <h3>📖 The Antheap – Doris Lessing</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
-        <h4>Comprehension</h4>
-        <ul>
-          <li>Who are the three main characters in "The Antheap"? What is the relationship between them?</li>
-          <li>Why is Dirk's existence considered a problem in the colonial society of the story?</li>
-          <li>Why does Mr. Macintosh refuse to publicly acknowledge Dirk as his son?</li>
-          <li>What is the antheap, and where is it located? Why do Tommy and Dirk meet there secretly?</li>
-          <li>How does the story end? Is it a happy ending, a sad ending, or something in between?</li>
-        </ul>
-        <h4>Analysis & Themes</h4>
-        <ul>
-          <li>Lessing says the boys' final victory is real, but they now have to "begin again." What do you think she means? What have they won, and what challenges still await them?</li>
-          <li>Tommy is a good person who tries to help Dirk, yet he still benefits from a racist system. Can you be complicit in injustice even without meaning to be? Can you think of modern examples?</li>
-          <li>Dirk is more intelligent than many of the white characters around him, yet he is denied education. What does the story say about the relationship between education and power?</li>
-          <li>Mr. Macintosh is described as "defeated by something he did not begin to understand." What does he fail to understand?</li>
-          <li>The termite mound (antheap) gives the story its title. What does it symbolise? Think about its structure, its hidden labour, and its fragility.</li>
-        </ul>
-        <h4>Cross-text Connection</h4>
-        <ul>
-          <li>Both "The Antheap" (Lessing) and <em>Heart of Darkness</em> (Conrad) deal with colonialism in Africa, but they were written by very different people at different times. Compare the two works: whose Africa feels more real to you? Whose political message is clearer?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who are the three main characters and what is the relationship between them?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Mr. Macintosh</strong>: a powerful white mine owner in colonial Southern Rhodesia. <strong>Tommy</strong>: the son of the Clarke family, white engineers employed at the mine — sensitive, artistic, genuinely fond of Dirk. <strong>Dirk</strong>: Macintosh's illegitimate mixed-race son by a Black woman — highly intelligent, proud and angry at his condition. Macintosh is the biological father of Dirk but refuses to acknowledge him publicly. He takes a paternalistic interest in Tommy instead, paying for his education — making Tommy, in a sense, a substitute for the son he cannot officially recognise. The triangle of relationships encodes the whole structure of colonial hypocrisy.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What does the antheap (termite mound) symbolise?</div>
+          <div class="qa-a"><strong>A.</strong> The antheap works on several levels simultaneously. <strong>Literally</strong>: it is the termite mound where Tommy and Dirk meet secretly, away from adult eyes — a space outside the racial rules of the compound. <strong>Socially</strong>: it symbolises the colonial order itself — a rigid, apparently natural hierarchy built on hidden labour, where millions work unseen to sustain a structure that benefits only a few at the top. <strong>Structurally</strong>: the antheap is fragile — it can be destroyed, yet the insects rebuild compulsively. This suggests both the resilience and the absurdity of a system maintained by sheer force of habit rather than reason or justice.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does the story end, and is it a happy ending?</div>
+          <div class="qa-a"><strong>A.</strong> The story ends with Tommy and Dirk together convincing Macintosh to send them <em>both</em> to university — a real, hard-won victory. Macintosh concedes, described as "defeated by something he did not begin to understand." But Lessing's final line is cautious: <em>"Now they had to begin again, in the long and difficult struggle to understand what they had won and how they would use it."</em> It is an ambiguous ending: they have won something real, but the struggle is not over. The colonial system has been cracked slightly, not dismantled. The boys' future — a mixed-race man and a white man both university-educated in 1950s Rhodesia — will be far from easy.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Can you be complicit in injustice without meaning to be? Modern examples?</div>
+          <div class="qa-a"><strong>A.</strong> Tommy is a good person — he teaches Dirk, defends him, refuses to accept the racial rules. Yet he still goes to school, receives Macintosh's money, and moves into a future from which Dirk is structurally excluded. His goodness does not exit the system; it operates within it. This is the concept of <strong>structural complicity</strong>: you can benefit from an unjust system without personally endorsing it. Modern parallels: a student who benefits from an elite university system that systematically excludes poorer applicants; a consumer who buys cheap electronics made in exploitative conditions; a citizen of a wealthy country whose prosperity is partly built on cheap imported labour. Awareness and good intentions are necessary but not sufficient.</div>
+        </div>
+
       </div>
     </div>
 
     <!-- STEVE JOBS -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>Steve Jobs – Biography & Technology</h3>
+        <h3>💻 Steve Jobs – Biography &amp; Technology</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
-        <h4>Comprehension</h4>
-        <ul>
-          <li>Steve Jobs was adopted and dropped out of university. How did these experiences shape who he became?</li>
-          <li>Who were the three co-founders of Apple? What was each person's contribution?</li>
-          <li>Jobs was forced out of Apple in 1985. What did he do during the years he was away?</li>
-          <li>Name three products that Jobs introduced after returning to Apple in 1997. Why was each one significant?</li>
-          <li>What was Jobs' approach to design? What did he mean by the intersection of "technology and liberal arts"?</li>
-        </ul>
-        <h4>Critical Thinking — for IT Students</h4>
-        <ul>
-          <li>The iPhone (2007) is often called the most disruptive consumer product of the 21st century. As IT students, do you agree? What did it change — not just for users, but for the entire software industry?</li>
-          <li>The App Store (2008) created a completely new software distribution model. How does it differ from traditional software distribution? What are its advantages and disadvantages for developers?</li>
-          <li>Jobs said: <em>"Design is not just what it looks like and feels like. Design is how it works."</em> What do you think he meant? Do you apply this principle in your own projects?</li>
-          <li>Apple is famous for its "walled garden" ecosystem — hardware, software, and services tightly controlled by one company. What are the advantages and risks of this approach compared to open platforms like Android or Linux?</li>
-          <li>NeXT, the company Jobs founded after leaving Apple, was considered a commercial failure — yet Tim Berners-Lee invented the World Wide Web on a NeXT computer, and NeXT's operating system became the foundation of macOS. What does this tell us about the relationship between commercial success and technological impact?</li>
-        </ul>
-        <h4>The Film: <em>Jobs</em> (2013)</h4>
-        <ul>
-          <li>The film portrays Jobs as both a visionary and a difficult, sometimes cruel person. Is it possible to separate a person's genius from their character flaws? Should we?</li>
-          <li>Steve Wozniak criticised the film's portrayal of the early Apple years. Why is it important to have multiple perspectives on historical figures — especially in technology?</li>
-          <li>The film ends in 2001 with the iPod launch. If you were writing the next chapter of Jobs' story (2001–2011), which moment would you focus on and why?</li>
-        </ul>
-        <h4>Connections & Debate</h4>
-        <ul>
-          <li><em>"Stay hungry, stay foolish"</em> (Jobs' Stanford speech, 2005). What does this phrase mean to you as a student about to enter the world of technology? Do you find it inspiring or unrealistic?</li>
-          <li>Jobs was known for his "reality distortion field" — his ability to convince people that impossible things were achievable. Is this a positive leadership quality or a form of manipulation?</li>
-        </ul>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who were the three co-founders of Apple? What did each contribute?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Steve Jobs</strong>: vision, design aesthetic, marketing and product strategy — the "reality distortion field" that convinced engineers and customers alike. <strong>Steve Wozniak</strong> ("Woz"): the engineering genius who actually designed the Apple I and Apple II circuits; without Wozniak there would have been no product. <strong>Ronald Wayne</strong>: drew the first Apple logo, wrote the original partnership agreement, and held 10% of the company — which he sold back for $800, a decision worth billions in hindsight. The Jobs–Wozniak dynamic is key: Jobs could not build computers, Wozniak had no interest in business. Their complementarity was the company's original strength.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> The iPhone is called the most disruptive consumer product of the 21st century. As IT students, do you agree?</div>
+          <div class="qa-a"><strong>A.</strong> The iPhone (2007) was disruptive on multiple levels: it eliminated the physical keyboard and established the full touchscreen as standard; it convergenced three devices (phone, music player, internet browser) into one; it created the <strong>app economy</strong> through the App Store (2008), transforming software distribution; it accelerated mobile internet adoption; and it effectively destroyed incumbent players (Nokia, BlackBerry, Palm) within five years. For IT students specifically: the App Store created a new category of software developer — the indie app developer — and generated entirely new programming languages (Swift) and frameworks. On the other hand, it created a centralised, controlled distribution monopoly that raises serious questions about openness and competition.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> "Design is not what it looks like. Design is how it works." What did Jobs mean?</div>
+          <div class="qa-a"><strong>A.</strong> Jobs rejected the idea that design is merely decoration — cosmetic choices applied after the engineering is done. For him, design is fundamentally about <strong>user experience</strong>: how a product feels, how intuitive it is, how many steps it takes to accomplish a task. A beautifully designed product is one where the interface is so natural that the user never has to think about it. This is why Apple invested obsessively in details most companies ignored: the weight of a laptop lid, the sound of a key press, the animation of a menu opening. For IT students: this principle applies directly to UI/UX design — the best software is software that solves problems so elegantly that users barely notice they are using it.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the "walled garden" and what are its advantages and risks?</div>
+          <div class="qa-a"><strong>A.</strong> Apple's <strong>walled garden</strong> refers to its tightly integrated, closed ecosystem: Apple controls the hardware (iPhone, Mac), the operating system (iOS, macOS), the app distribution (App Store), and many key services (iCloud, Apple Pay). <strong>Advantages</strong>: better security (apps are vetted before approval), consistent user experience across devices, optimised performance, privacy controls, easier support. <strong>Risks and criticisms</strong>: developers must pay Apple's 30% commission and follow its rules; competing apps can be removed or disadvantaged; users are locked in and switching costs are high; it concentrates enormous market power in one company. The EU's Digital Markets Act (2022) has begun forcing Apple to open its ecosystem — a significant regulatory response to these concerns.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> NeXT was a commercial failure, yet the Web was invented on a NeXT computer. What does this tell us?</div>
+          <div class="qa-a"><strong>A.</strong> It tells us that <strong>commercial success and technological impact are not the same thing</strong>. NeXT sold expensive workstations mainly to universities and research labs — never enough to be profitable. Yet Tim Berners-Lee at CERN used a NeXT machine to write the first web server, browser and web page in 1989–91. The sophisticated NeXTSTEP operating system later became the foundation of macOS (when Apple bought NeXT in 1997) and then iOS. A product can fail in the market while being enormously consequential for technological history. For IT students: this is a reminder that the most impactful technologies are often developed in academic, non-commercial settings — Linux, the internet itself, the Web — before being commercialised.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> "Stay hungry, stay foolish." What does this mean to you as a future IT professional?</div>
+          <div class="qa-a"><strong>A.</strong> Jobs said this in his 2005 Stanford commencement speech, borrowing it from the <em>Whole Earth Catalog</em>. <strong>"Stay hungry"</strong>: never be satisfied with what you know or have achieved — keep seeking, keep learning, maintain ambition. <strong>"Stay foolish"</strong>: be willing to attempt things that seem unreasonable or naive to others; don't let fear of looking stupid stop you from trying unconventional approaches. For IT students specifically: technology changes so rapidly that the most dangerous attitude is thinking you already know enough. The developers who built Instagram had 13 employees when Facebook bought them for $1 billion — they "stayed foolish" enough to attempt something the giants had missed. Open answers expected here — personal reflection is key.</div>
+        </div>
+
       </div>
     </div>
 
     <!-- CROSS-TOPIC -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>Cross-topic Questions — Connecting the Dots</h3>
+        <h3>🔗 Cross-topic Questions — Connecting the Dots</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
-        <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Domande che collegano i diversi argomenti del programma — utili per la seconda parte del colloquio orale.</p>
-        <ul>
-          <li>Both Kurtz (<em>Heart of Darkness</em>) and Steve Jobs were charismatic individuals who built empires through sheer force of personality, and both were described by those around them as possessing an almost supernatural power over people. Compare the two figures: what do they have in common, and where do they differ fundamentally?</li>
-          <li>Colonialism (Conrad, Lessing, Gandhi, Mandela) and the technology industry (Jobs, Apple) are both examples of powerful systems that change the world — often without asking permission. Can you draw any parallels between colonial expansion and the global expansion of tech companies today?</li>
-          <li>Gandhi used <em>satyagraha</em> (non-violent resistance) to fight British colonialism; Mandela evolved from armed resistance to reconciliation; Tommy and Dirk in "The Antheap" resist racism through friendship and education. Compare these different forms of resistance to injustice. Which do you think is most effective?</li>
-          <li>The World Wide Web was invented on a NeXT computer (Jobs). The internet has transformed access to education worldwide. How might figures like Gandhi or Mandela have used the internet as a tool for their movements?</li>
-        </ul>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:0.8rem;">Domande che collegano i diversi argomenti del programma — utili per la seconda parte del colloquio. Le risposte qui sono tracce di risposta, non risposte complete: lo studente deve costruire il proprio argomento.</p>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare Kurtz (Heart of Darkness) and Steve Jobs: charismatic leaders with a "reality distortion field."</div>
+          <div class="qa-a"><strong>Traccia.</strong> <strong>Similarities</strong>: both inspired almost supernatural loyalty in followers; both had a vision that transcended ordinary commercial goals; both were described by contemporaries as possessing a magnetic power over others; both pushed people beyond what they thought possible. <strong>Differences</strong>: Jobs operated within legal and social structures (however imperfectly); Kurtz, removed from all accountability in the Congo jungle, descended into violence and self-worship. This contrast suggests that what separates the visionary from the tyrant may be accountability and constraint, not the quality of the vision itself. The "reality distortion field" — the ability to make others believe the impossible is achievable — is morally neutral; what matters is what it is used for.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Can you draw parallels between colonial expansion and the global expansion of tech companies today?</div>
+          <div class="qa-a"><strong>Traccia.</strong> Possible parallels: both extract value from territories/users without full reciprocity; both claim to bring "civilisation" or "progress" (the colonial "civilising mission" vs. tech companies' "connecting the world"); both create dependency (colonies dependent on the metropolis for manufactured goods; users locked into platforms); both have disrupted local economies and cultures; both have operated in legal grey zones where existing regulations don't apply. Key differences: tech colonialism is largely voluntary (users choose platforms); it does not involve violence; it creates genuine value for users. However, data extraction, tax avoidance, and platform monopolies raise genuine questions about who benefits and who controls. This is an open question — strong arguments exist on both sides.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare Gandhi's satyagraha, Mandela's evolution from armed struggle to reconciliation, and Tommy and Dirk's resistance in "The Antheap." Which form of resistance is most effective?</div>
+          <div class="qa-a"><strong>Traccia.</strong> <strong>Gandhi</strong>: non-violence as an absolute moral principle; suffering accepted to appeal to the oppressor's conscience; succeeded in ending British rule but could not prevent Partition. <strong>Mandela</strong>: began with non-violence, moved to armed struggle after Sharpeville, then pivoted to negotiation and reconciliation — a pragmatic evolution that kept the ultimate goal (democracy) in view. <strong>Tommy and Dirk</strong>: resistance through personal friendship, education and direct negotiation with power (Macintosh) — small-scale but real. Each form suits its context: large-scale colonial rule responds differently to pressure than a mine owner. There is no single answer — invite students to weigh moral principle vs. strategic effectiveness.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> The internet was born on a NeXT computer. How might Gandhi or Mandela have used the internet as a tool for their movements?</div>
+          <div class="qa-a"><strong>Traccia.</strong> Gandhi relied on the press (he was a skilled media operator — the Salt March was designed for maximum press impact). With the internet: real-time global communication of resistance actions; bypassing state-controlled media; crowdfunding campaigns; international solidarity networks; viral spread of images of injustice (as happened with the Civil Rights movement's use of television). Mandela's ANC was banned from South African media — the internet would have allowed it to communicate internally and internationally without censorship. However: authoritarian governments today also use the internet for surveillance, disinformation and coordinating repression. Technology is not inherently liberatory — it amplifies existing power dynamics.</div>
+        </div>
+
       </div>
     </div>
 
@@ -1162,6 +1357,9 @@
 </footer>
 
 <script>
+  function toggleQA(el) {
+    el.closest(".qa-item").classList.toggle("open");
+  }
   function toggle(head) {
     const topic = head.closest('.topic');
     topic.classList.toggle('open');
