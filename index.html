@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commissario Esterno – Guida di Studio | Maturità 2025/26</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c25;
+    --card: #1e2330;
+    --border: #2a2f3e;
+    --gold: #c9a84c;
+    --gold-dim: #a07830;
+    --green: #4caf72;
+    --text: #e8e4d8;
+    --muted: #8a8fa0;
+    --india: #e67e22;
+    --africa: #27ae60;
+    --lit: #8e44ad;
+    --tech: #2980b9;
+    --accent-india: rgba(230,126,34,0.12);
+    --accent-africa: rgba(39,174,96,0.12);
+    --accent-lit: rgba(142,68,173,0.12);
+    --accent-tech: rgba(41,128,185,0.12);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+  .header-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  header h1 span { color: var(--gold); }
+  header p {
+    margin-top: 0.6rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  /* NAV TABS */
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    padding: 1.2rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  nav a:hover, nav a.active { color: var(--text); border-color: var(--gold); background: rgba(201,168,76,0.1); }
+  nav a.india { border-color: var(--india); color: var(--india); background: var(--accent-india);}
+  nav a.africa { border-color: var(--africa); color: var(--africa); background: var(--accent-africa);}
+  nav a.lit { border-color: var(--lit); color: var(--lit); background: var(--accent-lit);}
+  nav a.tech { border-color: var(--tech); color: var(--tech); background: var(--accent-tech);}
+
+  /* MAIN */
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
+
+  /* SECTION BLOCKS */
+  .module {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 90px;
+  }
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .module-icon {
+    font-size: 1.8rem;
+    width: 3rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .module-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .module-title.india { color: var(--india); }
+  .module-title.africa { color: var(--africa); }
+  .module-title.lit { color: var(--lit); }
+  .module-title.tech { color: var(--tech); }
+
+  /* TOPIC CARDS */
+  .topic {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+  }
+  .topic-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .topic-head:hover { background: rgba(255,255,255,0.03); }
+  .topic-head h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .topic-head .toggle {
+    font-size: 1rem;
+    color: var(--gold);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .topic.open .topic-head .toggle { transform: rotate(180deg); }
+  .topic-body {
+    display: none;
+    padding: 0 1.2rem 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+  .topic.open .topic-body { display: block; }
+  .topic-body p { margin-top: 0.9rem; color: var(--text); font-size: 0.93rem; }
+  .topic-body h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .topic-body ul {
+    padding-left: 1.2rem;
+    margin-top: 0.3rem;
+  }
+  .topic-body ul li {
+    font-size: 0.93rem;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+  }
+  .topic-body ul li strong { color: var(--gold); font-weight: 500; }
+  .highlight {
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.6rem 0.9rem;
+    border-radius: 0 6px 6px 0;
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+  .tag.india { background: var(--accent-india); color: var(--india); border: 1px solid var(--india);}
+  .tag.africa { background: var(--accent-africa); color: var(--africa); border: 1px solid var(--africa);}
+  .tag.lit { background: var(--accent-lit); color: var(--lit); border: 1px solid var(--lit);}
+  .tag.tech { background: var(--accent-tech); color: var(--tech); border: 1px solid var(--tech);}
+
+  /* QUICK REF BOX */
+  .quick-ref {
+    background: var(--surface);
+    border: 1px solid var(--gold-dim);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 3rem;
+  }
+  .quick-ref h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .quick-ref .dates {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+  }
+  .quick-ref .date-item {
+    font-size: 0.83rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .quick-ref .date-item .yr {
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .quick-ref .date-item .ev { color: var(--muted); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Commissario Esterno · IIS Alessandrini · Vittone</div>
+  <h1>Guida di Studio <span>Maturità 2025/26</span></h1>
+  <p>Argomenti del Documento del 15 Maggio · Lingua e Civiltà Inglese</p>
+</header>
+
+<nav>
+  <a href="#india" class="india">🇮🇳 India</a>
+  <a href="#africa" class="africa">🌍 South Africa</a>
+  <a href="#conrad" class="lit">✒️ Conrad</a>
+  <a href="#jobs" class="tech">💻 Steve Jobs</a>
+  <a href="#dates">📅 Date Chiave</a>
+</nav>
+
+<main>
+
+  <!-- DATE CHIAVE -->
+  <div class="quick-ref" id="dates">
+    <h2>📅 Date Chiave – Ripasso Rapido</h2>
+    <div class="dates">
+      <div class="date-item"><span class="yr">1600</span><span class="ev">East India Company fondata</span></div>
+      <div class="date-item"><span class="yr">1602</span><span class="ev">Dutch East India Company (VOC)</span></div>
+      <div class="date-item"><span class="yr">1757</span><span class="ev">Battaglia di Plassey – dominio britannico in India</span></div>
+      <div class="date-item"><span class="yr">1869</span><span class="ev">Nascita di Gandhi</span></div>
+      <div class="date-item"><span class="yr">1899</span><span class="ev">Conrad inizia Heart of Darkness</span></div>
+      <div class="date-item"><span class="yr">1948</span><span class="ev">Gandhi assassinato; Apartheid inizia in SA</span></div>
+      <div class="date-item"><span class="yr">1955</span><span class="ev">Nascita di Steve Jobs</span></div>
+      <div class="date-item"><span class="yr">1976</span><span class="ev">Apple fondata</span></div>
+      <div class="date-item"><span class="yr">1994</span><span class="ev">Fine Apartheid; Mandela presidente</span></div>
+      <div class="date-item"><span class="yr">2011</span><span class="ev">Morte di Steve Jobs</span></div>
+    </div>
+  </div>
+
+  <!-- ===== INDIA ===== -->
+  <div class="module" id="india">
+    <div class="module-header">
+      <div class="module-icon">🇮🇳</div>
+      <h2 class="module-title india">India</h2>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Main Religions</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>India is home to four major world religions born on its soil and hosts significant populations of others.</p>
+        <h4>Hinduism</h4>
+        <p>The oldest and largest religion (~80% of population). Polytheistic – believes in a universal spirit (Brahman) manifested in many deities (Brahma, Vishnu, Shiva). Core concepts: <strong>dharma</strong> (duty/cosmic order), <strong>karma</strong> (action and its consequences), <strong>samsara</strong> (cycle of birth, death, rebirth), <strong>moksha</strong> (liberation from the cycle).</p>
+        <h4>Islam (~14%)</h4>
+        <p>Arrived in India from the 7th century. Largest minority religion. India has the world's third-largest Muslim population. The Mughal Empire (1526–1857) left a profound cultural and architectural legacy (including the Taj Mahal).</p>
+        <h4>Buddhism</h4>
+        <p>Founded by Siddhartha Gautama (5th century BCE) in what is now Nepal/northeastern India. Based on the Four Noble Truths and the Eightfold Path. Spread across Asia; now less than 1% in India itself.</p>
+        <h4>Sikhism</h4>
+        <p>Founded in Punjab in the 15th century by Guru Nanak. Monotheistic. Core values: equality of all humans, service (<em>sewa</em>), community kitchen (<em>langar</em>). Sikhs are recognisable by the five Ks (Kesh, Kangha, Kara, Kachera, Kirpan).</p>
+        <h4>Christianity & Jainism</h4>
+        <p>Christianity arrived via St Thomas (1st century AD) and later Portuguese and British missions. Jainism is ancient, pre-dating Buddhism, and emphasises non-violence (<em>ahimsa</em>) to an extreme degree.</p>
+        <div class="highlight">Potential exam link: Gandhi was deeply influenced by Jain principles of ahimsa and Hindu philosophy simultaneously.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Puja</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Puja</strong> (Sanskrit: "reverence/worship") is the central act of Hindu devotion — a ritual offering to a deity, performed daily at home shrines or in temples.</p>
+        <h4>Structure of Puja</h4>
+        <ul>
+          <li><strong>Invocation</strong> – welcoming the deity into an image (murti) or symbol</li>
+          <li><strong>Offerings</strong> – flowers (<em>pushpa</em>), water, food (<em>naivedya</em>), incense (<em>dhupa</em>), light (<em>dipa</em>)</li>
+          <li><strong>Arati</strong> – waving an oil lamp in front of the deity while singing devotional hymns</li>
+          <li><strong>Prasad</strong> – blessed food distributed to worshippers</li>
+        </ul>
+        <h4>Context</h4>
+        <p>Puja can be performed at home (domestic shrine) or in a temple (mandir). It is not a collective prayer like Christian services — it is a personal, intimate act of offering. The priest (pandit) mediates between devotee and deity in formal temple settings.</p>
+        <div class="highlight">Key exam point: Puja reflects the Hindu concept that the divine is immanent — present in images, rivers, animals, fire — not transcendent and separate from the world.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Indian Myths & The Myth of Bon Bibi</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Indian mythology is extraordinarily rich, drawing from the <em>Vedas</em>, <em>Upanishads</em>, the great epics <em>Mahabharata</em> and <em>Ramayana</em>, and the <em>Puranas</em>.</p>
+        <h4>The Myth of Bon Bibi</h4>
+        <p>Bon Bibi is a <strong>forest goddess</strong> of the Sundarbans — the vast mangrove delta shared by India (West Bengal) and Bangladesh. She is unique because she is worshipped by <em>both Hindus and Muslims</em>, reflecting the syncretic folk religion of the region.</p>
+        <h4>The Story</h4>
+        <ul>
+          <li>Bon Bibi ("Lady of the Forest") was sent to the Sundarbans by Allah to protect humans from the tiger-demon <strong>Dokkhin Rai</strong> (the "Lord of the South"), who rules the forest and demands human sacrifice.</li>
+          <li>In the central myth, a boy named <strong>Dukhey</strong> is sold to Dokkhin Rai by a greedy merchant. Dukhey prays to Bon Bibi, who rescues him and defeats the demon.</li>
+          <li>The story encodes a moral: <strong>human greed</strong> (exploiting the forest for honey and wood) provokes the wrath of nature; devotion and humility offer protection.</li>
+        </ul>
+        <h4>Connection to Amitav Ghosh</h4>
+        <p>Ghosh retells and analyses the Bon Bibi myth in his novel <em>The Hungry Tide</em> (2004), set in the Sundarbans. The myth becomes a lens for exploring ecology, colonialism, and the relationship between humans and the non-human world.</p>
+        <div class="highlight">Key literary/cultural link: Bon Bibi is a powerful example of how mythology encodes ecological wisdom — the myth regulates behaviour toward the forest long before modern environmentalism.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Amitav Ghosh & His View of Colonialism</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Amitav Ghosh</strong> (born 1956, Calcutta) is one of India's most celebrated English-language authors. He writes at the intersection of history, ecology, and postcolonial theory.</p>
+        <h4>Major Works</h4>
+        <ul>
+          <li><em>The Shadow Lines</em> (1988) – partition, memory, national borders</li>
+          <li><em>The Calcutta Chromosome</em> (1995) – science fiction meets colonial history</li>
+          <li><em>The Hungry Tide</em> (2004) – Sundarbans, ecology, Bon Bibi myth</li>
+          <li><em>The Ibis Trilogy</em> (2008–2015): <em>Sea of Poppies</em>, <em>River of Smoke</em>, <em>Flood of Fire</em> – opium trade and colonialism</li>
+          <li><em>The Great Derangement</em> (2016) – climate change and cultural failure</li>
+        </ul>
+        <h4>His View of Colonialism</h4>
+        <ul>
+          <li>Colonialism was not simply political domination — it was an <strong>economic and ecological extraction</strong> system. The British did not just rule India; they restructured its agriculture (forcing opium cultivation in Bihar), destroyed local industries, and created famines.</li>
+          <li>Ghosh emphasises the <strong>Indian Ocean world</strong>: colonialism disrupted ancient networks of trade, migration, and cultural exchange that had existed for centuries before European arrival.</li>
+          <li>He critiques the <strong>Eurocentric narrative of "progress"</strong>: colonial modernity was built on violence and environmental destruction.</li>
+          <li>Ghosh shows how colonialism <strong>lives on in language, memory, and ecology</strong> — it doesn't end with formal independence.</li>
+        </ul>
+        <div class="highlight">Exam angle: Ghosh provides a counter-narrative to Conrad. Where Conrad's European characters are central, Ghosh centres Asian and subaltern voices. Both authors deal with exploitation — but from opposite perspectives.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Holi Festival</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Holi</strong> — the Festival of Colours — is one of Hinduism's most joyful and widely celebrated festivals. It falls on the full moon of the Hindu month of Phalguna (February–March).</p>
+        <h4>Mythology</h4>
+        <p>Holi celebrates the victory of good over evil, specifically the story of <strong>Prahlad and Holika</strong>. The demon king Hiranyakashipu wanted to kill his son Prahlad for worshipping Vishnu instead of him. He ordered his sister Holika (who was immune to fire) to sit in a bonfire holding Prahlad. Vishnu protected Prahlad and Holika burned instead. The night before Holi, bonfires (<em>Holika Dahan</em>) re-enact this myth.</p>
+        <h4>Also connected to Krishna</h4>
+        <p>In northern India, Holi is also linked to Krishna, who playfully threw colours on the gopi (milkmaids), including Radha. The festival thus also celebrates divine love.</p>
+        <h4>How It Is Celebrated</h4>
+        <ul>
+          <li>People throw coloured powder (<em>gulal</em>) and water on each other.</li>
+          <li>Social barriers dissolve — caste, age, gender divisions are temporarily set aside.</li>
+          <li>Sweet foods like <em>gujiya</em> and <em>thandai</em> are shared.</li>
+          <li>Now celebrated worldwide in the Indian diaspora and beyond.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Diwali Festival</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Diwali</strong> (Deepavali = "row of lights") is the Festival of Lights — the most important Hindu festival, celebrated in October or November over five days.</p>
+        <h4>Mythology</h4>
+        <p>Most commonly: celebrates the return of <strong>Rama</strong> (hero of the Ramayana) to Ayodhya after 14 years of exile and his defeat of the demon king Ravana. People lit oil lamps to guide him home. Also associated with the goddess <strong>Lakshmi</strong> (wealth, prosperity) who is worshipped especially on the main night.</p>
+        <h4>How It Is Celebrated</h4>
+        <ul>
+          <li><strong>Diyas</strong> (clay oil lamps) lit in homes, temples, and streets</li>
+          <li>Fireworks and sparklers</li>
+          <li>Cleaning and decorating homes (<em>rangoli</em> patterns at entrances)</li>
+          <li>Exchange of sweets and gifts</li>
+          <li>Puja to Lakshmi and Ganesha</li>
+          <li>New business accounts traditionally opened on Diwali</li>
+        </ul>
+        <h4>Beyond Hinduism</h4>
+        <p>Diwali is also celebrated by Sikhs (commemorating the release of Guru Hargobind from prison), Jains (marking the moment of Mahavira's nirvana), and some Buddhists.</p>
+        <div class="highlight">Compare & contrast with Holi: Diwali = light, autumn, formal worship, wealth; Holi = colour, spring, joyful chaos, love. Both signal a cosmic victory of good over evil.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Languages of India</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>India is one of the world's most linguistically diverse nations — the Constitution recognises <strong>22 official languages</strong>; there are over 1,600 mother tongues.</p>
+        <h4>Language Families</h4>
+        <ul>
+          <li><strong>Indo-Aryan</strong> (North India): Hindi, Bengali, Punjabi, Gujarati, Marathi, Urdu — descended from Sanskrit</li>
+          <li><strong>Dravidian</strong> (South India): Tamil, Telugu, Kannada, Malayalam — entirely separate family</li>
+          <li><strong>Austro-Asiatic & Tibeto-Burman</strong>: spoken by tribal communities in northeast India</li>
+        </ul>
+        <h4>Hindi and English</h4>
+        <p><strong>Hindi</strong> and <strong>English</strong> are the two official languages of the Union government. English is the language of higher education, law, and inter-regional communication — a legacy of British colonialism that post-independence India chose to retain. This creates tension: English speakers have social advantages; non-Hindi states (especially Tamil Nadu) resist Hindi imposition.</p>
+        <h4>Sanskrit</h4>
+        <p>The classical language of Hinduism, Buddhism, and Jainism — the Latin of India. No longer a mother tongue but still used in religious ritual, philosophy, and as a scholarly language.</p>
+        <div class="highlight">Ghosh writes in English — a postcolonial choice that itself raises questions about who gets to tell India's story and to whom.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Taj Mahal</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>The <strong>Taj Mahal</strong> (Agra, Uttar Pradesh) is the most iconic building in India — a UNESCO World Heritage Site and one of the Seven Wonders of the Modern World.</p>
+        <h4>Who Built It and Why</h4>
+        <p>Built by Mughal Emperor <strong>Shah Jahan</strong> (r. 1628–1658) in memory of his beloved wife <strong>Mumtaz Mahal</strong>, who died in 1631 while giving birth to their 14th child. Construction began c. 1632 and was completed c. 1653.</p>
+        <h4>Architecture</h4>
+        <ul>
+          <li>Built from <strong>white Makrana marble</strong> from Rajasthan, inlaid with semi-precious stones (lapis lazuli, jade, turquoise) in <em>pietra dura</em> technique.</li>
+          <li>The main dome is 73 metres high; surrounded by four minarets.</li>
+          <li>Symmetrical garden (<em>charbagh</em>) with a central reflecting pool — the image of the Taj reflected in water is famous.</li>
+          <li>Style: <strong>Mughal architecture</strong> — a fusion of Persian, Islamic, and Hindu elements.</li>
+          <li>Over 20,000 artisans employed; materials transported from across Asia and Persia.</li>
+        </ul>
+        <h4>Cultural Significance</h4>
+        <p>The Taj Mahal is universally described as the ultimate monument to love. It also symbolises the synthesis of Hindu and Islamic traditions — the Mughal Empire at its cultural zenith. It became a symbol of India as a nation.</p>
+        <div class="highlight">The Taj was built during the Mughal period — not British colonialism. Useful to note: British colonialism came AFTER the Mughal era. The EIC defeated the Mughals gradually; formal British Raj only in 1858.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>History of Colonialism & the East India Company</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>British colonialism in India unfolded over three centuries, with the <strong>East India Company</strong> (EIC) as its primary instrument before the British Crown took direct control.</p>
+        <h4>The East India Company (EIC)</h4>
+        <ul>
+          <li>Founded <strong>1600</strong> by royal charter of Queen Elizabeth I.</li>
+          <li>Originally a <strong>trading company</strong> — spices, textiles, tea.</li>
+          <li>Established trading posts (factories) at Surat (1608), Madras (1639), Bombay (1661), Calcutta (1690).</li>
+          <li>Maintained its own <strong>private army</strong> — key to eventual conquest.</li>
+          <li><strong>Battle of Plassey, 1757</strong>: Robert Clive defeated the Nawab of Bengal. This marks the beginning of British territorial dominion.</li>
+          <li>By the early 19th century the EIC effectively controlled most of the subcontinent.</li>
+        </ul>
+        <h4>From Company to Crown</h4>
+        <ul>
+          <li><strong>Indian Uprising of 1857</strong> ("Sepoy Mutiny" in British accounts, "First War of Independence" in Indian accounts): Indian soldiers (sepoys) and rulers revolted against EIC rule. Suppressed brutally.</li>
+          <li><strong>1858</strong>: British Crown abolishes the EIC and assumes direct rule — the <strong>British Raj</strong> begins. Queen Victoria becomes Empress of India in 1877.</li>
+        </ul>
+        <h4>Economic Impact of Colonialism</h4>
+        <ul>
+          <li>India's share of world GDP fell from ~25% to ~4% under British rule.</li>
+          <li>Deliberate <strong>deindustrialisation</strong>: Indian textile industry destroyed to protect British mills.</li>
+          <li>Forced cultivation of <strong>opium</strong> (for China trade) and <strong>indigo</strong> — impoverishing farmers.</li>
+          <li>Multiple catastrophic <strong>famines</strong> (1876–79, 1943) — many historians attribute millions of deaths to colonial policies.</li>
+          <li>Railways built — but primarily to transport resources to ports for export, not for Indian development.</li>
+        </ul>
+        <h4>Path to Independence</h4>
+        <p>Independence achieved <strong>15 August 1947</strong>, led by the Indian National Congress and figures like Gandhi and Nehru. Accompanied by the traumatic <strong>Partition</strong> of India and Pakistan, which caused massive communal violence and 10–20 million refugees.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Mahatma Gandhi – Life & Philosophy</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Biography</h4>
+        <ul>
+          <li><strong>Born</strong>: 2 October 1869, Porbandar (Gujarat)</li>
+          <li>Trained as a barrister in London (1888–91)</li>
+          <li>Worked in <strong>South Africa 1893–1915</strong>: developed his political philosophy fighting racial discrimination against Indians</li>
+          <li>Returned to India 1915; led the independence movement from 1919 onward</li>
+          <li><strong>Assassinated</strong>: 30 January 1948 by Hindu nationalist Nathuram Godse</li>
+        </ul>
+        <h4>Key Events</h4>
+        <ul>
+          <li><strong>Rowlatt Satyagraha (1919)</strong>: First major campaign against British repressive laws</li>
+          <li><strong>Non-Cooperation Movement (1920–22)</strong>: Indians boycott British goods, schools, courts</li>
+          <li><strong>Salt March (Dandi March, 1930)</strong>: 386 km walk to the sea to make salt, defying the British salt tax — iconic act of civil disobedience</li>
+          <li><strong>Quit India Movement (1942)</strong>: Final push for immediate independence</li>
+        </ul>
+        <h4>Philosophy</h4>
+        <ul>
+          <li><strong>Satyagraha</strong> ("truth-force" or "soul-force"): non-violent resistance to injustice. Suffering is accepted voluntarily to appeal to the conscience of the oppressor.</li>
+          <li><strong>Ahimsa</strong> (non-violence): borrowed from Jainism and Hinduism; extended to political action.</li>
+          <li><strong>Swaraj</strong> (self-rule): not just political independence but moral self-governance of individuals.</li>
+          <li><strong>Swadeshi</strong> (self-sufficiency): use Indian-made goods; spinning one's own cloth (<em>khadi</em>) as a symbol of economic independence.</li>
+          <li>Influenced by <strong>Thoreau</strong> (Civil Disobedience), <strong>Tolstoy</strong>, and the <em>Bhagavad Gita</em>.</li>
+        </ul>
+        <div class="highlight">Global legacy: Gandhi's methods directly inspired the American Civil Rights Movement (Martin Luther King Jr.) and anti-apartheid movements worldwide, including Nelson Mandela.</div>
+      </div>
+    </div>
+
+  </div><!-- /india -->
+
+
+  <!-- ===== SOUTH AFRICA ===== -->
+  <div class="module" id="africa">
+    <div class="module-header">
+      <div class="module-icon">🌍</div>
+      <h2 class="module-title africa">South Africa</h2>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>History of Colonialism & the Dutch East India Company (VOC)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The VOC (Vereenigde Oost-Indische Compagnie)</h4>
+        <ul>
+          <li>Founded <strong>1602</strong> in Amsterdam — the world's first publicly listed company.</li>
+          <li>Established a <strong>refreshment station</strong> at the Cape of Good Hope in <strong>1652</strong>, led by Jan van Riebeeck — the origin of permanent European settlement in southern Africa.</li>
+          <li>The Cape Colony grew as Dutch settlers (<strong>Boers</strong>, later called <strong>Afrikaners</strong>) pushed inland, displacing and enslaving indigenous populations (Khoikhoi, San, Xhosa).</li>
+          <li>The VOC imported enslaved people from Madagascar, Mozambique, and South and Southeast Asia — the origin of the mixed-race Cape Malay community.</li>
+          <li>The VOC went bankrupt in 1799; the Cape Colony passed to Britain in <strong>1806</strong>.</li>
+        </ul>
+        <h4>British Colonialism</h4>
+        <ul>
+          <li><strong>Great Trek (1835–46)</strong>: Boers moved inland ("voortrekkers") to escape British rule — particularly the abolition of slavery (1833).</li>
+          <li>Boers established the <strong>Transvaal</strong> and <strong>Orange Free State</strong> republics.</li>
+          <li><strong>Anglo-Boer Wars</strong> (1880–81 and 1899–1902): Britain defeated the Boers and annexed their republics. The British introduced concentration camps where thousands of Boer women, children, and Black Africans died.</li>
+          <li><strong>Union of South Africa (1910)</strong>: a self-governing dominion within the British Empire — but only white citizens had full political rights.</li>
+        </ul>
+        <h4>Indigenous Resistance</h4>
+        <p>The Zulu, Xhosa, and other groups fought prolonged wars against colonial encroachment. The <strong>Zulu War of 1879</strong> (including the famous British defeat at Isandlwana) is the most dramatic example.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Apartheid</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Apartheid</strong> (Afrikaans: "separateness") was the system of institutionalised racial segregation and white minority rule in South Africa from <strong>1948 to 1994</strong>.</p>
+        <h4>Origins</h4>
+        <p>The National Party won the 1948 elections and immediately began formalising racial separation that had long existed informally under British and Boer rule.</p>
+        <h4>Key Laws</h4>
+        <ul>
+          <li><strong>Population Registration Act (1950)</strong>: classified every South African as White, Coloured, Indian, or Native (Black)</li>
+          <li><strong>Group Areas Act (1950)</strong>: forced racial residential segregation; Black South Africans expelled to "homelands" (Bantustans)</li>
+          <li><strong>Pass Laws</strong>: Black people required to carry passbooks to move in "white areas"</li>
+          <li><strong>Separate Amenities Act (1953)</strong>: separate (and inferior) schools, hospitals, beaches, transport for non-whites</li>
+          <li><strong>Suppression of Communism Act</strong>: used to ban and imprison any opposition</li>
+        </ul>
+        <h4>Resistance & Key Events</h4>
+        <ul>
+          <li><strong>ANC (African National Congress)</strong>: founded 1912; led anti-apartheid struggle</li>
+          <li><strong>Sharpeville Massacre (1960)</strong>: 69 protesters killed by police; ANC banned</li>
+          <li><strong>Rivonia Trial (1963–64)</strong>: Mandela and ANC leaders sentenced to life imprisonment</li>
+          <li><strong>Soweto Uprising (1976)</strong>: students protest against Afrikaans as language of instruction; hundreds killed</li>
+          <li>International economic sanctions and cultural boycotts in the 1980s isolated South Africa</li>
+        </ul>
+        <h4>End of Apartheid</h4>
+        <ul>
+          <li><strong>1990</strong>: President F.W. de Klerk unbans the ANC; Mandela released after 27 years</li>
+          <li><strong>1994</strong>: First democratic elections; Mandela elected president</li>
+          <li>Truth and Reconciliation Commission (TRC) under Archbishop Desmond Tutu</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Nelson Mandela</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Biography</h4>
+        <ul>
+          <li><strong>Born</strong>: 18 July 1918, Mvezo, Eastern Cape (Xhosa clan)</li>
+          <li>Studied law at Fort Hare University and Witwatersrand</li>
+          <li>Joined the ANC in 1944; co-founded the <strong>ANC Youth League</strong></li>
+          <li>Led the ANC's armed wing (<em>Umkhonto we Sizwe</em> – "Spear of the Nation") after the Sharpeville Massacre</li>
+          <li><strong>Arrested 1962</strong>; at the Rivonia Trial (1963–64) sentenced to <strong>life imprisonment</strong></li>
+          <li>Imprisoned primarily at <strong>Robben Island</strong> for 18 of his 27 years</li>
+          <li>Released <strong>11 February 1990</strong></li>
+          <li>Nobel Peace Prize 1993 (shared with de Klerk)</li>
+          <li><strong>President of South Africa 1994–1999</strong> — the first democratically elected president</li>
+          <li>Died <strong>5 December 2013</strong></li>
+        </ul>
+        <h4>Philosophy & Legacy</h4>
+        <ul>
+          <li>Evolved from militant resistance (1960s) to emphasis on <strong>reconciliation and forgiveness</strong> after prison</li>
+          <li>Championed <strong>ubuntu</strong> philosophy: "I am because we are" — humaneness, community solidarity</li>
+          <li>Opposed revenge; supported the TRC process of truth-telling over prosecution</li>
+          <li>His autobiography <em>Long Walk to Freedom</em> (1994) is a key primary source</li>
+        </ul>
+        <div class="highlight">Mandela was directly inspired by Gandhi's philosophy of non-violent resistance — though he later concluded that armed resistance was necessary when peaceful protest was met with violent suppression.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Doris Lessing</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Biography</h4>
+        <ul>
+          <li><strong>Born</strong>: 22 October 1919, Kermanshah, Persia (now Iran)</li>
+          <li>Grew up in <strong>Southern Rhodesia</strong> (now Zimbabwe) from age 5</li>
+          <li>Left school at 13; self-educated</li>
+          <li>Twice married and divorced; left for London in <strong>1949</strong> with her youngest son and the manuscript of her first novel</li>
+          <li><strong>Nobel Prize in Literature, 2007</strong></li>
+          <li>Died: 17 November 2013, London</li>
+        </ul>
+        <h4>Major Works</h4>
+        <ul>
+          <li><em>The Grass Is Singing</em> (1950) – first novel; race and sexuality in colonial Africa</li>
+          <li><em>African Stories</em> (1964) – collected short stories set in Southern Africa; includes "The Antheap"</li>
+          <li><em>The Golden Notebook</em> (1962) – her masterpiece; fragmented narrative exploring women, politics, mental breakdown; a feminist classic</li>
+          <li><em>The Fifth Child</em> (1988) – disturbing domestic horror/fable</li>
+        </ul>
+        <h4>Themes</h4>
+        <ul>
+          <li>Colonial racism and its psychological damage (on both coloniser and colonised)</li>
+          <li>Women's autonomy and the tensions between personal life and political commitment</li>
+          <li>Communism and disillusionment with ideology</li>
+          <li>The power of landscape — the African veld is a moral and psychological space in her work</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Antheap – Analysis</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <span class="tag africa">Short Story</span><span class="tag africa">Realism</span><span class="tag africa">Colonialism</span>
+        <h4>Context</h4>
+        <p>"The Antheap" is a short story from <em>African Stories</em> (1964), set in colonial Southern Rhodesia (Zimbabwe), in a mining community.</p>
+        <h4>Plot</h4>
+        <ul>
+          <li><strong>Tommy</strong> is a white boy growing up in a mining compound run by his father, an Afrikaner miner.</li>
+          <li>He forms a deep friendship with <strong>Dirk</strong>, the mixed-race (coloured) son of the Black miner Josiah and a white woman — Dirk is therefore the product of transgressive interracial sexuality, which the colonial world refuses to acknowledge.</li>
+          <li>The boys study and create art together — Tommy teaches Dirk to read; Dirk is more intelligent than Tommy.</li>
+          <li>As they grow older, the colonial racial hierarchy forces them apart. Tommy, as a white boy, is expected to go to school and take his "proper" place. Dirk, despite his intelligence, is barred from education and condemned to manual labour.</li>
+          <li>Tommy eventually leaves for school, breaking their friendship — he is absorbed into the system that oppresses Dirk.</li>
+        </ul>
+        <h4>Literary Genre</h4>
+        <p><strong>Realist short story</strong> in the tradition of the colonial fiction subgenre — but from an anti-colonial perspective. The story is rich in social observation and psychological depth. It can also be read as a <strong>Bildungsroman</strong> fragment — a coming-of-age in a corrupted moral environment.</p>
+        <h4>Main Themes</h4>
+        <ul>
+          <li><strong>Racial injustice</strong>: intelligence and talent are irrelevant in a society organised by race</li>
+          <li><strong>Complicity</strong>: even a well-meaning white person ends up perpetuating the system</li>
+          <li><strong>Childhood friendship vs. adult racism</strong>: children see past race; adults enforce it</li>
+          <li><strong>Hybridity and exclusion</strong>: Dirk belongs to neither the white nor the Black world — the "antheap" (the mining compound, a colony within a colony) is his only space</li>
+          <li><strong>Education as power</strong>: access to learning is controlled by race; denying education is an instrument of oppression</li>
+        </ul>
+        <h4>The Symbol of the Antheap</h4>
+        <p>The termite mound (antheap) is a powerful symbol: it suggests a world of hidden, ceaseless labour; a rigid social hierarchy that appears natural but is constructed; and fragility — it can be destroyed, yet is rebuilt compulsively.</p>
+        <div class="highlight">Exam angle: Compare Lessing's approach to colonialism with Conrad's. Both are white European writers depicting non-European worlds — but Lessing's critique is sharper and more explicit. Conrad's narrator (Marlow) remains complicit; Lessing's authorial voice is firmly anti-colonial.</div>
+      </div>
+    </div>
+
+  </div><!-- /africa -->
+
+
+  <!-- ===== JOSEPH CONRAD ===== -->
+  <div class="module" id="conrad">
+    <div class="module-header">
+      <div class="module-icon">✒️</div>
+      <h2 class="module-title lit">Joseph Conrad</h2>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Biography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <ul>
+          <li><strong>Born</strong>: 3 December 1857, Berdychiv, Ukraine (then Russian Empire) as <em>Józef Teodor Konrad Korzeniowski</em></li>
+          <li>Polish by birth; his parents were Polish patriots imprisoned and exiled by Russia</li>
+          <li>Orphaned by 11; raised by his uncle in Kraków</li>
+          <li><strong>Joined the French merchant navy at 17</strong>; later the British merchant navy</li>
+          <li>Became a British subject in 1886; obtained his master mariner's certificate</li>
+          <li>Sailed to Africa (Congo, 1890) — the experience that inspired <em>Heart of Darkness</em></li>
+          <li>Began writing in English (his third language after Polish and French) in his 30s</li>
+          <li>Major novels: <em>Heart of Darkness</em> (1899/1902), <em>Lord Jim</em> (1900), <em>Nostromo</em> (1904), <em>The Secret Agent</em> (1907)</li>
+          <li>Died: 3 August 1924, Bishopsbourne, Kent</li>
+        </ul>
+        <div class="highlight">Key biographical fact: Conrad wrote his greatest English-language literature in a language he learned as an adult — a remarkable feat that itself reflects themes of displacement, identity, and belonging central to his work.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Heart of Darkness – Full Analysis</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <span class="tag lit">Novella</span><span class="tag lit">Modernism</span><span class="tag lit">Frame Narrative</span><span class="tag lit">Colonialism</span>
+        <h4>Publication</h4>
+        <p>First serialised in <em>Blackwood's Magazine</em> (1899); published as a book in <em>Youth: A Narrative, and Two Other Stories</em> (1902).</p>
+        <h4>Plot</h4>
+        <ul>
+          <li><strong>Frame narrative</strong>: An unnamed narrator tells us that <strong>Marlow</strong> is telling his story aboard a cruising yawl on the Thames, at night, to a group of men.</li>
+          <li>Marlow recounts how he secured a job as a riverboat captain for a Belgian trading company operating in the <strong>Congo</strong>.</li>
+          <li>He travels deep into the African interior to find <strong>Kurtz</strong> — the company's most successful ivory agent, who is reportedly ill and acting strangely.</li>
+          <li>The journey upriver is presented as a journey back in time — into "the heart of darkness," primitive Africa.</li>
+          <li>Arriving at Kurtz's Inner Station, Marlow discovers Kurtz has set himself up as a god among the local people; human heads on posts surround his compound.</li>
+          <li>Kurtz is brought back on the boat but dies on the return journey, his last words: <strong>"The horror! The horror!"</strong></li>
+          <li>Back in Europe, Marlow visits Kurtz's fiancée (the "Intended") and lies to her about Kurtz's last words, saying he spoke her name.</li>
+        </ul>
+        <h4>Literary Genre</h4>
+        <ul>
+          <li><strong>Novella</strong> (short novel — too long for a short story, too short for a novel)</li>
+          <li><strong>Frame narrative</strong> ("story within a story"): Narrator → Marlow → Kurtz</li>
+          <li><strong>Modernist fiction</strong>: psychological depth, unreliable/limited narrator, ambiguity, symbolism over realism</li>
+          <li>Also classified as <strong>adventure fiction</strong> (surface) and <strong>philosophical fiction</strong> (depth)</li>
+        </ul>
+        <h4>Modernist Elements</h4>
+        <ul>
+          <li><strong>Unreliable narrator</strong>: Marlow repeatedly admits he cannot fully understand or communicate what he experienced</li>
+          <li><strong>Stream of consciousness</strong> tendencies: impressionistic, fragmented narration</li>
+          <li><strong>Psychological focus</strong>: the journey is inward as much as outward — Kurtz embodies what the "civilised" man might become without social constraint</li>
+          <li><strong>Ambiguity</strong>: the text refuses easy moral judgements — Kurtz is monstrous but also magnificent; colonialism is critiqued but never cleanly rejected by Marlow</li>
+          <li><strong>Symbolism</strong>: the river, darkness, fog, the knitting women, the heads on stakes</li>
+          <li><strong>Frame narrative</strong> creates narrative unreliability and temporal distance</li>
+        </ul>
+        <h4>Main Themes</h4>
+        <ul>
+          <li><strong>Imperialism and colonialism</strong>: the Belgian operation in the Congo is portrayed as brutal hypocrisy — profit disguised as "civilising mission." The Africans are dehumanised by the system.</li>
+          <li><strong>The "heart of darkness"</strong>: ambiguous — is it Africa? or is it European civilization itself? Or human nature? The title suggests it is within us.</li>
+          <li><strong>Civilisation vs. savagery</strong>: Conrad questions the distinction. Kurtz, the pinnacle of "civilised" European culture, commits the most savage acts.</li>
+          <li><strong>Moral ambiguity and corruption</strong>: all European characters are complicit; Marlow is "saved" by work and restraint, not by superior morality.</li>
+          <li><strong>Truth and lies</strong>: Marlow's lie to the Intended at the end — does it protect her or reinforce patriarchal and colonial illusions?</li>
+          <li><strong>Kurtz as symbol</strong>: he represents the European idealism of the colonial project unmasked — what happens when power has no accountability.</li>
+        </ul>
+        <h4>Critical Controversy: Chinua Achebe's Challenge</h4>
+        <p>In his famous 1977 essay "An Image of Africa," Nigerian novelist <strong>Chinua Achebe</strong> accused Conrad of racism: Africa functions only as a backdrop for European psychological drama; Africans have no voice, no individuality, no humanity. Achebe called Conrad a "thoroughgoing racist."</p>
+        <p>Counter-argument: Conrad was critiquing colonialism more than any major writer of his era — but he could not escape the Eurocentric framework he inhabited.</p>
+        <div class="highlight">Key exam quote: <em>"The horror! The horror!"</em> — Kurtz's dying words. What is the horror? The horror of what he has done? The horror of what he has discovered about himself? The horror of European civilisation? This ambiguity is the point.</div>
+      </div>
+    </div>
+
+  </div><!-- /conrad -->
+
+
+  <!-- ===== STEVE JOBS ===== -->
+  <div class="module" id="jobs">
+    <div class="module-header">
+      <div class="module-icon">💻</div>
+      <h2 class="module-title tech">Steve Jobs</h2>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Biography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <ul>
+          <li><strong>Born</strong>: 24 February 1955, San Francisco, California</li>
+          <li>Biological parents: Joanne Schieble and Abdulfattah "John" Jandali (a Syrian immigrant) — given up for adoption</li>
+          <li>Adopted by Paul and Clara Jobs (working-class couple in Mountain View, California)</li>
+          <li>Attended <strong>Reed College, Portland</strong> (1972) — dropped out after one semester but audited classes, including calligraphy (which later influenced Mac typography)</li>
+          <li>Worked at <strong>Atari</strong> (video games); travelled to India seeking spiritual enlightenment (1974)</li>
+          <li>Became a practising <strong>Zen Buddhist</strong></li>
+          <li>Co-founded <strong>Apple Computer, 1976</strong></li>
+          <li>Forced out of Apple by board, 1985</li>
+          <li>Founded <strong>NeXT Computer</strong> (1985) and bought <strong>Pixar</strong> (1986)</li>
+          <li>Returned to Apple 1997 after Apple acquired NeXT</li>
+          <li>Diagnosed with <strong>pancreatic cancer</strong>, 2003 (delayed surgery controversially)</li>
+          <li>Resigned as Apple CEO in August 2011 due to health</li>
+          <li><strong>Died</strong>: 5 October 2011, Palo Alto, California</li>
+        </ul>
+        <div class="highlight">Personality note: Jobs was famously difficult — a "reality distortion field" that convinced his team the impossible was achievable. Brilliant but often cruel. The film <em>Jobs</em> (2013) and the later <em>Steve Jobs</em> (2015, Danny Boyle/Aaron Sorkin) explore this complexity.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Founding of Apple</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The Three Founders</h4>
+        <ul>
+          <li><strong>Steve Jobs</strong> – vision, marketing, design aesthetic</li>
+          <li><strong>Steve Wozniak</strong> ("Woz") – engineering genius, designed the first Apple computers</li>
+          <li><strong>Ronald Wayne</strong> – drew the first Apple logo; sold his 10% stake for $800 (now worth billions)</li>
+        </ul>
+        <h4>Timeline</h4>
+        <ul>
+          <li><strong>1 April 1976</strong>: Apple Computer Company founded in Jobs' family garage, Cupertino, CA</li>
+          <li><strong>1976</strong>: <em>Apple I</em> — circuit board built by Wozniak; Jobs sold it as a complete product to a local computer shop</li>
+          <li><strong>1977</strong>: <em>Apple II</em> — the breakthrough. First mass-market personal computer with colour graphics. Made Apple a serious company.</li>
+          <li><strong>1980</strong>: Apple IPO — one of the largest in US history to that point. Jobs and Wozniak became millionaires.</li>
+          <li><strong>1984</strong>: <em>Macintosh</em> — launched with the iconic Super Bowl ad "1984" directed by Ridley Scott. First mass-market computer with a graphical user interface (GUI) and mouse.</li>
+          <li><strong>1985</strong>: Board conflict with CEO John Sculley (whom Jobs had recruited). Jobs removed from operational role; resigned and founded NeXT.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Main Inventions & Products</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>First Apple Era (1976–1985)</h4>
+        <ul>
+          <li><strong>Apple II (1977)</strong>: first successful mass-market personal computer</li>
+          <li><strong>Macintosh (1984)</strong>: GUI, mouse, desktop metaphor — democratised computing</li>
+        </ul>
+        <h4>Second Apple Era (1997–2011) — The "Second Coming"</h4>
+        <ul>
+          <li><strong>iMac (1998)</strong>: colourful, user-friendly desktop; rescued Apple from near-bankruptcy</li>
+          <li><strong>iTunes & iPod (2001)</strong>: revolutionised how music is purchased and consumed; 1,000 songs in your pocket</li>
+          <li><strong>iTunes Store (2003)</strong>: first legal, successful digital music store — 99 cents per song</li>
+          <li><strong>iPhone (2007)</strong>: arguably the most significant consumer product of the 21st century. Combined phone, music player, and internet communicator. Killed the button — multitouch screen. Created the smartphone era and the app economy.</li>
+          <li><strong>App Store (2008)</strong>: created an entirely new software distribution model</li>
+          <li><strong>iPad (2010)</strong>: created the modern tablet market</li>
+        </ul>
+        <h4>NeXT & Pixar (1985–1997)</h4>
+        <ul>
+          <li><strong>NeXT</strong>: high-end workstations for education and business. Tim Berners-Lee invented the World Wide Web on a NeXT computer (1989). NeXT's OS became the foundation of macOS.</li>
+          <li><strong>Pixar</strong>: bought from George Lucas for $5 million; became the world's leading animation studio. <em>Toy Story</em> (1995) — first fully CGI feature film. Sold to Disney for $7.4 billion (2006).</li>
+        </ul>
+        <h4>Jobs' Design Philosophy</h4>
+        <ul>
+          <li>Obsessive attention to every detail, including what the user doesn't see</li>
+          <li>"Simplicity is the ultimate sophistication"</li>
+          <li>Technology should be intuitive — not require a manual</li>
+          <li>The intersection of <strong>technology and liberal arts</strong> — form and function as one</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Jobs (2013 Film)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Basic Info</h4>
+        <ul>
+          <li><strong>Director</strong>: Joshua Michael Stern</li>
+          <li><strong>Screenplay</strong>: Matt Whiteley</li>
+          <li><strong>Steve Jobs played by</strong>: Ashton Kutcher</li>
+          <li><strong>Wozniak played by</strong>: Josh Gad</li>
+          <li>Released August 2013</li>
+        </ul>
+        <h4>Plot Coverage</h4>
+        <p>The film covers Jobs' life from his time at Reed College (1974) through to the announcement of the iPod (2001). It focuses on his role in founding Apple, his obsessive perfectionism, his conflict with the Apple board, his exile, and his triumphant return.</p>
+        <h4>Themes of the Film</h4>
+        <ul>
+          <li><strong>Genius and obsession</strong>: how the qualities that make Jobs revolutionary also make him a difficult human being</li>
+          <li><strong>Corporate power and betrayal</strong>: even the visionary can be cast out by the machine he built</li>
+          <li><strong>Innovation vs. commerce</strong>: the tension between creating something beautiful and making money</li>
+          <li><strong>Leadership style</strong>: Jobs' demanding, sometimes cruel management — portrayed with complexity</li>
+        </ul>
+        <h4>Critical Reception</h4>
+        <p>Mixed. Praised for Kutcher's physical resemblance and performance; criticised for being hagiographic (too reverential) and for historical inaccuracies. Steve Wozniak himself criticised the portrayal of early Apple. The later <em>Steve Jobs</em> (2015, directed by Danny Boyle, written by Aaron Sorkin, starring Michael Fassbender) is generally considered the superior, more critical film.</p>
+        <div class="highlight">For the exam: the film can be used to discuss American entrepreneurial mythology, the cult of the individual genius, and the ethics of creative leadership. It's also a lens on digital technology's cultural impact.</div>
+      </div>
+    </div>
+
+  </div><!-- /jobs -->
+
+</main>
+
+<footer>
+  Guida di studio compilata per commissario esterno · Maturità 2025/26 · IIS Alessandrini, Vittuone
+</footer>
+
+<script>
+  function toggle(head) {
+    const topic = head.closest('.topic');
+    topic.classList.toggle('open');
+  }
+
+  // Highlight active nav on scroll
+  const sections = document.querySelectorAll('.module, .quick-ref');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
