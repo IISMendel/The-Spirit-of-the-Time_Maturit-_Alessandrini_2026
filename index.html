@@ -21,11 +21,13 @@
     --lit: #8e44ad;
     --tech: #2980b9;
     --oceania: #16a085;
+    --textbook: #b8860b;
     --accent-india: rgba(230,126,34,0.12);
     --accent-africa: rgba(39,174,96,0.12);
     --accent-lit: rgba(142,68,173,0.12);
     --accent-tech: rgba(41,128,185,0.12);
     --accent-oceania: rgba(22,160,133,0.12);
+    --accent-textbook: rgba(184,134,11,0.12);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -96,6 +98,7 @@
   nav a.africa { border-color: var(--africa); color: var(--africa); background: var(--accent-africa);}
   nav a.lit { border-color: var(--lit); color: var(--lit); background: var(--accent-lit);}
   nav a.tech { border-color: var(--tech); color: var(--tech); background: var(--accent-tech);}
+  nav a.textbook { border-color: var(--textbook); color: var(--textbook); background: var(--accent-textbook);}
 
   main { max-width: 900px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
 
@@ -150,6 +153,8 @@
   .section-banner.tech .num { color: var(--tech); }
   .section-banner.qbanner { border-left-color: #e74c3c; }
   .section-banner.qbanner .num { color: #e74c3c; }
+  .section-banner.textbook { border-left-color: var(--textbook); }
+  .section-banner.textbook .num { color: var(--textbook); }
 
   .module { margin-bottom: 3.5rem; }
 
@@ -289,6 +294,7 @@
   <a href="#jobs" class="tech">💻 Steve Jobs</a>
   <a href="#web" class="tech">🌐 Web &amp; Internet</a>
   <a href="#industry40" class="tech">🤖 Industry 4.0</a>
+  <a href="#textbook" class="textbook">📘 Dal Libro di Testo</a>
   <a href="#dates">📅 Date Chiave</a>
   <a href="#questions" style="border-color:#e74c3c;color:#e74c3c;background:rgba(231,76,60,0.12)">❓ Questions</a>
 </nav>
@@ -1581,6 +1587,424 @@
     </div>
 
   </div><!-- /industry40 -->
+
+  <!-- ===== DAL LIBRO DI TESTO ===== -->
+  <div class="module" id="textbook">
+    <div class="section-banner textbook">
+      <div class="num">9</div>
+      <div class="titles">
+        <div class="icon-label">📘 Performer B2 — Unit 14, 15, 16, 17</div>
+        <h2>Dal Libro di Testo della Classe</h2>
+      </div>
+    </div>
+    <p style="color:var(--muted); font-style:italic; margin-bottom:1.2rem;">Questa sezione raccoglie i contenuti specifici delle pagine del libro di testo in adozione (Unit 14–17), utili per arricchire e "ancorare" gli argomenti già trattati nelle sezioni Web e Industry 4.0 con case study, terminologia e dettagli citabili direttamente dal programma svolto in classe.</p>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 14 — Computer Networks and the Internet (Summing Up)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Types of network</h4>
+        <ul>
+          <li><strong>LAN</strong> (Local Area Network): rete locale</li>
+          <li><strong>Intranet</strong>: rete privata autonoma, ad accesso riservato</li>
+          <li><strong>Internet</strong>: rete ad area estesa, aperta a tutti — usata per comunicazioni (email, VoIP) e per il World Wide Web</li>
+        </ul>
+        <h4>Data transmission</h4>
+        <ul>
+          <li>Computer collegati via Ethernet o wireless: <strong>server</strong> (condividono dati/dispositivi) e <strong>client</strong> (accedono ai dati)</li>
+          <li><strong>Network hardware</strong>: cable, hub, switch, router, modem, WAP</li>
+          <li><strong>Metodo di trasmissione</strong>: i dati sono divisi in piccoli <em>packets</em>, inviati e poi riassemblati</li>
+          <li><strong>Mezzi di identificazione</strong>: URL (modo semplice per identificare un sito) e indirizzo IP (codice che identifica ogni dispositivo sulla rete)</li>
+        </ul>
+        <h4>Methods of connecting to the Internet</h4>
+        <ul>
+          <li><strong>ADSL</strong> (Asymmetric Digital Subscriber Line): tramite linea telefonica</li>
+          <li><strong>Cable</strong>: tramite fibra ottica o cavi TV</li>
+          <li><strong>Satellite</strong>: tramite satelliti in orbita e antenne paraboliche</li>
+          <li><strong>Mobile</strong>: tramite reti di telefonia mobile</li>
+        </ul>
+        <h4>Social and ethical issues concerning IT</h4>
+        <ul>
+          <li><strong>Digital divide</strong>: divario tra chi possiede competenze informatiche e chi non le possiede</li>
+          <li><strong>Interpersonal relations</strong>: effetti isolanti della tecnologia</li>
+          <li><strong>Information overload</strong>: difficoltà nel gestire enormi quantità di dati</li>
+          <li><strong>Censorship</strong>: come controllare Internet</li>
+          <li><strong>Surveillance</strong>: come limitare la raccolta e l'uso dei dati personali</li>
+          <li><strong>Unemployment</strong>: perdita di posti di lavoro a causa dell'automazione IT</li>
+          <li><strong>Erosion of cultural industries</strong>: la tecnologia digitale mina i media tradizionali</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 15 — Evoluzione del Web (Web 1.0 → 2.0) e linguaggio HTML</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Evolution of the web</h4>
+        <p>Nei primi anni del web l'informazione viaggiava in una sola direzione: dal sito all'utente. Dopo il 1999 si è sviluppato il <strong>Web 2.0</strong>, caratterizzato da contenuti creati dagli stessi visitatori — il flusso di informazione è diventato bi-direzionale. Con gli smartphone, molti siti sono diventati anche "web services" e app dedicate.</p>
+        <h4>Principali usi del Web 2.0</h4>
+        <ul>
+          <li><strong>Administration</strong>: servizi governativi online (es. UK: rinnovo passaporto, tasse, voto)</li>
+          <li><strong>Sharing of knowledge</strong>: Wikipedia (56 milioni di articoli, oltre 6,3 milioni in inglese), Wikivoyage (viaggi), WikiLeaks (documenti riservati)</li>
+          <li><strong>Social networking</strong>: pagine personali per restare in contatto, condividere foto/musica/video</li>
+          <li><strong>Blogging</strong>: blog (diario online), Twitter (micro-blogging, messaggi brevi), forum (discussione tra persone con interessi comuni)</li>
+          <li><strong>Shopping</strong>: negozi online (Amazon, Apple Music) e piattaforme C2C (eBay, Etsy)</li>
+          <li><strong>Virtual worlds and gaming</strong>: Second Life (mondo virtuale con avatar), social gaming (Zynga)</li>
+        </ul>
+        <h4>Siti web più noti citati nel libro</h4>
+        <ul>
+          <li><strong>eBay</strong>: piattaforma di compravendita online tra privati</li>
+          <li><strong>Facebook</strong>: social networking, contatti con amici, foto, link, video</li>
+          <li><strong>Wikivoyage</strong>: guida di viaggio collaborativa</li>
+          <li><strong>Spotify</strong>: streaming musicale senza limiti di ascolto</li>
+          <li><strong>Instagram</strong>: video/foto brevi modificabili con filtri e hashtag</li>
+          <li><strong>Wikipedia</strong>: enciclopedia online gratuita, collaborativa, multilingue</li>
+          <li><strong>YouTube</strong>: piattaforma di distribuzione di contenuti video creati dagli utenti</li>
+          <li><strong>Amazon</strong>: e-commerce</li>
+          <li><strong>Twitter</strong>: social/micro-blogging, messaggi entro 280 caratteri</li>
+          <li><strong>Second Life</strong>: mondo virtuale, socialità tramite avatar</li>
+        </ul>
+        <h4>Web apps vs Native apps</h4>
+        <p>Le <strong>native applications</strong> sono programmi pesanti pensati per compiti generali (es. elaborazione testi). Le <strong>app</strong> sugli smartphone sono più leggere e specifiche. Le <strong>web apps</strong> (es. Google Maps) sono ancora più leggere: funzionano dentro un browser (Firefox, Chrome, Safari) senza essere installate.</p>
+        <p><strong>4 vantaggi delle web apps:</strong></p>
+        <ul>
+          <li>Accesso ai dati da ovunque (dati salvati online, non solo sull'hard disk del proprio PC)</li>
+          <li>Sempre l'ultima versione disponibile (aggiornamento automatico, nessuna installazione manuale)</li>
+          <li>Funzionano su qualsiasi dispositivo con un browser, a differenza dei programmi nativi legati a un sistema specifico</li>
+          <li>Più sicure: non scaricate sul computer, quindi meno esposte a virus, malware e spyware</li>
+        </ul>
+        <h4>The language of the web — HTML</h4>
+        <p>Quando si naviga verso una pagina, il browser invia una richiesta al server, che risponde restituendo un file di testo (la pagina) contenente tutti gli elementi necessari (paragrafi, link, font, colori, immagini), ciascuno marcato con un <strong>tag</strong>.</p>
+        <ul>
+          <li><strong>HTML</strong> (HyperText Markup Language): linguaggio standard per le pagine web; i tag sono racchiusi tra parentesi angolari, es. <code>&lt;img&gt;</code>, e di solito vanno in coppia con un tag di chiusura (<code>&lt;/img&gt;</code>)</li>
+          <li><strong>JavaScript</strong> e <strong>CSS</strong> (cascading style sheets) affiancano HTML per definire layout, design, colori e animazioni</li>
+          <li><strong>XHR</strong> (XMLHttpRequest): permette di aggiornare parti di una pagina senza ricaricarla interamente, rendendo le pagine più rapide e reattive</li>
+          <li><strong>HTML5</strong>: versione più recente, consente di creare web app moderne, incorporare video e permette l'uso offline</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 15 — Deep Web, Dark Web, Sicurezza e SEO</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The tip of the iceberg — i tre livelli del web</h4>
+        <p>Il web può essere immaginato come un iceberg: solo il <strong>World Wide Web</strong> (accessibile tramite motori di ricerca come Google e Bing) emerge sopra la superficie.</p>
+        <ul>
+          <li><strong>Deep web</strong>: circa il 90% del contenuto del web, non indicizzato dai motori di ricerca (es. webmail, cloud personale, online banking, dispositivi IoT come un termometro o un distributore automatico); spesso richiede password</li>
+          <li><strong>Dark web</strong>: meno dell'1% del web, accessibile solo con browser speciali come <strong>Tor</strong> e <strong>Disconnect</strong>, garantisce anonimato; usato da giornalisti per proteggere le fonti e da persone sotto governi oppressivi, ma anche per attività illegali</li>
+          <li><strong>The Silk Road</strong>: famoso marketplace del dark web per beni/servizi illegali, basato su pagamenti Bitcoin; il proprietario fu condannato e l'FBI sequestrò milioni in Bitcoin</li>
+        </ul>
+        <h4>Use the Internet safely — 4 essenziali</h4>
+        <ul>
+          <li><strong>Install a firewall</strong>: crea una barriera protettiva che controlla i dati in entrata</li>
+          <li><strong>Keep software up to date</strong>: gli attacchi malware sfruttano spesso falle nei software non aggiornati</li>
+          <li><strong>Use protection software</strong>: antivirus (rileva/isola/elimina virus, worm, trojan) e anti-spyware</li>
+          <li><strong>Take special care with email</strong>: non aprire allegati o link sospetti (phishing), non rispondere alle email spam (confermerebbe l'indirizzo)</li>
+        </ul>
+        <h4>Search Engine Optimisation (SEO)</h4>
+        <p>I motori di ricerca usano dei <strong>bot</strong> (detti anche <em>crawlers</em> o <em>spiders</em>) per scansionare il web e indicizzare le pagine. La SEO mira a migliorare il posizionamento di un sito nei risultati di ricerca, assicurando che:</p>
+        <ul>
+          <li>il contenuto risponda alle query di ricerca degli utenti</li>
+          <li>il sito sia rapido da caricare e si visualizzi correttamente su tutti i dispositivi</li>
+          <li>vengano usate parole chiave (<em>keywords</em>) efficaci</li>
+          <li>il sito sia accessibile ai bot dei motori di ricerca</li>
+          <li>URL, titolo e descrizione siano unici e ben curati</li>
+        </ul>
+        <p>I <strong>meta tags</strong> sono istruzioni nascoste che indicano ai bot il contenuto di ciascuna parte del sito; le parti non rilevanti vanno elencate nel file <code>robots.txt</code>.</p>
+        <h4>Creating a website</h4>
+        <p>Servizi come <strong>Wix, Weebly, Joomla!</strong> permettono di creare siti senza conoscere HTML, tramite template e interfacce semplici (CMS — content management system). Consigli pratici: contenuto semplice e ben organizzato, immagini ottimizzate, link interni ed esterni, e attenzione alla sicurezza personale (non pubblicare dati sensibili come indirizzo o numero di telefono).</p>
+        <h4>E-commerce and the cashless society</h4>
+        <p>L'<strong>e-commerce</strong> è la conduzione di affari tramite Internet con pagamento tramite trasferimento elettronico di fondi (EFT) — non importa il canale usato, ma se la transazione è <em>automatizzata</em> (es. un pagamento gestito da un sistema di riconoscimento vocale è e-commerce; se gestito da un operatore umano, non lo è).</p>
+        <ul>
+          <li><strong>Vantaggi per le aziende</strong>: costi ridotti, transazioni più rapide, mercato potenzialmente internazionale, possibilità per le piccole imprese di competere con le grandi</li>
+          <li><strong>Svantaggi per le aziende</strong>: costi di impostazione elevati (formazione, sito, SEO), vulnerabilità alle frodi</li>
+          <li><strong>Vantaggi per i consumatori</strong>: comodità, rapidità, ampia scelta, prezzi spesso più bassi, facilità di confronto prezzi</li>
+          <li><strong>Svantaggi per i consumatori</strong>: impossibilità di esaminare fisicamente il prodotto, timore di frodi, tempi di attesa per la consegna</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 15 — Human-Computer Interaction (HCI) e Web Accessibility</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>What is Human-Computer Interaction?</h4>
+        <p><strong>HCI</strong> è lo studio di come utenti umani e computer interagiscono tra loro. Il suo obiettivo è progettare e mantenere un "loop di interazione" ininterrotto, in cui un flusso continuo di informazioni passa tra utente e computer durante un'attività, attraverso le cosiddette <strong>interfacce</strong>, che si dividono in quattro categorie principali:</p>
+        <ul>
+          <li><strong>Visual</strong>: interfacce grafiche (GUI), design di sistemi operativi e applicazioni; anche il riconoscimento facciale per sbloccare un telefono è un'interfaccia visiva</li>
+          <li><strong>Audio</strong>: notifiche sonore, screen reader (lettura ad alta voce per persone con disabilità visive), riconoscimento vocale</li>
+          <li><strong>Haptic</strong>: feedback tattile, es. vibrazione di uno smartphone o di una tastiera touchscreen</li>
+          <li><strong>Ergonomic</strong>: principi di ergonomia per rendere periferiche (tastiere, mouse) comode e sicure, riducendo il rischio di infortuni da sforzo ripetuto</li>
+        </ul>
+        <p>HCI è una disciplina multi-disciplinare, che attinge da informatica, graphic design, product design, anatomia, psicologia e scienze cognitive.</p>
+        <h4>Web accessibility</h4>
+        <p>HCI deve considerare anche le esigenze delle persone con disabilità. Il web deve essere accessibile a chiunque, indipendentemente da hardware, software, lingua, cultura o abilità fisica/cognitiva. Esempi pratici:</p>
+        <ul>
+          <li><strong>Alternative text for images</strong>: testo alternativo nel codice per chi usa uno screen reader o ha difficoltà visive</li>
+          <li><strong>Keyboard input</strong>: funzionalità accessibili anche senza mouse, utile per chi ha un controllo motorio limitato</li>
+          <li><strong>Transcripts for podcasts</strong>: trascrizioni testuali per audio/podcast, utili per persone sorde o con difficoltà auditive</li>
+        </ul>
+        <p>La <strong>UN Convention on the Rights of Persons with Disabilities</strong> riconosce l'accesso alle tecnologie dell'informazione e della comunicazione, incluso il web, come un diritto umano fondamentale.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 15 — Web 3.0, Web 4.0 e Streaming services</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Web 3.0 — the "semantic web"</h4>
+        <p>Il Web 3.0 cerca nuovi significati e correlazioni nei pattern dei dati, rendendo possibile l'organizzazione e l'analisi della <strong>Big Data</strong>, grazie a maggiore potenza di calcolo, capacità di storage e intelligenza artificiale.</p>
+        <p>I dati di <strong>geolocalizzazione</strong> (GPS, ma anche Wi-Fi e rete cellulare) sono stati fondamentali per il Web 3.0: permettono check-in, sconti localizzati, servizi come Uber, ma anche nuove forme di <strong>manipolazione</strong> del comportamento (es. pubblicità politica mirata).</p>
+        <h4>Web 4.0 — the "symbiotic web"</h4>
+        <p>Il Web 4.0 è più difficile da definire perché non è ancora completamente arrivato. Si prevede un'interazione sempre più <strong>simbiotica</strong> tra umani e macchine, basata sull'evoluzione di tre tecnologie:</p>
+        <ul>
+          <li><strong>Artificial Intelligence</strong>: "Intelligent Internet" con sistemi di self-learning sempre attivi, pubblicità sempre più personalizzata</li>
+          <li><strong>Internet of Things (IoT)</strong>: nodi collegati che forniscono aggiornamenti costanti a sistemi intelligenti (es. edifici intelligenti che si adattano automaticamente)</li>
+          <li><strong>Edge computing</strong>: elaborazione e caching altamente localizzati, per gestire l'enorme volume di traffico e la bassa latenza richiesti dal Web 4.0, insieme a fog computing e 5G</li>
+        </ul>
+        <h4>Streaming services</h4>
+        <p>Le smart TV offrono accesso a Internet, sfumando il confine tra TV e web. Questo ha enormi implicazioni per l'industria televisiva e cinematografica:</p>
+        <ul>
+          <li>L'influenza e la forza economica dei canali TV tradizionali sta calando, con perdita di introiti pubblicitari</li>
+          <li>Il modello del canone TV (licence fee a un'emittente statale privilegiata) viene messo in discussione</li>
+          <li>Il cinema è stato "salvato" più volte dalla tecnologia (sonoro, colore, animazione digitale, effetti speciali, 3D); DVD/BluRay hanno prolungato la vita dei film, ma il download (spesso illegale) ha eroso le vendite</li>
+          <li>Oggi le case di produzione (Disney, HBO, Amazon Studios) usano un nuovo modello: distribuire contenuti sui propri canali di streaming — un cambiamento accelerato dalla pandemia</li>
+          <li>Andare al cinema resta comunque un'esperienza diversa e piacevole rispetto a guardare un film a casa</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — The Fourth Industrial Revolution: Velocity, Scope, Synergy</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Il libro spiega che la Quarta Rivoluzione Industriale (Industry 4.0) non è solo una continuazione della Terza, ma rappresenta qualcosa di distinto per tre ragioni:</p>
+        <ul>
+          <li><strong>Velocity</strong> (velocità): la rapidità degli attuali progressi non ha precedenti storici — l'evoluzione è esponenziale, non lineare, accelerata anche dal 5G e dalle reti mobili successive</li>
+          <li><strong>Scope</strong> (portata): miliardi di persone connesse tramite dispositivi mobili, con potenza di calcolo, capacità di storage e accesso all'informazione senza precedenti, moltiplicati da AI, robotica, IoT, veicoli autonomi, stampa 3D, laser, nanotecnologia, biotecnologia, accumulo energetico e calcolo quantistico</li>
+          <li><strong>Synergy</strong> (sinergia): i progressi nell'AI sono stati guidati da un enorme aumento della potenza di calcolo e dalla disponibilità di grandi quantità di dati, portando a sviluppi in auto a guida autonoma, assistenti virtuali, traduzione automatica, ricerca farmaceutica e algoritmi finanziari — con professionisti di campi diversi (ingegneri, designer, biologi, architetti) che lavorano insieme</li>
+        </ul>
+        <p>Industry 4.0 ha il potenziale di migliorare la vita di tutti, ma introduce anche importanti <strong>questioni etiche</strong>.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — AI: AlphaGo, DeepMind e AlphaFold</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Nel 2016, il programma <strong>AlphaGo</strong> (sviluppato da <strong>DeepMind</strong>) ha battuto Lee Sedol, campione del gioco cinese Go — una pietra miliare per l'AI, poiché si riteneva che battere un campione di Go fosse oltre le capacità dell'AI dell'epoca (il Go ha più posizioni possibili degli atomi nell'universo).</p>
+        <ul>
+          <li>AlphaGo ha usato la tecnica del <strong>deep learning</strong>, che imita il cervello umano, permettendo al programma di insegnare a se stesso e migliorarsi giocando contro se stesso milioni di volte</li>
+          <li>Un anno dopo, <strong>AlphaGo Zero</strong> ha battuto l'originale AlphaGo 100 a 0, mostrando un'intelligenza che sembrava "aliena"</li>
+          <li>A differenza della programmazione tradizionale (che cerca di anticipare ogni eventualità), il deep learning può produrre <strong>comportamenti sorprendenti e imprevedibili</strong> — una sorpresa può indicare che il programma ha trovato un modo migliore di fare qualcosa rispetto ai suoi creatori umani</li>
+          <li>Nel novembre 2020, <strong>AlphaFold</strong> (sempre di DeepMind) ha risolto il problema del <em>protein folding</em> (ripiegamento delle proteine), su cui i ricercatori lavoravano da oltre 50 anni — un problema che si pensava richiedesse decenni, risolto con poche settimane di training</li>
+          <li>Comprendere il protein folding potrà permettere di sviluppare "enzimi verdi" che dissolvono la plastica e cure per molte malattie</li>
+        </ul>
+        <p>Tutto questo ha enormi implicazioni per lo sviluppo futuro dell'AI e per la nostra capacità di controllarla.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — Neurotechnology: Neuralink e "Monkey Pong"</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Neuralink</strong>, azienda fondata nel 2016 da Elon Musk insieme ad altri otto esperti, sviluppa dispositivi per aiutare persone con gravi lesioni o malattie cerebrali.</p>
+        <ul>
+          <li>In un video pubblicato dall'azienda, una scimmia macaco di nome <strong>"Pager"</strong> gioca al videogioco <em>Pong</em> usando solo la mente, grazie a 2.000 elettrodi impiantati collegati via Bluetooth a un computer</li>
+          <li>Durante la calibrazione, il software ha collegato i movimenti della mano con il movimento di un joystick; dopo la calibrazione, bastava la sola <strong>intenzione</strong> di muovere il joystick per giocare</li>
+          <li>Musk ha twittato che il primo prodotto Neuralink permetterà a una persona paralizzata di usare uno smartphone con la mente più velocemente di chi usa i pollici</li>
+          <li><strong>Obiettivo futuro</strong>: permettere a persone paraplegiche di camminare di nuovo, a ciechi di vedere, a sordi di sentire — e potenzialmente dare capacità "sovrumane" tramite l'aumento delle capacità umane con dispositivi simili</li>
+          <li>Neuralink sta sviluppando anche un <strong>robot chirurgico</strong> per gli impianti, data la delicatezza dell'operazione</li>
+        </ul>
+        <p><strong>Questioni etiche</strong>: l'organizzazione <strong>PETA</strong> (People for the Ethical Treatment of Animals) ha criticato i metodi di sperimentazione sugli animali; si pongono anche preoccupazioni sulla sicurezza.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — Li-Fi</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Li-Fi</strong> (Light Fidelity) è una tecnologia di comunicazione basata sulla luce, che funziona in modo simile al Wi-Fi ma usa la porzione visibile dello spettro elettromagnetico invece dei segnali radio. I dati vengono trasmessi modulando l'intensità della luce di un LED, impercettibile all'occhio umano, e ricevuti da un fotorilevatore (photodetector).</p>
+        <h4>Vantaggi del Li-Fi rispetto al Wi-Fi</h4>
+        <ul>
+          <li><strong>Velocità</strong>: il Li-Fi può trasmettere fino a 224 Gbps, contro gli 11 Gbps del Wi-Fi 6E in ambiente controllato</li>
+          <li><strong>Sicurezza</strong>: i segnali Wi-Fi attraversano muri e soffitti; i segnali Li-Fi possono essere ricevuti solo nell'area illuminata e non passano attraverso le pareti, eliminando di fatto il rischio di hacking remoto</li>
+          <li><strong>Efficienza energetica</strong>: il consumo è minimizzato usando illuminazione LED, con un consumo aggiuntivo trascurabile per la trasmissione dati</li>
+          <li><strong>Sicurezza fisica</strong>: la luce visibile è innocua per l'uomo, mentre le frequenze radio possono interferire pericolosamente con apparecchiature elettroniche sensibili (es. negli ospedali)</li>
+        </ul>
+        <p>Il Li-Fi probabilmente non sostituirà completamente il Wi-Fi, ma aziende come Apple e Philips stanno esplorando l'uso combinato dei due sistemi per ottimizzare velocità e sicurezza.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — Lasers (come funzionano e applicazioni)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>LASER</strong> sta per "Light Amplification by Stimulated Emission of Radiation". I diodi laser sono la fonte più comune per applicazioni in elettronica e IT: l'emissione stimolata di fotoni è generata applicando una tensione a un semiconduttore, e il materiale scelto determina la lunghezza d'onda del fascio emesso (dall'infrarosso all'UV).</p>
+        <h4>Proprietà della luce laser (a differenza di una torcia)</h4>
+        <ul>
+          <li><strong>Monochromatic</strong>: contiene una sola lunghezza d'onda (un solo colore)</li>
+          <li><strong>Coherent</strong>: organizzata con precisione, ogni fotone in fase con gli altri</li>
+          <li><strong>Directional</strong>: fascio forte, stretto e concentrato</li>
+        </ul>
+        <p>I laser possono produrre luce in <strong>fascio continuo</strong> (continuous beam, fino a circa 10.000 watt) o in <strong>impulsi</strong> (pulses), che concentrano tutta l'energia in una frazione di secondo, raggiungendo picchi di potenza molto più elevati (anche diversi trilioni di watt per un miliardesimo di secondo).</p>
+        <h4>Applicazioni dei laser (How lasers are used)</h4>
+        <ul>
+          <li><strong>Lettura/scrittura ottica</strong>: CD, DVD — impulsi laser "bruciano" pattern di pit sulla superficie del disco; un altro laser li legge riflettendosi</li>
+          <li><strong>Scanning</strong>: lettura di codici a barre alle casse, smistamento posta, scanner di documenti 3D</li>
+          <li><strong>Fibre ottiche</strong>: segnali digitali convertiti in impulsi di luce laser; ogni fibra trasporta quanta informazione di migliaia di fili di rame</li>
+          <li><strong>Taglio/saldatura industriale</strong>: laser a gas industriali producono fasci di migliaia di watt per tagliare/saldare metalli, forare, tagliare ceramiche e plastiche; anche in chirurgia (specialmente oculistica) e in cosmetica (rimozione peli/tatuaggi)</li>
+          <li><strong>Misurazione</strong>: rangefinder per misurare velocità/distanza (es. cartografia), sensori sismici per allarmi antiterremoto</li>
+          <li><strong>Giroscopi laser</strong>: rilevano cambi di direzione, usati su navi e aerei per restare in rotta; impiegati anche per dirigere missili, livellare muri in costruzioni edili e posare tubature</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — 3D Printing</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Le stampanti 3D sono macchine in grado di creare qualsiasi tipo di oggetto, usando materiali diversi: dalle ceramiche alla plastica, dal metallo persino a parti del corpo umano. Potrebbero un giorno sostituire le linee di produzione tradizionali con una singola macchina, così come le stampanti inkjet domestiche hanno sostituito le presse tradizionali.</p>
+        <h4>Come funziona</h4>
+        <ul>
+          <li>Un software <strong>"slicer"</strong> trasforma il progetto 3D in migliaia di sottili strati orizzontali</li>
+          <li>Genera un file di <strong>"g-code"</strong>, il linguaggio che la stampante comprende</li>
+          <li>La stampante costruisce l'oggetto strato per strato, che si solidificano uno sopra l'altro</li>
+          <li>Materiali comuni: filamento plastico, polvere metallica, liquido fotosensibile</li>
+          <li>Si possono creare anche parti mobili (cerniere, ruote) già assemblate, senza usare attrezzi</li>
+        </ul>
+        <h4>Vantaggi e limiti</h4>
+        <ul>
+          <li>Potenziale riduzione di trasporti, magazzini, scorte esaurite, sprechi, imballaggi e inquinamento</li>
+          <li>Oggetti su misura: mobili, scarpe, persino cibo personalizzato</li>
+          <li>Una stampante 3D è già presente sulla <strong>Stazione Spaziale Internazionale</strong> per produrre attrezzi e pezzi di ricambio</li>
+          <li>Il costo per oggetto è ancora più alto rispetto alla produzione di massa tradizionale, quindi non è ancora economicamente competitivo su larga scala</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — Drone Delivery (Starship Technologies)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Furgoni e fattorini per le consegne vengono sostituiti da <strong>"ground drones"</strong> in grado di muoversi autonomamente per le strade. Nel gennaio 2021, <strong>Starship Technologies</strong> ha annunciato di aver completato un milione di consegne con i propri robot.</p>
+        <ul>
+          <li>Il robot è stato inventato dai co-fondatori di <strong>Skype, Ahti Heinla e Janus Friis</strong></li>
+          <li>I robot a sei ruote sono quasi completamente self-driving, usano la navigazione satellitare e "camminano" sul marciapiede a circa 4 km/h, completando consegne locali in 5-30 minuti</li>
+          <li>Software di navigazione integrato ed "obstacle avoidance" evitano pedoni, lampioni e altri oggetti</li>
+          <li>Operatori umani (ciascuno responsabile di 100 bot) possono intervenire in caso di emergenza, incluso un tentativo di furto: possono parlare al malintenzionato e inviare la polizia tramite GPS, mentre le telecamere catturano il volto del criminale</li>
+          <li>Il vano di carico ("cargo trunk") resta sigillato per tutto il viaggio; si apre solo con un'app dedicata</li>
+          <li>Punti di forza del servizio: zero costi aggiuntivi, zero tempi di attesa, zero impatto ambientale (batteria, niente emissioni di CO₂)</li>
+          <li>Il servizio è partito a Milton Keynes (UK), con partner come CO-OP e TESCO; Amazon sta sperimentando anche con piccoli drohe volanti per le consegne</li>
+        </ul>
+        <h4>Terminologia drone</h4>
+        <ul>
+          <li><strong>UGV</strong> (Un-manned Ground Vehicle): veicolo di terra senza pilota</li>
+          <li><strong>UAV</strong> (Un-manned Aerial Vehicle): drone volante</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — Foundations of Industry 4.0 e Augmented Reality</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Le fondamenta di Industry 4.0</h4>
+        <ul>
+          <li><strong>Industrial Internet of Things</strong>: tag RFID, comunicazione diretta tra macchine</li>
+          <li><strong>Cybersecurity</strong>: procedure sofisticate di identità e accesso</li>
+          <li><strong>Augmented reality</strong>: informazione digitale sovrapposta al mondo fisico</li>
+          <li><strong>Additive manufacturing</strong>: stampa 3D da progetto digitale, prototipazione rapida</li>
+          <li><strong>The cloud</strong>: soluzioni software disponibili online</li>
+          <li><strong>Big Data and analytics</strong>: enormi "laghi" di dati e software che ne estrae informazioni, con relative questioni etiche</li>
+          <li><strong>Robotics</strong>: macchine autonome, flessibili e cooperative</li>
+          <li><strong>Simulation</strong>: replicazioni 3D per preparare i processi produttivi</li>
+          <li><strong>Networking</strong>: fornitori, produttori e clienti strettamente interconnessi; spinta verso il lavoro remoto accelerata dal COVID-19</li>
+        </ul>
+        <h4>Does augmented reality do it better?</h4>
+        <p>L'<strong>augmented reality (AR)</strong> sovrappone informazioni digitali al mondo fisico tramite un dispositivo elettronico (smartphone, tablet, smart glasses), a differenza della <strong>virtual reality (VR)</strong> totalmente immersiva e più restrittiva nel movimento.</p>
+        <ul>
+          <li><strong>Microsoft HoloLens 2</strong>: smart glasses con lenti trasparenti, display 2K, campo visivo di 52 gradi</li>
+          <li><strong>Porsche "Tech Live Look"</strong> (2018): occhiali smart che riconoscono un componente, mostrano lo storico di assistenza e le procedure da seguire per tecnici di manutenzione</li>
+          <li><strong>IKEA Place app</strong>: permette di scansionare una stanza e posizionare virtualmente mobili prima dell'acquisto</li>
+          <li><strong>Inkhunter</strong> (azienda ucraina): app che permette di visualizzare tatuaggi nella posizione, dimensione e design esatti sul corpo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 16 — Facebook Whistleblower e Big Data (Privacy)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Nel novembre 2020, in seguito alle rivelazioni di un'informatrice (whistleblower) dell'azienda, <strong>Mark Zuckerberg</strong> è stato interrogato da una commissione del Senato USA su <strong>"Centra"</strong>, uno strumento interno di Facebook usato per tracciare gli utenti anche fuori dalla piattaforma, attraverso l'intero Internet (profili visitati, destinatari dei messaggi, account collegati, pagine con pulsanti Facebook).</p>
+        <ul>
+          <li>Quando interrogato su Centra, Zuckerberg ha negato di conoscere lo strumento; il senatore ha poi mostrato uno screenshot che lo ha lasciato visibilmente <strong>"stunned" (stupito)</strong></li>
+          <li>Facebook era già stata criticata nel 2018 per aver incorporato firme digitali nelle foto caricate dagli utenti, per tracciarle altrove sul web</li>
+          <li>Anche <strong>WhatsApp</strong> (ora di proprietà Facebook) ha ricevuto attenzioni indesiderate, spingendo alcuni utenti a migrare verso app alternative come <strong>Signal</strong> e <strong>Telegram</strong></li>
+          <li>Nei primi tempi dei social media, il concetto di "Big Data" era poco conosciuto; oggi cresce la consapevolezza sulle preoccupazioni legate a raccolta dati e privacy: foto, commenti, like e aggiornamenti di stato forniscono un'enorme quantità di dati, scambiati e valutati tra aziende</li>
+        </ul>
+        <p><strong>Film consigliato</strong>: <em>The Social Dilemma</em> di Jeff Orlowski (2020) — documentario-drama su come i social media massimizzano i profitti manipolando intenzionalmente gli utenti.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Unit 17 — Employment in New Technology</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Le persone con qualifiche in informatica e tecnologia dell'informazione sono impiegate in ogni settore dell'economia. Aree principali di specializzazione: gestione di siti web/e-commerce, gestione di reti e database, creazione di applicazioni e software.</p>
+        <h4>Settori chiave per ingegneria elettrica/elettronica</h4>
+        <ul>
+          <li><strong>Telecommunications</strong>: es. comunicazioni satellitari per telefoni mobili</li>
+          <li><strong>Energy</strong>: es. sistemi di distribuzione dell'energia elettrica</li>
+          <li><strong>Computers and semiconductors</strong>: es. microprocessori e chip di memoria</li>
+          <li><strong>Aerospace and transportation</strong>: es. apparecchiature elettroniche per treni ad alta velocità</li>
+          <li><strong>Manufacturing</strong>: es. sistemi robotici e di produzione automatizzata</li>
+        </ul>
+        <h4>Categorie di lavoro specifiche nel settore tecnologico</h4>
+        <ul>
+          <li><strong>Operational</strong>: assemblare e mettere in funzione i sistemi</li>
+          <li><strong>Maintenance</strong>: riparare guasti, sostituire pezzi usurati, aggiornare i sistemi</li>
+          <li><strong>Testing</strong>: valutare e misurare prodotti/sistemi per garantirne il corretto funzionamento</li>
+          <li><strong>Research and Development (R&amp;D)</strong>: sperimentare nuove idee e sviluppare prototipi</li>
+          <li><strong>Design</strong>: applicare i risultati della R&amp;D</li>
+        </ul>
+        <p>Molte persone con qualifiche tecniche lavorano anche in campi meno tecnici ma dove la loro competenza è essenziale: <strong>management</strong> (pianificazione e supervisione), <strong>marketing/purchasing</strong> (vendita o acquisto di prodotti tecnici), <strong>education</strong> (insegnamento e formazione in scuole, università, aziende).</p>
+      </div>
+    </div>
+
+  </div><!-- /textbook -->
+
 
 
   <!-- ===== QUESTIONS ===== -->
