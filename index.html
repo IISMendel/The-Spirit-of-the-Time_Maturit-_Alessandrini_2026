@@ -20,10 +20,12 @@
     --africa: #27ae60;
     --lit: #8e44ad;
     --tech: #2980b9;
+    --oceania: #16a085;
     --accent-india: rgba(230,126,34,0.12);
     --accent-africa: rgba(39,174,96,0.12);
     --accent-lit: rgba(142,68,173,0.12);
     --accent-tech: rgba(41,128,185,0.12);
+    --accent-oceania: rgba(22,160,133,0.12);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -35,7 +37,6 @@
     line-height: 1.7;
   }
 
-  /* HEADER */
   header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -65,7 +66,6 @@
     font-size: 0.9rem;
   }
 
-  /* NAV TABS */
   nav {
     display: flex;
     flex-wrap: wrap;
@@ -79,55 +79,80 @@
     z-index: 100;
   }
   nav a {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 500;
-    letter-spacing: 0.04em;
-    padding: 0.35rem 0.85rem;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 0.8rem;
     border-radius: 2rem;
     border: 1px solid var(--border);
     color: var(--muted);
     text-decoration: none;
     transition: all 0.2s;
+    white-space: nowrap;
   }
   nav a:hover, nav a.active { color: var(--text); border-color: var(--gold); background: rgba(201,168,76,0.1); }
+  nav a.oceania { border-color: var(--oceania); color: var(--oceania); background: var(--accent-oceania);}
   nav a.india { border-color: var(--india); color: var(--india); background: var(--accent-india);}
   nav a.africa { border-color: var(--africa); color: var(--africa); background: var(--accent-africa);}
   nav a.lit { border-color: var(--lit); color: var(--lit); background: var(--accent-lit);}
   nav a.tech { border-color: var(--tech); color: var(--tech); background: var(--accent-tech);}
 
-  /* MAIN */
   main { max-width: 900px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
 
-  /* SECTION BLOCKS */
-  .module {
-    margin-bottom: 3.5rem;
-    scroll-margin-top: 90px;
-  }
-  .module-header {
+  /* SECTION BANNER - separates each major topic clearly */
+  .section-banner {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid var(--border);
+    gap: 1.1rem;
+    margin: 0 0 2.2rem 0;
+    padding: 1.4rem 1.6rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--card) 100%);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--gold);
+    scroll-margin-top: 90px;
   }
-  .module-icon {
-    font-size: 1.8rem;
-    width: 3rem;
-    text-align: center;
-    flex-shrink: 0;
-  }
-  .module-title {
+  .section-banner.first { margin-top: 0; }
+  .section-banner .num {
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
+    font-size: 2.1rem;
     font-weight: 700;
+    color: var(--gold);
+    opacity: 0.5;
+    flex-shrink: 0;
+    min-width: 2.4rem;
+    text-align: center;
   }
-  .module-title.india { color: var(--india); }
-  .module-title.africa { color: var(--africa); }
-  .module-title.lit { color: var(--lit); }
-  .module-title.tech { color: var(--tech); }
+  .section-banner .titles { flex: 1; }
+  .section-banner .icon-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+  .section-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .section-banner.oceania { border-left-color: var(--oceania); }
+  .section-banner.oceania .num { color: var(--oceania); }
+  .section-banner.india { border-left-color: var(--india); }
+  .section-banner.india .num { color: var(--india); }
+  .section-banner.africa { border-left-color: var(--africa); }
+  .section-banner.africa .num { color: var(--africa); }
+  .section-banner.lit { border-left-color: var(--lit); }
+  .section-banner.lit .num { color: var(--lit); }
+  .section-banner.tech { border-left-color: var(--tech); }
+  .section-banner.tech .num { color: var(--tech); }
+  .section-banner.qbanner { border-left-color: #e74c3c; }
+  .section-banner.qbanner .num { color: #e74c3c; }
 
-  /* TOPIC CARDS */
+  .module { margin-bottom: 3.5rem; }
+
   .topic {
     background: var(--card);
     border: 1px solid var(--border);
@@ -176,15 +201,8 @@
     margin-top: 1.1rem;
     margin-bottom: 0.3rem;
   }
-  .topic-body ul {
-    padding-left: 1.2rem;
-    margin-top: 0.3rem;
-  }
-  .topic-body ul li {
-    font-size: 0.93rem;
-    margin-bottom: 0.25rem;
-    color: var(--text);
-  }
+  .topic-body ul { padding-left: 1.2rem; margin-top: 0.3rem; }
+  .topic-body ul li { font-size: 0.93rem; margin-bottom: 0.25rem; color: var(--text); }
   .topic-body ul li strong { color: var(--gold); font-weight: 500; }
   .highlight {
     background: rgba(201,168,76,0.08);
@@ -210,14 +228,15 @@
   .tag.africa { background: var(--accent-africa); color: var(--africa); border: 1px solid var(--africa);}
   .tag.lit { background: var(--accent-lit); color: var(--lit); border: 1px solid var(--lit);}
   .tag.tech { background: var(--accent-tech); color: var(--tech); border: 1px solid var(--tech);}
+  .tag.oceania { background: var(--accent-oceania); color: var(--oceania); border: 1px solid var(--oceania);}
 
-  /* QUICK REF BOX */
   .quick-ref {
     background: var(--surface);
     border: 1px solid var(--gold-dim);
     border-radius: 10px;
     padding: 1.2rem 1.4rem;
     margin-bottom: 3rem;
+    scroll-margin-top: 90px;
   }
   .quick-ref h2 {
     font-family: 'Playfair Display', serif;
@@ -230,26 +249,10 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0.5rem;
   }
-  .quick-ref .date-item {
-    font-size: 0.83rem;
-    display: flex;
-    gap: 0.5rem;
-  }
-  .quick-ref .date-item .yr {
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
+  .quick-ref .date-item { font-size: 0.83rem; display: flex; gap: 0.5rem; }
+  .quick-ref .date-item .yr { color: var(--gold); font-family: 'DM Mono', monospace; font-weight: 700; flex-shrink: 0; }
   .quick-ref .date-item .ev { color: var(--muted); }
 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted);
-    font-size: 0.8rem;
-    border-top: 1px solid var(--border);
-  }
   /* Q&A ITEMS */
   .qa-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.7rem; overflow: hidden; }
   .qa-q { padding: 0.75rem 1rem; cursor: pointer; font-size: 0.92rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.6rem; transition: background 0.2s; }
@@ -259,19 +262,29 @@
   .qa-a { display: none; padding: 0.75rem 1rem 0.9rem 1rem; border-top: 1px solid var(--border); font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
   .qa-item.open .qa-a { display: block; }
   .qa-a strong { color: var(--gold); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-label">Commissario Esterno · IIS Alessandrini · Vittone</div>
+  <div class="header-label">Commissario Esterno · IIS Alessandrini · Vittuone</div>
   <h1>Guida di Studio <span>Maturità 2025/26</span></h1>
-  <p>Argomenti del Documento del 15 Maggio · Lingua e Civiltà Inglese</p>
+  <p>Programma completo · Lingua e Civiltà Inglese</p>
 </header>
 
 <nav>
+  <a href="#oceania" class="oceania">🌊 Australia &amp; NZ</a>
   <a href="#india" class="india">🇮🇳 India</a>
   <a href="#africa" class="africa">🌍 South Africa</a>
+  <a href="#lessing" class="africa">📖 Doris Lessing</a>
   <a href="#conrad" class="lit">✒️ Conrad</a>
   <a href="#jobs" class="tech">💻 Steve Jobs</a>
   <a href="#web" class="tech">🌐 Web &amp; Internet</a>
@@ -282,28 +295,864 @@
 
 <main>
 
-  <!-- DATE CHIAVE -->
   <div class="quick-ref" id="dates">
     <h2>📅 Date Chiave – Ripasso Rapido</h2>
     <div class="dates">
       <div class="date-item"><span class="yr">1600</span><span class="ev">East India Company fondata</span></div>
       <div class="date-item"><span class="yr">1602</span><span class="ev">Dutch East India Company (VOC)</span></div>
+      <div class="date-item"><span class="yr">1652</span><span class="ev">Jan van Riebeeck al Capo di Buona Speranza</span></div>
       <div class="date-item"><span class="yr">1757</span><span class="ev">Battaglia di Plassey – dominio britannico in India</span></div>
+      <div class="date-item"><span class="yr">1769-70</span><span class="ev">Cook esplora Nuova Zelanda e Australia</span></div>
+      <div class="date-item"><span class="yr">1788</span><span class="ev">First Fleet arriva a Sydney Cove (colonizzazione Australia)</span></div>
+      <div class="date-item"><span class="yr">1840</span><span class="ev">Trattato di Waitangi (Nuova Zelanda)</span></div>
+      <div class="date-item"><span class="yr">1857-58</span><span class="ev">Indian Mutiny / India sotto la Corona britannica</span></div>
       <div class="date-item"><span class="yr">1869</span><span class="ev">Nascita di Gandhi</span></div>
       <div class="date-item"><span class="yr">1899</span><span class="ev">Conrad inizia Heart of Darkness</span></div>
+      <div class="date-item"><span class="yr">1899-1902</span><span class="ev">Boer Wars</span></div>
+      <div class="date-item"><span class="yr">1910</span><span class="ev">Union of South Africa</span></div>
+      <div class="date-item"><span class="yr">1947</span><span class="ev">Indipendenza dell'India</span></div>
       <div class="date-item"><span class="yr">1948</span><span class="ev">Gandhi assassinato; Apartheid inizia in SA</span></div>
+      <div class="date-item"><span class="yr">1953</span><span class="ev">Pubblicazione di "The Antheap" (Lessing)</span></div>
       <div class="date-item"><span class="yr">1955</span><span class="ev">Nascita di Steve Jobs</span></div>
-      <div class="date-item"><span class="yr">1976</span><span class="ev">Apple fondata</span></div>
+      <div class="date-item"><span class="yr">1960</span><span class="ev">Sharpeville Massacre</span></div>
+      <div class="date-item"><span class="yr">1976</span><span class="ev">Apple fondata; Soweto Uprising</span></div>
+      <div class="date-item"><span class="yr">1990</span><span class="ev">Mandela liberato dopo 27 anni</span></div>
       <div class="date-item"><span class="yr">1994</span><span class="ev">Fine Apartheid; Mandela presidente</span></div>
+      <div class="date-item"><span class="yr">2007</span><span class="ev">iPhone lanciato</span></div>
       <div class="date-item"><span class="yr">2011</span><span class="ev">Morte di Steve Jobs</span></div>
     </div>
   </div>
 
+  <!-- ===== 1. AUSTRALIA & NEW ZEALAND ===== -->
+  <div class="module" id="oceania">
+    <div class="section-banner oceania first">
+      <div class="num">1</div>
+      <div class="titles">
+        <div class="icon-label">🌊 Oceania</div>
+        <h2>Australia &amp; New Zealand</h2>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--oceania);margin-bottom:1rem;">🇦🇺 Australia</h3>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Geography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Australia is both a country and a continent — the smallest continent and the sixth-largest country in the world by total area. It is located in the southern hemisphere, surrounded by the Indian and Pacific Oceans.</p>
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>The Outback</strong>: the vast, arid interior covering most of the continent — sparsely populated, dominated by desert and semi-desert landscapes</li>
+          <li><strong>Uluru (Ayers Rock)</strong>: a massive sandstone monolith in the Northern Territory, sacred to the Aboriginal Anangu people</li>
+          <li><strong>The Great Barrier Reef</strong>: off the coast of Queensland, the world's largest coral reef system, visible from space</li>
+          <li><strong>Climate diversity</strong>: tropical in the north, temperate in the south, arid/desert across the centre</li>
+          <li>Population is concentrated along the coasts, especially the east coast (Sydney, Melbourne, Brisbane) — the interior is largely uninhabited</li>
+        </ul>
+        <h4>Quick Facts</h4>
+        <ul>
+          <li><strong>Capital</strong>: Canberra (not Sydney, a common misconception)</li>
+          <li><strong>Largest city</strong>: Sydney</li>
+          <li><strong>Official language</strong>: English (no constitutionally official language, but English is dominant)</li>
+          <li><strong>Government</strong>: federal parliamentary democracy and constitutional monarchy (the British monarch remains formal head of state)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Colonization of Australia</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Before British Arrival</h4>
+        <p>Aboriginal Australians had inhabited the continent for at least <strong>60,000 years</strong> before European arrival — one of the oldest continuous cultures in human history. Dutch navigators explored parts of the coast in the 17th century, naming it "New Holland," but did not settle.</p>
+        <h4>Cook's Voyage and the First Fleet</h4>
+        <ul>
+          <li><strong>1770</strong>: Lieutenant <strong>James Cook</strong> charted the east coast and claimed it for Great Britain, naming the region New South Wales. He declared the land <em>terra nullius</em> ("nobody's land"), ignoring the existing Aboriginal presence and land ownership systems.</li>
+          <li><strong>26 January 1788</strong>: the <strong>First Fleet</strong> — 11 ships carrying about 1,000 convicts and marines under Captain <strong>Arthur Phillip</strong> — arrived at Sydney Cove (Port Jackson), founding the first British colony. This date is now celebrated as <strong>Australia Day</strong>, though it is also marked by Aboriginal communities as a "Day of Mourning."</li>
+          <li>Britain's primary motive was to establish a <strong>penal colony</strong> to relieve overcrowded prisons after losing its American colonies (where convicts had previously been transported); a secondary motive was establishing a strategic Pacific naval base.</li>
+        </ul>
+        <h4>Expansion and Consequences</h4>
+        <ul>
+          <li>Convict transportation continued until <strong>1868</strong>; over 150,000 convicts were transported in total.</li>
+          <li>Free settlers gradually arrived, and the colony expanded across the continent through the 19th century, driven by sheep and cattle farming and later gold rushes (1850s).</li>
+          <li>Australia became a federation of six states in <strong>1901</strong> (the Commonwealth of Australia), gradually gaining full independence from Britain through the 20th century.</li>
+        </ul>
+        <div class="highlight">The concept of <em>terra nullius</em> was not formally overturned in Australian law until the Mabo v Queensland case in 1992 — over two centuries after first British settlement.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Aborigines</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Aboriginal Australians</strong> are the Indigenous peoples of mainland Australia and Tasmania, comprising hundreds of distinct nations, each with its own language, culture and territory, unified loosely under the term "Aboriginal" by outsiders.</p>
+        <h4>Impact of Colonization</h4>
+        <ul>
+          <li><strong>Disease</strong>: smallpox and other introduced diseases devastated populations who had no immunity — a 1789 smallpox outbreak killed roughly half the Aboriginal population around Sydney within a year.</li>
+          <li><strong>Violence and dispossession</strong>: settlers violently displaced Aboriginal people from their land as farming and grazing expanded; massacres occurred across the 19th and early 20th centuries — the last recorded one at Coniston in 1928.</li>
+          <li><strong>Cultural disruption</strong>: forced removal from traditional lands disrupted spiritual practices deeply tied to specific places (see "Dreamtime" / "Songlines" below), and many Aboriginal children were later forcibly removed from their families under 20th-century assimilation policies (the "<strong>Stolen Generations</strong>").</li>
+          <li>Population estimates suggest the Aboriginal population fell from around <strong>750,000</strong> at the time of first contact to a small fraction of that within a century.</li>
+        </ul>
+        <h4>Aboriginal Culture</h4>
+        <ul>
+          <li><strong>Dreamtime (Dreaming)</strong>: the spiritual framework explaining the creation of the world, ancestral beings, and the moral and natural order — it is not a "myth" in the past tense but an ongoing spiritual reality connecting people to land.</li>
+          <li><strong>Songlines</strong>: paths across the land that mark the route followed by ancestral spirits during creation; they encode navigation, history and law through song and story.</li>
+          <li><strong>Connection to land</strong>: land is not "owned" in the Western property sense but is understood as a living relationship of custodianship and responsibility.</li>
+          <li>Aboriginal art (dot painting, rock art) is among the oldest continuous artistic traditions in the world.</li>
+        </ul>
+        <h4>Today</h4>
+        <p>Aboriginal and Torres Strait Islander peoples make up about 3.8% of Australia's population. They continue to face significant disparities in health, education, employment and incarceration compared to non-Indigenous Australians. The 2023 referendum on constitutional recognition (the "Voice to Parliament") was rejected by voters, highlighting ongoing national debate over reconciliation.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--oceania);margin:2rem 0 1rem;">🇳🇿 New Zealand</h3>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Geography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>New Zealand (Māori: <strong>Aotearoa</strong>, "land of the long white cloud") is an island nation in the southwest Pacific Ocean, southeast of Australia, consisting mainly of two large islands: the <strong>North Island</strong> and the <strong>South Island</strong>.</p>
+        <h4>Key Features</h4>
+        <ul>
+          <li>Dramatic and varied landscape: fjords, glaciers, volcanoes, geothermal areas (geysers and hot springs in Rotorua), and extensive coastline</li>
+          <li>The <strong>Southern Alps</strong> run along most of the South Island; <strong>Aoraki/Mount Cook</strong> is the highest peak</li>
+          <li>Temperate, maritime climate — milder than much of Australia, with reliable rainfall</li>
+          <li>Famous internationally for being remote, ecologically unique (many native species evolved in the absence of mammalian predators), and as the filming location for <em>The Lord of the Rings</em></li>
+        </ul>
+        <h4>Quick Facts</h4>
+        <ul>
+          <li><strong>Capital</strong>: Wellington</li>
+          <li><strong>Largest city</strong>: Auckland</li>
+          <li><strong>Official languages</strong>: English, Māori, and NZ Sign Language</li>
+          <li><strong>Government</strong>: parliamentary democracy and constitutional monarchy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Colonization of New Zealand</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Before European Contact</h4>
+        <p>The Māori, of Polynesian origin, are believed to have settled New Zealand around the <strong>13th century</strong>, having sailed from eastern Polynesia — one of the last major landmasses on Earth to be settled by humans.</p>
+        <h4>European Contact</h4>
+        <ul>
+          <li><strong>1642</strong>: Dutch explorer <strong>Abel Tasman</strong> was the first European to sight New Zealand, though he never landed; the country is named after the Dutch province of Zeeland.</li>
+          <li><strong>1769–70</strong>: <strong>Captain James Cook</strong> mapped the coastline in detail, opening the way for European whalers, sealers and missionaries who began arriving from the 1790s onward.</li>
+          <li>By the 1830s, significant numbers of British settlers had arrived, alongside growing concerns in Britain about lawlessness among settlers and the threat of French colonial ambitions.</li>
+        </ul>
+        <h4>The Treaty of Waitangi (1840)</h4>
+        <p>The pivotal moment in New Zealand's colonization was the signing of the <strong>Treaty of Waitangi</strong> on <strong>6 February 1840</strong> at Waitangi in the Bay of Islands, between the British Crown (represented by Lieutenant-Governor William Hobson) and over 500 Māori chiefs (<em>rangatira</em>).</p>
+        <ul>
+          <li>The treaty exists in two versions — English and Māori — with crucial differences in meaning: the English version has Māori "ceding sovereignty" to the Crown; the Māori version (<em>Te Tiriti</em>) is understood by many Māori as ceding <em>kāwanatanga</em> (governance) while retaining <em>tino rangatiratanga</em> (full chiefly authority) over their lands and people.</li>
+          <li>In exchange, Māori were promised protection, possession of their lands, and the same rights as British subjects.</li>
+          <li>This fundamental ambiguity in translation led to decades of conflict, as British settlement expanded and many of the treaty's promises were not honoured.</li>
+        </ul>
+        <h4>The New Zealand Wars and Aftermath</h4>
+        <ul>
+          <li>The <strong>New Zealand Wars</strong> (1845–1872) were fought between the British Crown (and colonial settlers) and various Māori groups, primarily over land and the differing interpretations of the Treaty.</li>
+          <li>Large amounts of Māori land were confiscated as a result of the wars, even from groups that had not taken up arms.</li>
+          <li>New Zealand became a separate Crown colony in <strong>1841</strong> (initially administered as part of New South Wales), and gradually moved toward self-government and eventual independence in the 20th century.</li>
+          <li>From the 1970s, a Māori cultural and political renaissance led to the <strong>Waitangi Tribunal</strong> (established 1975), which investigates and addresses historical breaches of the Treaty — an ongoing process of reconciliation that continues today.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Maori</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>The <strong>Māori</strong> are the Indigenous Polynesian people of New Zealand. Today they make up roughly 17% of the population.</p>
+        <h4>Culture and Identity</h4>
+        <ul>
+          <li><strong>Iwi</strong> (tribes) and <strong>hapū</strong> (sub-tribes) form the basis of Māori social and political organisation, each tracing descent from common ancestors and specific ancestral canoes (<em>waka</em>) that arrived from Polynesia.</li>
+          <li><strong>Marae</strong>: communal and sacred meeting grounds, central to Māori community, ceremonial and spiritual life.</li>
+          <li><strong>Haka</strong>: a ceremonial dance involving forceful movements, foot-stamping and chanting — traditionally used before battle, now performed at ceremonies, sporting events (famously by New Zealand's All Blacks rugby team) and to express collective identity and challenge.</li>
+          <li><strong>Tā moko</strong>: traditional Māori tattooing, carrying deep personal, ancestral and spiritual significance — distinct from decorative tattoo art.</li>
+          <li><strong>Te reo Māori</strong>: the Māori language, an official language of New Zealand, has experienced significant revival since the late 20th century after a period of sharp decline.</li>
+        </ul>
+        <h4>Māori Today and Reconciliation</h4>
+        <ul>
+          <li>New Zealand is often cited internationally as a relatively successful, though imperfect, model of addressing colonial historical injustice through formal mechanisms like the Waitangi Tribunal, treaty settlements (financial and land compensation), and bicultural policy.</li>
+          <li>Despite this, Māori continue to experience disparities in health, education, income and incarceration rates compared to the general population — the legacy of colonization remains a live political and social issue.</li>
+          <li>New Zealand's national identity today is officially framed as <strong>bicultural</strong> — built on the partnership between Māori and Pākehā (New Zealanders of European descent) — though debates about the true extent of this partnership continue.</li>
+        </ul>
+        <div class="highlight">Comparative note: New Zealand's approach (a negotiated treaty, however imperfectly honoured, plus an ongoing tribunal process) differs significantly from Australia's history, where no treaty was ever signed with Aboriginal peoples — the land was simply claimed as <em>terra nullius</em>.</div>
+      </div>
+    </div>
+
+  </div><!-- /oceania -->
+
+  <!-- ===== INDIA ===== -->
+  <div class="module" id="india">
+    <div class="section-banner india">
+      <div class="num">2</div>
+      <div class="titles">
+        <div class="icon-label">🇮🇳 South Asia</div>
+        <h2>India</h2>
+      </div>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Main Religions</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>India is home to four major world religions born on its soil and hosts significant populations of others.</p>
+        <h4>Hinduism</h4>
+        <p>The oldest and largest religion (~80% of population). Polytheistic – believes in a universal spirit (Brahman) manifested in many deities (Brahma, Vishnu, Shiva). Core concepts: <strong>dharma</strong> (duty/cosmic order), <strong>karma</strong> (action and its consequences), <strong>samsara</strong> (cycle of birth, death, rebirth), <strong>moksha</strong> (liberation from the cycle).</p>
+        <h4>Islam (~14%)</h4>
+        <p>Arrived in India from the 7th century. Largest minority religion. India has the world's third-largest Muslim population. The Mughal Empire (1526–1857) left a profound cultural and architectural legacy (including the Taj Mahal).</p>
+        <h4>Buddhism</h4>
+        <p>Founded by Siddhartha Gautama (5th century BCE) in what is now Nepal/northeastern India. Based on the Four Noble Truths and the Eightfold Path. Spread across Asia; now less than 1% in India itself.</p>
+        <h4>Sikhism</h4>
+        <p>Founded in Punjab in the 15th century by Guru Nanak. Monotheistic. Core values: equality of all humans, service (<em>sewa</em>), community kitchen (<em>langar</em>). Sikhs are recognisable by the five Ks (Kesh, Kangha, Kara, Kachera, Kirpan).</p>
+        <h4>Christianity & Jainism</h4>
+        <p>Christianity arrived via St Thomas (1st century AD) and later Portuguese and British missions. Jainism is ancient, pre-dating Buddhism, and emphasises non-violence (<em>ahimsa</em>) to an extreme degree.</p>
+        <div class="highlight">Potential exam link: Gandhi was deeply influenced by Jain principles of ahimsa and Hindu philosophy simultaneously.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Puja</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Puja</strong> (Sanskrit: "reverence/worship") is the central act of Hindu devotion — a ritual offering to a deity, performed daily at home shrines or in temples.</p>
+        <h4>Structure of Puja</h4>
+        <ul>
+          <li><strong>Invocation</strong> – welcoming the deity into an image (murti) or symbol</li>
+          <li><strong>Offerings</strong> – flowers (<em>pushpa</em>), water, food (<em>naivedya</em>), incense (<em>dhupa</em>), light (<em>dipa</em>)</li>
+          <li><strong>Arati</strong> – waving an oil lamp in front of the deity while singing devotional hymns</li>
+          <li><strong>Prasad</strong> – blessed food distributed to worshippers</li>
+        </ul>
+        <h4>Context</h4>
+        <p>Puja can be performed at home (domestic shrine) or in a temple (mandir). It is not a collective prayer like Christian services — it is a personal, intimate act of offering. The priest (pandit) mediates between devotee and deity in formal temple settings.</p>
+        <div class="highlight">Key exam point: Puja reflects the Hindu concept that the divine is immanent — present in images, rivers, animals, fire — not transcendent and separate from the world.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Indian Myths & The Myth of Bon Bibi</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Indian mythology is extraordinarily rich, drawing from the <em>Vedas</em>, <em>Upanishads</em>, the great epics <em>Mahabharata</em> and <em>Ramayana</em>, and the <em>Puranas</em>.</p>
+        <h4>The Myth of Bon Bibi</h4>
+        <p>Bon Bibi is a <strong>forest goddess</strong> of the Sundarbans — the vast mangrove delta shared by India (West Bengal) and Bangladesh. She is unique because she is worshipped by <em>both Hindus and Muslims</em>, reflecting the syncretic folk religion of the region.</p>
+        <h4>The Story</h4>
+        <ul>
+          <li>Bon Bibi ("Lady of the Forest") was sent to the Sundarbans by Allah to protect humans from the tiger-demon <strong>Dokkhin Rai</strong> (the "Lord of the South"), who rules the forest and demands human sacrifice.</li>
+          <li>In the central myth, a boy named <strong>Dukhey</strong> is sold to Dokkhin Rai by a greedy merchant. Dukhey prays to Bon Bibi, who rescues him and defeats the demon.</li>
+          <li>The story encodes a moral: <strong>human greed</strong> (exploiting the forest for honey and wood) provokes the wrath of nature; devotion and humility offer protection.</li>
+        </ul>
+        <h4>Connection to Amitav Ghosh</h4>
+        <p>Ghosh retells and analyses the Bon Bibi myth in his novel <em>The Hungry Tide</em> (2004), set in the Sundarbans. The myth becomes a lens for exploring ecology, colonialism, and the relationship between humans and the non-human world.</p>
+        <div class="highlight">Key literary/cultural link: Bon Bibi is a powerful example of how mythology encodes ecological wisdom — the myth regulates behaviour toward the forest long before modern environmentalism.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Amitav Ghosh & His View of Colonialism</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Amitav Ghosh</strong> (born 1956, Calcutta) is one of India's most celebrated English-language authors. He writes at the intersection of history, ecology, and postcolonial theory.</p>
+        <h4>Major Works</h4>
+        <ul>
+          <li><em>The Shadow Lines</em> (1988) – partition, memory, national borders</li>
+          <li><em>The Calcutta Chromosome</em> (1995) – science fiction meets colonial history</li>
+          <li><em>The Hungry Tide</em> (2004) – Sundarbans, ecology, Bon Bibi myth</li>
+          <li><em>The Ibis Trilogy</em> (2008–2015): <em>Sea of Poppies</em>, <em>River of Smoke</em>, <em>Flood of Fire</em> – opium trade and colonialism</li>
+          <li><em>The Great Derangement</em> (2016) – climate change and cultural failure</li>
+        </ul>
+        <h4>His View of Colonialism</h4>
+        <ul>
+          <li>Colonialism was not simply political domination — it was an <strong>economic and ecological extraction</strong> system. The British did not just rule India; they restructured its agriculture (forcing opium cultivation in Bihar), destroyed local industries, and created famines.</li>
+          <li>Ghosh emphasises the <strong>Indian Ocean world</strong>: colonialism disrupted ancient networks of trade, migration, and cultural exchange that had existed for centuries before European arrival.</li>
+          <li>He critiques the <strong>Eurocentric narrative of "progress"</strong>: colonial modernity was built on violence and environmental destruction.</li>
+          <li>Ghosh shows how colonialism <strong>lives on in language, memory, and ecology</strong> — it doesn't end with formal independence.</li>
+        </ul>
+        <div class="highlight">Exam angle: Ghosh provides a counter-narrative to Conrad. Where Conrad's European characters are central, Ghosh centres Asian and subaltern voices. Both authors deal with exploitation — but from opposite perspectives.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Holi Festival</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Holi</strong> — the Festival of Colours — is one of Hinduism's most joyful and widely celebrated festivals. It falls on the full moon of the Hindu month of Phalguna (February–March).</p>
+        <h4>Mythology</h4>
+        <p>Holi celebrates the victory of good over evil, specifically the story of <strong>Prahlad and Holika</strong>. The demon king Hiranyakashipu wanted to kill his son Prahlad for worshipping Vishnu instead of him. He ordered his sister Holika (who was immune to fire) to sit in a bonfire holding Prahlad. Vishnu protected Prahlad and Holika burned instead. The night before Holi, bonfires (<em>Holika Dahan</em>) re-enact this myth.</p>
+        <h4>Also connected to Krishna</h4>
+        <p>In northern India, Holi is also linked to Krishna, who playfully threw colours on the gopi (milkmaids), including Radha. The festival thus also celebrates divine love.</p>
+        <h4>How It Is Celebrated</h4>
+        <ul>
+          <li>People throw coloured powder (<em>gulal</em>) and water on each other.</li>
+          <li>Social barriers dissolve — caste, age, gender divisions are temporarily set aside.</li>
+          <li>Sweet foods like <em>gujiya</em> and <em>thandai</em> are shared.</li>
+          <li>Now celebrated worldwide in the Indian diaspora and beyond.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Diwali Festival</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Diwali</strong> (Deepavali = "row of lights") is the Festival of Lights — the most important Hindu festival, celebrated in October or November over five days.</p>
+        <h4>Mythology</h4>
+        <p>Most commonly: celebrates the return of <strong>Rama</strong> (hero of the Ramayana) to Ayodhya after 14 years of exile and his defeat of the demon king Ravana. People lit oil lamps to guide him home. Also associated with the goddess <strong>Lakshmi</strong> (wealth, prosperity) who is worshipped especially on the main night.</p>
+        <h4>How It Is Celebrated</h4>
+        <ul>
+          <li><strong>Diyas</strong> (clay oil lamps) lit in homes, temples, and streets</li>
+          <li>Fireworks and sparklers</li>
+          <li>Cleaning and decorating homes (<em>rangoli</em> patterns at entrances)</li>
+          <li>Exchange of sweets and gifts</li>
+          <li>Puja to Lakshmi and Ganesha</li>
+          <li>New business accounts traditionally opened on Diwali</li>
+        </ul>
+        <h4>Beyond Hinduism</h4>
+        <p>Diwali is also celebrated by Sikhs (commemorating the release of Guru Hargobind from prison), Jains (marking the moment of Mahavira's nirvana), and some Buddhists.</p>
+        <div class="highlight">Compare & contrast with Holi: Diwali = light, autumn, formal worship, wealth; Holi = colour, spring, joyful chaos, love. Both signal a cosmic victory of good over evil.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Languages of India</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>India is one of the world's most linguistically diverse nations — the Constitution recognises <strong>22 official languages</strong>; there are over 1,600 mother tongues.</p>
+        <h4>Language Families</h4>
+        <ul>
+          <li><strong>Indo-Aryan</strong> (North India): Hindi, Bengali, Punjabi, Gujarati, Marathi, Urdu — descended from Sanskrit</li>
+          <li><strong>Dravidian</strong> (South India): Tamil, Telugu, Kannada, Malayalam — entirely separate family</li>
+          <li><strong>Austro-Asiatic & Tibeto-Burman</strong>: spoken by tribal communities in northeast India</li>
+        </ul>
+        <h4>Hindi and English</h4>
+        <p><strong>Hindi</strong> and <strong>English</strong> are the two official languages of the Union government. English is the language of higher education, law, and inter-regional communication — a legacy of British colonialism that post-independence India chose to retain. This creates tension: English speakers have social advantages; non-Hindi states (especially Tamil Nadu) resist Hindi imposition.</p>
+        <h4>Sanskrit</h4>
+        <p>The classical language of Hinduism, Buddhism, and Jainism — the Latin of India. No longer a mother tongue but still used in religious ritual, philosophy, and as a scholarly language.</p>
+        <div class="highlight">Ghosh writes in English — a postcolonial choice that itself raises questions about who gets to tell India's story and to whom.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Taj Mahal</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>The <strong>Taj Mahal</strong> (Agra, Uttar Pradesh) is the most iconic building in India — a UNESCO World Heritage Site and one of the Seven Wonders of the Modern World.</p>
+        <h4>Who Built It and Why</h4>
+        <p>Built by Mughal Emperor <strong>Shah Jahan</strong> (r. 1628–1658) in memory of his beloved wife <strong>Mumtaz Mahal</strong>, who died in 1631 while giving birth to their 14th child. Construction began c. 1632 and was completed c. 1653.</p>
+        <h4>Architecture</h4>
+        <ul>
+          <li>Built from <strong>white Makrana marble</strong> from Rajasthan, inlaid with semi-precious stones (lapis lazuli, jade, turquoise) in <em>pietra dura</em> technique.</li>
+          <li>The main dome is 73 metres high; surrounded by four minarets.</li>
+          <li>Symmetrical garden (<em>charbagh</em>) with a central reflecting pool — the image of the Taj reflected in water is famous.</li>
+          <li>Style: <strong>Mughal architecture</strong> — a fusion of Persian, Islamic, and Hindu elements.</li>
+          <li>Over 20,000 artisans employed; materials transported from across Asia and Persia.</li>
+        </ul>
+        <h4>Cultural Significance</h4>
+        <p>The Taj Mahal is universally described as the ultimate monument to love. It also symbolises the synthesis of Hindu and Islamic traditions — the Mughal Empire at its cultural zenith. It became a symbol of India as a nation.</p>
+        <div class="highlight">The Taj was built during the Mughal period — not British colonialism. Useful to note: British colonialism came AFTER the Mughal era. The EIC defeated the Mughals gradually; formal British Raj only in 1858.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>History of Colonialism & the East India Company</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>British colonialism in India unfolded over three centuries, with the <strong>East India Company</strong> (EIC) as its primary instrument before the British Crown took direct control.</p>
+        <h4>The East India Company (EIC)</h4>
+        <ul>
+          <li>Founded <strong>1600</strong> by royal charter of Queen Elizabeth I.</li>
+          <li>Originally a <strong>trading company</strong> — spices, textiles, tea.</li>
+          <li>Established trading posts (factories) at Surat (1608), Madras (1639), Bombay (1661), Calcutta (1690).</li>
+          <li>Maintained its own <strong>private army</strong> — key to eventual conquest.</li>
+          <li><strong>Battle of Plassey, 1757</strong>: Robert Clive defeated the Nawab of Bengal. This marks the beginning of British territorial dominion.</li>
+          <li>By the early 19th century the EIC effectively controlled most of the subcontinent.</li>
+        </ul>
+        <h4>From Company to Crown</h4>
+        <ul>
+          <li><strong>Indian Uprising of 1857</strong> ("Sepoy Mutiny" in British accounts, "First War of Independence" in Indian accounts): Indian soldiers (sepoys) and rulers revolted against EIC rule. Suppressed brutally.</li>
+          <li><strong>1858</strong>: British Crown abolishes the EIC and assumes direct rule — the <strong>British Raj</strong> begins. Queen Victoria becomes Empress of India in 1877.</li>
+        </ul>
+        <h4>Economic Impact of Colonialism</h4>
+        <ul>
+          <li>India's share of world GDP fell from ~25% to ~4% under British rule.</li>
+          <li>Deliberate <strong>deindustrialisation</strong>: Indian textile industry destroyed to protect British mills.</li>
+          <li>Forced cultivation of <strong>opium</strong> (for China trade) and <strong>indigo</strong> — impoverishing farmers.</li>
+          <li>Multiple catastrophic <strong>famines</strong> (1876–79, 1943) — many historians attribute millions of deaths to colonial policies.</li>
+          <li>Railways built — but primarily to transport resources to ports for export, not for Indian development.</li>
+        </ul>
+        <h4>Path to Independence</h4>
+        <p>Independence achieved <strong>15 August 1947</strong>, led by the Indian National Congress and figures like Gandhi and Nehru. Accompanied by the traumatic <strong>Partition</strong> of India and Pakistan, which caused massive communal violence and 10–20 million refugees.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Mahatma Gandhi – Life & Philosophy</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Biography</h4>
+        <ul>
+          <li><strong>Born</strong>: 2 October 1869, Porbandar (Gujarat)</li>
+          <li>Trained as a barrister in London (1888–91)</li>
+          <li>Worked in <strong>South Africa 1893–1915</strong>: developed his political philosophy fighting racial discrimination against Indians</li>
+          <li>Returned to India 1915; led the independence movement from 1919 onward</li>
+          <li><strong>Assassinated</strong>: 30 January 1948 by Hindu nationalist Nathuram Godse</li>
+        </ul>
+        <h4>Key Events</h4>
+        <ul>
+          <li><strong>Rowlatt Satyagraha (1919)</strong>: First major campaign against British repressive laws</li>
+          <li><strong>Non-Cooperation Movement (1920–22)</strong>: Indians boycott British goods, schools, courts</li>
+          <li><strong>Salt March (Dandi March, 1930)</strong>: 386 km walk to the sea to make salt, defying the British salt tax — iconic act of civil disobedience</li>
+          <li><strong>Quit India Movement (1942)</strong>: Final push for immediate independence</li>
+        </ul>
+        <h4>Philosophy</h4>
+        <ul>
+          <li><strong>Satyagraha</strong> ("truth-force" or "soul-force"): non-violent resistance to injustice. Suffering is accepted voluntarily to appeal to the conscience of the oppressor.</li>
+          <li><strong>Ahimsa</strong> (non-violence): borrowed from Jainism and Hinduism; extended to political action.</li>
+          <li><strong>Swaraj</strong> (self-rule): not just political independence but moral self-governance of individuals.</li>
+          <li><strong>Swadeshi</strong> (self-sufficiency): use Indian-made goods; spinning one's own cloth (<em>khadi</em>) as a symbol of economic independence.</li>
+          <li>Influenced by <strong>Thoreau</strong> (Civil Disobedience), <strong>Tolstoy</strong>, and the <em>Bhagavad Gita</em>.</li>
+        </ul>
+        <div class="highlight">Global legacy: Gandhi's methods directly inspired the American Civil Rights Movement (Martin Luther King Jr.) and anti-apartheid movements worldwide, including Nelson Mandela.</div>
+      </div>
+    </div>
+
+  </div><!-- /india -->
+
+
+  <!-- ===== SOUTH AFRICA ===== -->
+  <div class="module" id="africa">
+    <div class="section-banner africa">
+      <div class="num">3</div>
+      <div class="titles">
+        <div class="icon-label">🌍 Southern Africa</div>
+        <h2>South Africa</h2>
+      </div>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>History of Colonialism & the Dutch East India Company (VOC)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The VOC (Vereenigde Oost-Indische Compagnie)</h4>
+        <ul>
+          <li>Founded <strong>1602</strong> in Amsterdam — the world's first publicly listed company.</li>
+          <li>Established a <strong>refreshment station</strong> at the Cape of Good Hope in <strong>1652</strong>, led by Jan van Riebeeck — the origin of permanent European settlement in southern Africa.</li>
+          <li>The Cape Colony grew as Dutch settlers (<strong>Boers</strong>, later called <strong>Afrikaners</strong>) pushed inland, displacing and enslaving indigenous populations (Khoikhoi, San, Xhosa).</li>
+          <li>The VOC imported enslaved people from Madagascar, Mozambique, and South and Southeast Asia — the origin of the mixed-race Cape Malay community.</li>
+          <li>The VOC went bankrupt in 1799; the Cape Colony passed to Britain in <strong>1806</strong>.</li>
+        </ul>
+        <h4>British Colonialism</h4>
+        <ul>
+          <li><strong>Great Trek (1835–46)</strong>: Boers moved inland ("voortrekkers") to escape British rule — particularly the abolition of slavery (1833).</li>
+          <li>Boers established the <strong>Transvaal</strong> and <strong>Orange Free State</strong> republics.</li>
+          <li><strong>Anglo-Boer Wars</strong> (1880–81 and 1899–1902): Britain defeated the Boers and annexed their republics. The British introduced concentration camps where thousands of Boer women, children, and Black Africans died.</li>
+          <li><strong>Union of South Africa (1910)</strong>: a self-governing dominion within the British Empire — but only white citizens had full political rights.</li>
+        </ul>
+        <h4>Indigenous Resistance</h4>
+        <p>The Zulu, Xhosa, and other groups fought prolonged wars against colonial encroachment. The <strong>Zulu War of 1879</strong> (including the famous British defeat at Isandlwana) is the most dramatic example.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Apartheid</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Apartheid</strong> (Afrikaans: "separateness") was the system of institutionalised racial segregation and white minority rule in South Africa from <strong>1948 to 1994</strong>.</p>
+        <h4>Origins</h4>
+        <p>The National Party won the 1948 elections and immediately began formalising racial separation that had long existed informally under British and Boer rule.</p>
+        <h4>Key Laws</h4>
+        <ul>
+          <li><strong>Population Registration Act (1950)</strong>: classified every South African as White, Coloured, Indian, or Native (Black)</li>
+          <li><strong>Group Areas Act (1950)</strong>: forced racial residential segregation; Black South Africans expelled to "homelands" (Bantustans)</li>
+          <li><strong>Pass Laws</strong>: Black people required to carry passbooks to move in "white areas"</li>
+          <li><strong>Separate Amenities Act (1953)</strong>: separate (and inferior) schools, hospitals, beaches, transport for non-whites</li>
+          <li><strong>Suppression of Communism Act</strong>: used to ban and imprison any opposition</li>
+        </ul>
+        <h4>Resistance & Key Events</h4>
+        <ul>
+          <li><strong>ANC (African National Congress)</strong>: founded 1912; led anti-apartheid struggle</li>
+          <li><strong>Sharpeville Massacre (1960)</strong>: 69 protesters killed by police; ANC banned</li>
+          <li><strong>Rivonia Trial (1963–64)</strong>: Mandela and ANC leaders sentenced to life imprisonment</li>
+          <li><strong>Soweto Uprising (1976)</strong>: students protest against Afrikaans as language of instruction; hundreds killed</li>
+          <li>International economic sanctions and cultural boycotts in the 1980s isolated South Africa</li>
+        </ul>
+        <h4>End of Apartheid</h4>
+        <ul>
+          <li><strong>1990</strong>: President F.W. de Klerk unbans the ANC; Mandela released after 27 years</li>
+          <li><strong>1994</strong>: First democratic elections; Mandela elected president</li>
+          <li>Truth and Reconciliation Commission (TRC) under Archbishop Desmond Tutu</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Nelson Mandela</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Biography</h4>
+        <ul>
+          <li><strong>Born</strong>: 18 July 1918, Mvezo, Eastern Cape (Xhosa clan)</li>
+          <li>Studied law at Fort Hare University and Witwatersrand</li>
+          <li>Joined the ANC in 1944; co-founded the <strong>ANC Youth League</strong></li>
+          <li>Led the ANC's armed wing (<em>Umkhonto we Sizwe</em> – "Spear of the Nation") after the Sharpeville Massacre</li>
+          <li><strong>Arrested 1962</strong>; at the Rivonia Trial (1963–64) sentenced to <strong>life imprisonment</strong></li>
+          <li>Imprisoned primarily at <strong>Robben Island</strong> for 18 of his 27 years</li>
+          <li>Released <strong>11 February 1990</strong></li>
+          <li>Nobel Peace Prize 1993 (shared with de Klerk)</li>
+          <li><strong>President of South Africa 1994–1999</strong> — the first democratically elected president</li>
+          <li>Died <strong>5 December 2013</strong></li>
+        </ul>
+        <h4>Philosophy & Legacy</h4>
+        <ul>
+          <li>Evolved from militant resistance (1960s) to emphasis on <strong>reconciliation and forgiveness</strong> after prison</li>
+          <li>Championed <strong>ubuntu</strong> philosophy: "I am because we are" — humaneness, community solidarity</li>
+          <li>Opposed revenge; supported the TRC process of truth-telling over prosecution</li>
+          <li>His autobiography <em>Long Walk to Freedom</em> (1994) is a key primary source</li>
+        </ul>
+        <div class="highlight">Mandela was directly inspired by Gandhi's philosophy of non-violent resistance — though he later concluded that armed resistance was necessary when peaceful protest was met with violent suppression.</div>
+      </div>
+    </div>
+
+  </div><!-- /africa -->
+
+  <!-- ===== 4. DORIS LESSING ===== -->
+  <div class="module" id="lessing">
+    <div class="section-banner africa">
+      <div class="num">4</div>
+      <div class="titles">
+        <div class="icon-label">📖 Author Study</div>
+        <h2>Doris Lessing</h2>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Doris Lessing</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Biography</h4>
+        <ul>
+          <li><strong>Born</strong>: 22 October 1919, Kermanshah, Persia (now Iran)</li>
+          <li>Grew up in <strong>Southern Rhodesia</strong> (now Zimbabwe) from age 5</li>
+          <li>Left school at 13; self-educated</li>
+          <li>Twice married and divorced; left for London in <strong>1949</strong> with her youngest son and the manuscript of her first novel</li>
+          <li><strong>Nobel Prize in Literature, 2007</strong></li>
+          <li>Died: 17 November 2013, London</li>
+        </ul>
+        <h4>Major Works</h4>
+        <ul>
+          <li><em>The Grass Is Singing</em> (1950) – first novel; race and sexuality in colonial Africa</li>
+          <li><em>African Stories</em> (1964) – collected short stories set in Southern Africa; includes "The Antheap"</li>
+          <li><em>The Golden Notebook</em> (1962) – her masterpiece; fragmented narrative exploring women, politics, mental breakdown; a feminist classic</li>
+          <li><em>The Fifth Child</em> (1988) – disturbing domestic horror/fable</li>
+        </ul>
+        <h4>Themes</h4>
+        <ul>
+          <li>Colonial racism and its psychological damage (on both coloniser and colonised)</li>
+          <li>Women's autonomy and the tensions between personal life and political commitment</li>
+          <li>Communism and disillusionment with ideology</li>
+          <li>The power of landscape — the African veld is a moral and psychological space in her work</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Antheap – Analysis</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <span class="tag africa">Short Story</span><span class="tag africa">Realism</span><span class="tag africa">Colonialism</span>
+        <h4>Context</h4>
+        <p>"The Antheap" is a short story from <em>African Stories</em> (1964), set in colonial Southern Rhodesia (Zimbabwe), in a mining community.</p>
+        <h4>Plot</h4>
+        <ul>
+          <li><strong>Mr. Macintosh</strong> is a powerful, cynical white mine owner who runs a large gold mine in colonial Southern Rhodesia. He has fathered an illegitimate mixed-race son — <strong>Dirk</strong> — with a local Black woman, but refuses to publicly acknowledge him.</li>
+          <li><strong>Tommy</strong> is the white son of the Clarke family, engineers employed at the mine. He is sensitive and artistically inclined.</li>
+          <li><strong>Dirk</strong> is mixed-race (coloured) — proud, highly intelligent, and deeply angry about his condition of enforced invisibility. Despite being Macintosh's biological son, he is denied recognition and education.</li>
+          <li>Tommy and Dirk form a deep friendship: they study and create art together; Dirk is arguably the sharper intellect of the two.</li>
+          <li>Macintosh's relationship with both boys is deeply ambiguous — he provides for them financially but in a way that reinforces, rather than challenges, the racial hierarchy.</li>
+          <li>As they grow older, the colonial system forces them apart: Tommy is expected to leave for a proper school and take his place in white society; Dirk, despite his intelligence, is condemned to remain at the mine.</li>
+          <li>The story ends with the two boys managing to convince Macintosh to send them <strong>both</strong> to university — a hard-won, ambiguous victory. As Lessing writes: <em>"Now they had to begin again, in the long and difficult struggle to understand what they had won and how they would use it."</em> Macintosh is described as "defeated by something he did not begin to understand" — he concedes without truly comprehending the moral implications.</li>
+        </ul>
+        <h4>Literary Genre</h4>
+        <p><strong>Realist short story</strong> in the tradition of the colonial fiction subgenre — but from an anti-colonial perspective. The story is rich in social observation and psychological depth. It can also be read as a <strong>Bildungsroman</strong> fragment — a coming-of-age in a corrupted moral environment.</p>
+        <h4>Main Themes</h4>
+        <ul>
+          <li><strong>Racial injustice</strong>: intelligence and talent are irrelevant in a society organised by race</li>
+          <li><strong>Complicity</strong>: even a well-meaning white person ends up perpetuating the system</li>
+          <li><strong>Childhood friendship vs. adult racism</strong>: children see past race; adults enforce it</li>
+          <li><strong>Hybridity and exclusion</strong>: Dirk belongs to neither the white nor the Black world — the mine compound is his only space. His own biological father will not acknowledge him publicly.</li>
+          <li><strong>The coloniser as father who denies his son</strong>: Macintosh literally generates the "mixed-race problem" he refuses to solve — a powerful metaphor for colonialism: the coloniser creates the colonial subject, then denies and oppresses him.</li>
+          <li><strong>Education as power</strong>: access to learning is controlled by race; denying education is an instrument of oppression</li>
+        </ul>
+        <h4>The Symbol of the Antheap</h4>
+        <p>The termite mound (antheap) is a powerful symbol: it suggests a world of hidden, ceaseless labour; a rigid social hierarchy that appears natural but is constructed; and fragility — it can be destroyed, yet is rebuilt compulsively.</p>
+        <div class="highlight">Exam angle: Compare Lessing's approach to colonialism with Conrad's. Both are white European writers depicting non-European worlds — but Lessing's critique is sharper and more explicit. Conrad's narrator (Marlow) remains complicit; Lessing's authorial voice is firmly anti-colonial.</div>
+      </div>
+    </div>
+
+  </div><!-- /lessing -->
+
+  <!-- ===== JOSEPH CONRAD ===== -->
+  <div class="module" id="conrad">
+    <div class="section-banner lit">
+      <div class="num">5</div>
+      <div class="titles">
+        <div class="icon-label">✒️ Author Study</div>
+        <h2>Joseph Conrad</h2>
+      </div>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Biography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <ul>
+          <li><strong>Born</strong>: 3 December 1857, Berdychiv, Ukraine (then Russian Empire) as <em>Józef Teodor Konrad Korzeniowski</em></li>
+          <li>Polish by birth; his parents were Polish patriots imprisoned and exiled by Russia</li>
+          <li>Orphaned by 11; raised by his uncle in Kraków</li>
+          <li><strong>Joined the French merchant navy at 17</strong>; later the British merchant navy</li>
+          <li>Became a British subject in 1886; obtained his master mariner's certificate</li>
+          <li>Sailed to Africa (Congo, 1890) — the experience that inspired <em>Heart of Darkness</em></li>
+          <li>Began writing in English (his third language after Polish and French) in his 30s</li>
+          <li>Major novels: <em>Heart of Darkness</em> (1899/1902), <em>Lord Jim</em> (1900), <em>Nostromo</em> (1904), <em>The Secret Agent</em> (1907)</li>
+          <li>Died: 3 August 1924, Bishopsbourne, Kent</li>
+        </ul>
+        <div class="highlight">Key biographical fact: Conrad wrote his greatest English-language literature in a language he learned as an adult — a remarkable feat that itself reflects themes of displacement, identity, and belonging central to his work.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Heart of Darkness – Full Analysis</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <span class="tag lit">Novella</span><span class="tag lit">Modernism</span><span class="tag lit">Frame Narrative</span><span class="tag lit">Colonialism</span>
+        <h4>Publication</h4>
+        <p>First serialised in <em>Blackwood's Magazine</em> (1899); published as a book in <em>Youth: A Narrative, and Two Other Stories</em> (1902).</p>
+        <h4>Plot</h4>
+        <ul>
+          <li><strong>Frame narrative</strong>: An unnamed narrator tells us that <strong>Marlow</strong> is telling his story aboard a cruising yawl on the Thames, at night, to a group of men.</li>
+          <li>Marlow recounts how he secured a job as a riverboat captain for a Belgian trading company operating in the <strong>Congo</strong>.</li>
+          <li>He travels deep into the African interior to find <strong>Kurtz</strong> — the company's most successful ivory agent, who is reportedly ill and acting strangely.</li>
+          <li>The journey upriver is presented as a journey back in time — into "the heart of darkness," primitive Africa.</li>
+          <li>Arriving at Kurtz's Inner Station, Marlow discovers Kurtz has set himself up as a god among the local people; human heads on posts surround his compound.</li>
+          <li>Kurtz is brought back on the boat but dies on the return journey, his last words: <strong>"The horror! The horror!"</strong></li>
+          <li>Back in Europe, Marlow visits Kurtz's fiancée (the "Intended") and lies to her about Kurtz's last words, saying he spoke her name.</li>
+        </ul>
+        <h4>Literary Genre</h4>
+        <ul>
+          <li><strong>Novella</strong> (short novel — too long for a short story, too short for a novel)</li>
+          <li><strong>Frame narrative</strong> ("story within a story"): Narrator → Marlow → Kurtz</li>
+          <li><strong>Modernist fiction</strong>: psychological depth, unreliable/limited narrator, ambiguity, symbolism over realism</li>
+          <li>Also classified as <strong>adventure fiction</strong> (surface) and <strong>philosophical fiction</strong> (depth)</li>
+        </ul>
+        <h4>Modernist Elements</h4>
+        <ul>
+          <li><strong>Unreliable narrator</strong>: Marlow repeatedly admits he cannot fully understand or communicate what he experienced</li>
+          <li><strong>Stream of consciousness</strong> tendencies: impressionistic, fragmented narration</li>
+          <li><strong>Psychological focus</strong>: the journey is inward as much as outward — Kurtz embodies what the "civilised" man might become without social constraint</li>
+          <li><strong>Ambiguity</strong>: the text refuses easy moral judgements — Kurtz is monstrous but also magnificent; colonialism is critiqued but never cleanly rejected by Marlow</li>
+          <li><strong>Symbolism</strong>: the river, darkness, fog, the knitting women, the heads on stakes</li>
+          <li><strong>Frame narrative</strong> creates narrative unreliability and temporal distance</li>
+        </ul>
+        <h4>Main Themes</h4>
+        <ul>
+          <li><strong>Imperialism and colonialism</strong>: the Belgian operation in the Congo is portrayed as brutal hypocrisy — profit disguised as "civilising mission." The Africans are dehumanised by the system.</li>
+          <li><strong>The "heart of darkness"</strong>: ambiguous — is it Africa? or is it European civilization itself? Or human nature? The title suggests it is within us.</li>
+          <li><strong>Civilisation vs. savagery</strong>: Conrad questions the distinction. Kurtz, the pinnacle of "civilised" European culture, commits the most savage acts.</li>
+          <li><strong>Moral ambiguity and corruption</strong>: all European characters are complicit; Marlow is "saved" by work and restraint, not by superior morality.</li>
+          <li><strong>Truth and lies</strong>: Marlow's lie to the Intended at the end — does it protect her or reinforce patriarchal and colonial illusions?</li>
+          <li><strong>Kurtz as symbol</strong>: he represents the European idealism of the colonial project unmasked — what happens when power has no accountability.</li>
+        </ul>
+        <h4>Critical Controversy: Chinua Achebe's Challenge</h4>
+        <p>In his famous 1977 essay "An Image of Africa," Nigerian novelist <strong>Chinua Achebe</strong> accused Conrad of racism: Africa functions only as a backdrop for European psychological drama; Africans have no voice, no individuality, no humanity. Achebe called Conrad a "thoroughgoing racist."</p>
+        <p>Counter-argument: Conrad was critiquing colonialism more than any major writer of his era — but he could not escape the Eurocentric framework he inhabited.</p>
+        <div class="highlight">Key exam quote: <em>"The horror! The horror!"</em> — Kurtz's dying words. What is the horror? The horror of what he has done? The horror of what he has discovered about himself? The horror of European civilisation? This ambiguity is the point.</div>
+      </div>
+    </div>
+
+  </div><!-- /conrad -->
+
+
+  <!-- ===== STEVE JOBS ===== -->
+  <div class="module" id="jobs">
+    <div class="section-banner tech">
+      <div class="num">6</div>
+      <div class="titles">
+        <div class="icon-label">💻 Biography &amp; Technology</div>
+        <h2>Steve Jobs</h2>
+      </div>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Biography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <ul>
+          <li><strong>Born</strong>: 24 February 1955, San Francisco, California</li>
+          <li>Biological parents: Joanne Schieble and Abdulfattah "John" Jandali (a Syrian immigrant) — given up for adoption</li>
+          <li>Adopted by Paul and Clara Jobs (working-class couple in Mountain View, California)</li>
+          <li>Attended <strong>Reed College, Portland</strong> (1972) — dropped out after one semester but audited classes, including calligraphy (which later influenced Mac typography)</li>
+          <li>Worked at <strong>Atari</strong> (video games); travelled to India seeking spiritual enlightenment (1974)</li>
+          <li>Became a practising <strong>Zen Buddhist</strong></li>
+          <li>Co-founded <strong>Apple Computer, 1976</strong></li>
+          <li>Forced out of Apple by board, 1985</li>
+          <li>Founded <strong>NeXT Computer</strong> (1985) and bought <strong>Pixar</strong> (1986)</li>
+          <li>Returned to Apple 1997 after Apple acquired NeXT</li>
+          <li>Diagnosed with <strong>pancreatic cancer</strong>, 2003 (delayed surgery controversially)</li>
+          <li>Resigned as Apple CEO in August 2011 due to health</li>
+          <li><strong>Died</strong>: 5 October 2011, Palo Alto, California</li>
+        </ul>
+        <div class="highlight">Personality note: Jobs was famously difficult — a "reality distortion field" that convinced his team the impossible was achievable. Brilliant but often cruel. The film <em>Jobs</em> (2013) and the later <em>Steve Jobs</em> (2015, Danny Boyle/Aaron Sorkin) explore this complexity.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The Founding of Apple</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The Three Founders</h4>
+        <ul>
+          <li><strong>Steve Jobs</strong> – vision, marketing, design aesthetic</li>
+          <li><strong>Steve Wozniak</strong> ("Woz") – engineering genius, designed the first Apple computers</li>
+          <li><strong>Ronald Wayne</strong> – drew the first Apple logo; sold his 10% stake for $800 (now worth billions)</li>
+        </ul>
+        <h4>Timeline</h4>
+        <ul>
+          <li><strong>1 April 1976</strong>: Apple Computer Company founded in Jobs' family garage, Cupertino, CA</li>
+          <li><strong>1976</strong>: <em>Apple I</em> — circuit board built by Wozniak; Jobs sold it as a complete product to a local computer shop</li>
+          <li><strong>1977</strong>: <em>Apple II</em> — the breakthrough. First mass-market personal computer with colour graphics. Made Apple a serious company.</li>
+          <li><strong>1980</strong>: Apple IPO — one of the largest in US history to that point. Jobs and Wozniak became millionaires.</li>
+          <li><strong>1984</strong>: <em>Macintosh</em> — launched with the iconic Super Bowl ad "1984" directed by Ridley Scott. First mass-market computer with a graphical user interface (GUI) and mouse.</li>
+          <li><strong>1985</strong>: Board conflict with CEO John Sculley (whom Jobs had recruited). Jobs removed from operational role; resigned and founded NeXT.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Main Inventions & Products</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>First Apple Era (1976–1985)</h4>
+        <ul>
+          <li><strong>Apple II (1977)</strong>: first successful mass-market personal computer</li>
+          <li><strong>Macintosh (1984)</strong>: GUI, mouse, desktop metaphor — democratised computing</li>
+        </ul>
+        <h4>Second Apple Era (1997–2011) — The "Second Coming"</h4>
+        <ul>
+          <li><strong>iMac (1998)</strong>: colourful, user-friendly desktop; rescued Apple from near-bankruptcy</li>
+          <li><strong>iTunes & iPod (2001)</strong>: revolutionised how music is purchased and consumed; 1,000 songs in your pocket</li>
+          <li><strong>iTunes Store (2003)</strong>: first legal, successful digital music store — 99 cents per song</li>
+          <li><strong>iPhone (2007)</strong>: arguably the most significant consumer product of the 21st century. Combined phone, music player, and internet communicator. Killed the button — multitouch screen. Created the smartphone era and the app economy.</li>
+          <li><strong>App Store (2008)</strong>: created an entirely new software distribution model</li>
+          <li><strong>iPad (2010)</strong>: created the modern tablet market</li>
+        </ul>
+        <h4>NeXT & Pixar (1985–1997)</h4>
+        <ul>
+          <li><strong>NeXT</strong>: high-end workstations for education and business. Tim Berners-Lee invented the World Wide Web on a NeXT computer (1989). NeXT's OS became the foundation of macOS.</li>
+          <li><strong>Pixar</strong>: bought from George Lucas for $5 million; became the world's leading animation studio. <em>Toy Story</em> (1995) — first fully CGI feature film. Sold to Disney for $7.4 billion (2006).</li>
+        </ul>
+        <h4>Jobs' Design Philosophy</h4>
+        <ul>
+          <li>Obsessive attention to every detail, including what the user doesn't see</li>
+          <li>"Simplicity is the ultimate sophistication"</li>
+          <li>Technology should be intuitive — not require a manual</li>
+          <li>The intersection of <strong>technology and liberal arts</strong> — form and function as one</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Jobs (2013 Film)</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Basic Info</h4>
+        <ul>
+          <li><strong>Director</strong>: Joshua Michael Stern</li>
+          <li><strong>Screenplay</strong>: Matt Whiteley</li>
+          <li><strong>Steve Jobs played by</strong>: Ashton Kutcher</li>
+          <li><strong>Wozniak played by</strong>: Josh Gad</li>
+          <li>Released August 2013</li>
+        </ul>
+        <h4>Plot Coverage</h4>
+        <p>The film covers Jobs' life from his time at Reed College (1974) through to the announcement of the iPod (2001). It focuses on his role in founding Apple, his obsessive perfectionism, his conflict with the Apple board, his exile, and his triumphant return.</p>
+        <h4>Themes of the Film</h4>
+        <ul>
+          <li><strong>Genius and obsession</strong>: how the qualities that make Jobs revolutionary also make him a difficult human being</li>
+          <li><strong>Corporate power and betrayal</strong>: even the visionary can be cast out by the machine he built</li>
+          <li><strong>Innovation vs. commerce</strong>: the tension between creating something beautiful and making money</li>
+          <li><strong>Leadership style</strong>: Jobs' demanding, sometimes cruel management — portrayed with complexity</li>
+        </ul>
+        <h4>Critical Reception</h4>
+        <p>Mixed. Praised for Kutcher's physical resemblance and performance; criticised for being hagiographic (too reverential) and for historical inaccuracies. Steve Wozniak himself criticised the portrayal of early Apple. The later <em>Steve Jobs</em> (2015, directed by Danny Boyle, written by Aaron Sorkin, starring Michael Fassbender) is generally considered the superior, more critical film.</p>
+        <div class="highlight">For the exam: the film can be used to discuss American entrepreneurial mythology, the cult of the individual genius, and the ethics of creative leadership. It's also a lens on digital technology's cultural impact.</div>
+      </div>
+    </div>
+
+  </div><!-- /jobs -->
+
+
+
   <!-- ===== WEB & INTERNET ===== -->
   <div class="module" id="web">
-    <div class="module-header">
-      <div class="module-icon">🌐</div>
-      <h2 class="module-title tech">The World Wide Web</h2>
+    <div class="section-banner tech">
+      <div class="num">7</div>
+      <div class="titles">
+        <div class="icon-label">🌐 Digital Civilisation</div>
+        <h2>The World Wide Web</h2>
+      </div>
     </div>
 
     <div class="topic open">
@@ -557,9 +1406,12 @@
 
   <!-- ===== INDUSTRY 4.0 ===== -->
   <div class="module" id="industry40">
-    <div class="module-header">
-      <div class="module-icon">🤖</div>
-      <h2 class="module-title tech">Industry 4.0 and the Future</h2>
+    <div class="section-banner tech">
+      <div class="num">8</div>
+      <div class="titles">
+        <div class="icon-label">🤖 Technology &amp; Society</div>
+        <h2>Industry 4.0 and the Future</h2>
+      </div>
     </div>
 
     <div class="topic open">
@@ -731,764 +1583,82 @@
   </div><!-- /industry40 -->
 
 
-  <!-- ===== INDIA ===== -->
-  <div class="module" id="india">
-    <div class="module-header">
-      <div class="module-icon">🇮🇳</div>
-      <h2 class="module-title india">India</h2>
-    </div>
-
-    <div class="topic open">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Main Religions</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p>India is home to four major world religions born on its soil and hosts significant populations of others.</p>
-        <h4>Hinduism</h4>
-        <p>The oldest and largest religion (~80% of population). Polytheistic – believes in a universal spirit (Brahman) manifested in many deities (Brahma, Vishnu, Shiva). Core concepts: <strong>dharma</strong> (duty/cosmic order), <strong>karma</strong> (action and its consequences), <strong>samsara</strong> (cycle of birth, death, rebirth), <strong>moksha</strong> (liberation from the cycle).</p>
-        <h4>Islam (~14%)</h4>
-        <p>Arrived in India from the 7th century. Largest minority religion. India has the world's third-largest Muslim population. The Mughal Empire (1526–1857) left a profound cultural and architectural legacy (including the Taj Mahal).</p>
-        <h4>Buddhism</h4>
-        <p>Founded by Siddhartha Gautama (5th century BCE) in what is now Nepal/northeastern India. Based on the Four Noble Truths and the Eightfold Path. Spread across Asia; now less than 1% in India itself.</p>
-        <h4>Sikhism</h4>
-        <p>Founded in Punjab in the 15th century by Guru Nanak. Monotheistic. Core values: equality of all humans, service (<em>sewa</em>), community kitchen (<em>langar</em>). Sikhs are recognisable by the five Ks (Kesh, Kangha, Kara, Kachera, Kirpan).</p>
-        <h4>Christianity & Jainism</h4>
-        <p>Christianity arrived via St Thomas (1st century AD) and later Portuguese and British missions. Jainism is ancient, pre-dating Buddhism, and emphasises non-violence (<em>ahimsa</em>) to an extreme degree.</p>
-        <div class="highlight">Potential exam link: Gandhi was deeply influenced by Jain principles of ahimsa and Hindu philosophy simultaneously.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Puja</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p><strong>Puja</strong> (Sanskrit: "reverence/worship") is the central act of Hindu devotion — a ritual offering to a deity, performed daily at home shrines or in temples.</p>
-        <h4>Structure of Puja</h4>
-        <ul>
-          <li><strong>Invocation</strong> – welcoming the deity into an image (murti) or symbol</li>
-          <li><strong>Offerings</strong> – flowers (<em>pushpa</em>), water, food (<em>naivedya</em>), incense (<em>dhupa</em>), light (<em>dipa</em>)</li>
-          <li><strong>Arati</strong> – waving an oil lamp in front of the deity while singing devotional hymns</li>
-          <li><strong>Prasad</strong> – blessed food distributed to worshippers</li>
-        </ul>
-        <h4>Context</h4>
-        <p>Puja can be performed at home (domestic shrine) or in a temple (mandir). It is not a collective prayer like Christian services — it is a personal, intimate act of offering. The priest (pandit) mediates between devotee and deity in formal temple settings.</p>
-        <div class="highlight">Key exam point: Puja reflects the Hindu concept that the divine is immanent — present in images, rivers, animals, fire — not transcendent and separate from the world.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Indian Myths & The Myth of Bon Bibi</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p>Indian mythology is extraordinarily rich, drawing from the <em>Vedas</em>, <em>Upanishads</em>, the great epics <em>Mahabharata</em> and <em>Ramayana</em>, and the <em>Puranas</em>.</p>
-        <h4>The Myth of Bon Bibi</h4>
-        <p>Bon Bibi is a <strong>forest goddess</strong> of the Sundarbans — the vast mangrove delta shared by India (West Bengal) and Bangladesh. She is unique because she is worshipped by <em>both Hindus and Muslims</em>, reflecting the syncretic folk religion of the region.</p>
-        <h4>The Story</h4>
-        <ul>
-          <li>Bon Bibi ("Lady of the Forest") was sent to the Sundarbans by Allah to protect humans from the tiger-demon <strong>Dokkhin Rai</strong> (the "Lord of the South"), who rules the forest and demands human sacrifice.</li>
-          <li>In the central myth, a boy named <strong>Dukhey</strong> is sold to Dokkhin Rai by a greedy merchant. Dukhey prays to Bon Bibi, who rescues him and defeats the demon.</li>
-          <li>The story encodes a moral: <strong>human greed</strong> (exploiting the forest for honey and wood) provokes the wrath of nature; devotion and humility offer protection.</li>
-        </ul>
-        <h4>Connection to Amitav Ghosh</h4>
-        <p>Ghosh retells and analyses the Bon Bibi myth in his novel <em>The Hungry Tide</em> (2004), set in the Sundarbans. The myth becomes a lens for exploring ecology, colonialism, and the relationship between humans and the non-human world.</p>
-        <div class="highlight">Key literary/cultural link: Bon Bibi is a powerful example of how mythology encodes ecological wisdom — the myth regulates behaviour toward the forest long before modern environmentalism.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Amitav Ghosh & His View of Colonialism</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p><strong>Amitav Ghosh</strong> (born 1956, Calcutta) is one of India's most celebrated English-language authors. He writes at the intersection of history, ecology, and postcolonial theory.</p>
-        <h4>Major Works</h4>
-        <ul>
-          <li><em>The Shadow Lines</em> (1988) – partition, memory, national borders</li>
-          <li><em>The Calcutta Chromosome</em> (1995) – science fiction meets colonial history</li>
-          <li><em>The Hungry Tide</em> (2004) – Sundarbans, ecology, Bon Bibi myth</li>
-          <li><em>The Ibis Trilogy</em> (2008–2015): <em>Sea of Poppies</em>, <em>River of Smoke</em>, <em>Flood of Fire</em> – opium trade and colonialism</li>
-          <li><em>The Great Derangement</em> (2016) – climate change and cultural failure</li>
-        </ul>
-        <h4>His View of Colonialism</h4>
-        <ul>
-          <li>Colonialism was not simply political domination — it was an <strong>economic and ecological extraction</strong> system. The British did not just rule India; they restructured its agriculture (forcing opium cultivation in Bihar), destroyed local industries, and created famines.</li>
-          <li>Ghosh emphasises the <strong>Indian Ocean world</strong>: colonialism disrupted ancient networks of trade, migration, and cultural exchange that had existed for centuries before European arrival.</li>
-          <li>He critiques the <strong>Eurocentric narrative of "progress"</strong>: colonial modernity was built on violence and environmental destruction.</li>
-          <li>Ghosh shows how colonialism <strong>lives on in language, memory, and ecology</strong> — it doesn't end with formal independence.</li>
-        </ul>
-        <div class="highlight">Exam angle: Ghosh provides a counter-narrative to Conrad. Where Conrad's European characters are central, Ghosh centres Asian and subaltern voices. Both authors deal with exploitation — but from opposite perspectives.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Holi Festival</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p><strong>Holi</strong> — the Festival of Colours — is one of Hinduism's most joyful and widely celebrated festivals. It falls on the full moon of the Hindu month of Phalguna (February–March).</p>
-        <h4>Mythology</h4>
-        <p>Holi celebrates the victory of good over evil, specifically the story of <strong>Prahlad and Holika</strong>. The demon king Hiranyakashipu wanted to kill his son Prahlad for worshipping Vishnu instead of him. He ordered his sister Holika (who was immune to fire) to sit in a bonfire holding Prahlad. Vishnu protected Prahlad and Holika burned instead. The night before Holi, bonfires (<em>Holika Dahan</em>) re-enact this myth.</p>
-        <h4>Also connected to Krishna</h4>
-        <p>In northern India, Holi is also linked to Krishna, who playfully threw colours on the gopi (milkmaids), including Radha. The festival thus also celebrates divine love.</p>
-        <h4>How It Is Celebrated</h4>
-        <ul>
-          <li>People throw coloured powder (<em>gulal</em>) and water on each other.</li>
-          <li>Social barriers dissolve — caste, age, gender divisions are temporarily set aside.</li>
-          <li>Sweet foods like <em>gujiya</em> and <em>thandai</em> are shared.</li>
-          <li>Now celebrated worldwide in the Indian diaspora and beyond.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Diwali Festival</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p><strong>Diwali</strong> (Deepavali = "row of lights") is the Festival of Lights — the most important Hindu festival, celebrated in October or November over five days.</p>
-        <h4>Mythology</h4>
-        <p>Most commonly: celebrates the return of <strong>Rama</strong> (hero of the Ramayana) to Ayodhya after 14 years of exile and his defeat of the demon king Ravana. People lit oil lamps to guide him home. Also associated with the goddess <strong>Lakshmi</strong> (wealth, prosperity) who is worshipped especially on the main night.</p>
-        <h4>How It Is Celebrated</h4>
-        <ul>
-          <li><strong>Diyas</strong> (clay oil lamps) lit in homes, temples, and streets</li>
-          <li>Fireworks and sparklers</li>
-          <li>Cleaning and decorating homes (<em>rangoli</em> patterns at entrances)</li>
-          <li>Exchange of sweets and gifts</li>
-          <li>Puja to Lakshmi and Ganesha</li>
-          <li>New business accounts traditionally opened on Diwali</li>
-        </ul>
-        <h4>Beyond Hinduism</h4>
-        <p>Diwali is also celebrated by Sikhs (commemorating the release of Guru Hargobind from prison), Jains (marking the moment of Mahavira's nirvana), and some Buddhists.</p>
-        <div class="highlight">Compare & contrast with Holi: Diwali = light, autumn, formal worship, wealth; Holi = colour, spring, joyful chaos, love. Both signal a cosmic victory of good over evil.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Languages of India</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p>India is one of the world's most linguistically diverse nations — the Constitution recognises <strong>22 official languages</strong>; there are over 1,600 mother tongues.</p>
-        <h4>Language Families</h4>
-        <ul>
-          <li><strong>Indo-Aryan</strong> (North India): Hindi, Bengali, Punjabi, Gujarati, Marathi, Urdu — descended from Sanskrit</li>
-          <li><strong>Dravidian</strong> (South India): Tamil, Telugu, Kannada, Malayalam — entirely separate family</li>
-          <li><strong>Austro-Asiatic & Tibeto-Burman</strong>: spoken by tribal communities in northeast India</li>
-        </ul>
-        <h4>Hindi and English</h4>
-        <p><strong>Hindi</strong> and <strong>English</strong> are the two official languages of the Union government. English is the language of higher education, law, and inter-regional communication — a legacy of British colonialism that post-independence India chose to retain. This creates tension: English speakers have social advantages; non-Hindi states (especially Tamil Nadu) resist Hindi imposition.</p>
-        <h4>Sanskrit</h4>
-        <p>The classical language of Hinduism, Buddhism, and Jainism — the Latin of India. No longer a mother tongue but still used in religious ritual, philosophy, and as a scholarly language.</p>
-        <div class="highlight">Ghosh writes in English — a postcolonial choice that itself raises questions about who gets to tell India's story and to whom.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Taj Mahal</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p>The <strong>Taj Mahal</strong> (Agra, Uttar Pradesh) is the most iconic building in India — a UNESCO World Heritage Site and one of the Seven Wonders of the Modern World.</p>
-        <h4>Who Built It and Why</h4>
-        <p>Built by Mughal Emperor <strong>Shah Jahan</strong> (r. 1628–1658) in memory of his beloved wife <strong>Mumtaz Mahal</strong>, who died in 1631 while giving birth to their 14th child. Construction began c. 1632 and was completed c. 1653.</p>
-        <h4>Architecture</h4>
-        <ul>
-          <li>Built from <strong>white Makrana marble</strong> from Rajasthan, inlaid with semi-precious stones (lapis lazuli, jade, turquoise) in <em>pietra dura</em> technique.</li>
-          <li>The main dome is 73 metres high; surrounded by four minarets.</li>
-          <li>Symmetrical garden (<em>charbagh</em>) with a central reflecting pool — the image of the Taj reflected in water is famous.</li>
-          <li>Style: <strong>Mughal architecture</strong> — a fusion of Persian, Islamic, and Hindu elements.</li>
-          <li>Over 20,000 artisans employed; materials transported from across Asia and Persia.</li>
-        </ul>
-        <h4>Cultural Significance</h4>
-        <p>The Taj Mahal is universally described as the ultimate monument to love. It also symbolises the synthesis of Hindu and Islamic traditions — the Mughal Empire at its cultural zenith. It became a symbol of India as a nation.</p>
-        <div class="highlight">The Taj was built during the Mughal period — not British colonialism. Useful to note: British colonialism came AFTER the Mughal era. The EIC defeated the Mughals gradually; formal British Raj only in 1858.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>History of Colonialism & the East India Company</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p>British colonialism in India unfolded over three centuries, with the <strong>East India Company</strong> (EIC) as its primary instrument before the British Crown took direct control.</p>
-        <h4>The East India Company (EIC)</h4>
-        <ul>
-          <li>Founded <strong>1600</strong> by royal charter of Queen Elizabeth I.</li>
-          <li>Originally a <strong>trading company</strong> — spices, textiles, tea.</li>
-          <li>Established trading posts (factories) at Surat (1608), Madras (1639), Bombay (1661), Calcutta (1690).</li>
-          <li>Maintained its own <strong>private army</strong> — key to eventual conquest.</li>
-          <li><strong>Battle of Plassey, 1757</strong>: Robert Clive defeated the Nawab of Bengal. This marks the beginning of British territorial dominion.</li>
-          <li>By the early 19th century the EIC effectively controlled most of the subcontinent.</li>
-        </ul>
-        <h4>From Company to Crown</h4>
-        <ul>
-          <li><strong>Indian Uprising of 1857</strong> ("Sepoy Mutiny" in British accounts, "First War of Independence" in Indian accounts): Indian soldiers (sepoys) and rulers revolted against EIC rule. Suppressed brutally.</li>
-          <li><strong>1858</strong>: British Crown abolishes the EIC and assumes direct rule — the <strong>British Raj</strong> begins. Queen Victoria becomes Empress of India in 1877.</li>
-        </ul>
-        <h4>Economic Impact of Colonialism</h4>
-        <ul>
-          <li>India's share of world GDP fell from ~25% to ~4% under British rule.</li>
-          <li>Deliberate <strong>deindustrialisation</strong>: Indian textile industry destroyed to protect British mills.</li>
-          <li>Forced cultivation of <strong>opium</strong> (for China trade) and <strong>indigo</strong> — impoverishing farmers.</li>
-          <li>Multiple catastrophic <strong>famines</strong> (1876–79, 1943) — many historians attribute millions of deaths to colonial policies.</li>
-          <li>Railways built — but primarily to transport resources to ports for export, not for Indian development.</li>
-        </ul>
-        <h4>Path to Independence</h4>
-        <p>Independence achieved <strong>15 August 1947</strong>, led by the Indian National Congress and figures like Gandhi and Nehru. Accompanied by the traumatic <strong>Partition</strong> of India and Pakistan, which caused massive communal violence and 10–20 million refugees.</p>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Mahatma Gandhi – Life & Philosophy</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>Biography</h4>
-        <ul>
-          <li><strong>Born</strong>: 2 October 1869, Porbandar (Gujarat)</li>
-          <li>Trained as a barrister in London (1888–91)</li>
-          <li>Worked in <strong>South Africa 1893–1915</strong>: developed his political philosophy fighting racial discrimination against Indians</li>
-          <li>Returned to India 1915; led the independence movement from 1919 onward</li>
-          <li><strong>Assassinated</strong>: 30 January 1948 by Hindu nationalist Nathuram Godse</li>
-        </ul>
-        <h4>Key Events</h4>
-        <ul>
-          <li><strong>Rowlatt Satyagraha (1919)</strong>: First major campaign against British repressive laws</li>
-          <li><strong>Non-Cooperation Movement (1920–22)</strong>: Indians boycott British goods, schools, courts</li>
-          <li><strong>Salt March (Dandi March, 1930)</strong>: 386 km walk to the sea to make salt, defying the British salt tax — iconic act of civil disobedience</li>
-          <li><strong>Quit India Movement (1942)</strong>: Final push for immediate independence</li>
-        </ul>
-        <h4>Philosophy</h4>
-        <ul>
-          <li><strong>Satyagraha</strong> ("truth-force" or "soul-force"): non-violent resistance to injustice. Suffering is accepted voluntarily to appeal to the conscience of the oppressor.</li>
-          <li><strong>Ahimsa</strong> (non-violence): borrowed from Jainism and Hinduism; extended to political action.</li>
-          <li><strong>Swaraj</strong> (self-rule): not just political independence but moral self-governance of individuals.</li>
-          <li><strong>Swadeshi</strong> (self-sufficiency): use Indian-made goods; spinning one's own cloth (<em>khadi</em>) as a symbol of economic independence.</li>
-          <li>Influenced by <strong>Thoreau</strong> (Civil Disobedience), <strong>Tolstoy</strong>, and the <em>Bhagavad Gita</em>.</li>
-        </ul>
-        <div class="highlight">Global legacy: Gandhi's methods directly inspired the American Civil Rights Movement (Martin Luther King Jr.) and anti-apartheid movements worldwide, including Nelson Mandela.</div>
-      </div>
-    </div>
-
-  </div><!-- /india -->
-
-
-  <!-- ===== SOUTH AFRICA ===== -->
-  <div class="module" id="africa">
-    <div class="module-header">
-      <div class="module-icon">🌍</div>
-      <h2 class="module-title africa">South Africa</h2>
-    </div>
-
-    <div class="topic open">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>History of Colonialism & the Dutch East India Company (VOC)</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>The VOC (Vereenigde Oost-Indische Compagnie)</h4>
-        <ul>
-          <li>Founded <strong>1602</strong> in Amsterdam — the world's first publicly listed company.</li>
-          <li>Established a <strong>refreshment station</strong> at the Cape of Good Hope in <strong>1652</strong>, led by Jan van Riebeeck — the origin of permanent European settlement in southern Africa.</li>
-          <li>The Cape Colony grew as Dutch settlers (<strong>Boers</strong>, later called <strong>Afrikaners</strong>) pushed inland, displacing and enslaving indigenous populations (Khoikhoi, San, Xhosa).</li>
-          <li>The VOC imported enslaved people from Madagascar, Mozambique, and South and Southeast Asia — the origin of the mixed-race Cape Malay community.</li>
-          <li>The VOC went bankrupt in 1799; the Cape Colony passed to Britain in <strong>1806</strong>.</li>
-        </ul>
-        <h4>British Colonialism</h4>
-        <ul>
-          <li><strong>Great Trek (1835–46)</strong>: Boers moved inland ("voortrekkers") to escape British rule — particularly the abolition of slavery (1833).</li>
-          <li>Boers established the <strong>Transvaal</strong> and <strong>Orange Free State</strong> republics.</li>
-          <li><strong>Anglo-Boer Wars</strong> (1880–81 and 1899–1902): Britain defeated the Boers and annexed their republics. The British introduced concentration camps where thousands of Boer women, children, and Black Africans died.</li>
-          <li><strong>Union of South Africa (1910)</strong>: a self-governing dominion within the British Empire — but only white citizens had full political rights.</li>
-        </ul>
-        <h4>Indigenous Resistance</h4>
-        <p>The Zulu, Xhosa, and other groups fought prolonged wars against colonial encroachment. The <strong>Zulu War of 1879</strong> (including the famous British defeat at Isandlwana) is the most dramatic example.</p>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Apartheid</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <p><strong>Apartheid</strong> (Afrikaans: "separateness") was the system of institutionalised racial segregation and white minority rule in South Africa from <strong>1948 to 1994</strong>.</p>
-        <h4>Origins</h4>
-        <p>The National Party won the 1948 elections and immediately began formalising racial separation that had long existed informally under British and Boer rule.</p>
-        <h4>Key Laws</h4>
-        <ul>
-          <li><strong>Population Registration Act (1950)</strong>: classified every South African as White, Coloured, Indian, or Native (Black)</li>
-          <li><strong>Group Areas Act (1950)</strong>: forced racial residential segregation; Black South Africans expelled to "homelands" (Bantustans)</li>
-          <li><strong>Pass Laws</strong>: Black people required to carry passbooks to move in "white areas"</li>
-          <li><strong>Separate Amenities Act (1953)</strong>: separate (and inferior) schools, hospitals, beaches, transport for non-whites</li>
-          <li><strong>Suppression of Communism Act</strong>: used to ban and imprison any opposition</li>
-        </ul>
-        <h4>Resistance & Key Events</h4>
-        <ul>
-          <li><strong>ANC (African National Congress)</strong>: founded 1912; led anti-apartheid struggle</li>
-          <li><strong>Sharpeville Massacre (1960)</strong>: 69 protesters killed by police; ANC banned</li>
-          <li><strong>Rivonia Trial (1963–64)</strong>: Mandela and ANC leaders sentenced to life imprisonment</li>
-          <li><strong>Soweto Uprising (1976)</strong>: students protest against Afrikaans as language of instruction; hundreds killed</li>
-          <li>International economic sanctions and cultural boycotts in the 1980s isolated South Africa</li>
-        </ul>
-        <h4>End of Apartheid</h4>
-        <ul>
-          <li><strong>1990</strong>: President F.W. de Klerk unbans the ANC; Mandela released after 27 years</li>
-          <li><strong>1994</strong>: First democratic elections; Mandela elected president</li>
-          <li>Truth and Reconciliation Commission (TRC) under Archbishop Desmond Tutu</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Nelson Mandela</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>Biography</h4>
-        <ul>
-          <li><strong>Born</strong>: 18 July 1918, Mvezo, Eastern Cape (Xhosa clan)</li>
-          <li>Studied law at Fort Hare University and Witwatersrand</li>
-          <li>Joined the ANC in 1944; co-founded the <strong>ANC Youth League</strong></li>
-          <li>Led the ANC's armed wing (<em>Umkhonto we Sizwe</em> – "Spear of the Nation") after the Sharpeville Massacre</li>
-          <li><strong>Arrested 1962</strong>; at the Rivonia Trial (1963–64) sentenced to <strong>life imprisonment</strong></li>
-          <li>Imprisoned primarily at <strong>Robben Island</strong> for 18 of his 27 years</li>
-          <li>Released <strong>11 February 1990</strong></li>
-          <li>Nobel Peace Prize 1993 (shared with de Klerk)</li>
-          <li><strong>President of South Africa 1994–1999</strong> — the first democratically elected president</li>
-          <li>Died <strong>5 December 2013</strong></li>
-        </ul>
-        <h4>Philosophy & Legacy</h4>
-        <ul>
-          <li>Evolved from militant resistance (1960s) to emphasis on <strong>reconciliation and forgiveness</strong> after prison</li>
-          <li>Championed <strong>ubuntu</strong> philosophy: "I am because we are" — humaneness, community solidarity</li>
-          <li>Opposed revenge; supported the TRC process of truth-telling over prosecution</li>
-          <li>His autobiography <em>Long Walk to Freedom</em> (1994) is a key primary source</li>
-        </ul>
-        <div class="highlight">Mandela was directly inspired by Gandhi's philosophy of non-violent resistance — though he later concluded that armed resistance was necessary when peaceful protest was met with violent suppression.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Doris Lessing</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>Biography</h4>
-        <ul>
-          <li><strong>Born</strong>: 22 October 1919, Kermanshah, Persia (now Iran)</li>
-          <li>Grew up in <strong>Southern Rhodesia</strong> (now Zimbabwe) from age 5</li>
-          <li>Left school at 13; self-educated</li>
-          <li>Twice married and divorced; left for London in <strong>1949</strong> with her youngest son and the manuscript of her first novel</li>
-          <li><strong>Nobel Prize in Literature, 2007</strong></li>
-          <li>Died: 17 November 2013, London</li>
-        </ul>
-        <h4>Major Works</h4>
-        <ul>
-          <li><em>The Grass Is Singing</em> (1950) – first novel; race and sexuality in colonial Africa</li>
-          <li><em>African Stories</em> (1964) – collected short stories set in Southern Africa; includes "The Antheap"</li>
-          <li><em>The Golden Notebook</em> (1962) – her masterpiece; fragmented narrative exploring women, politics, mental breakdown; a feminist classic</li>
-          <li><em>The Fifth Child</em> (1988) – disturbing domestic horror/fable</li>
-        </ul>
-        <h4>Themes</h4>
-        <ul>
-          <li>Colonial racism and its psychological damage (on both coloniser and colonised)</li>
-          <li>Women's autonomy and the tensions between personal life and political commitment</li>
-          <li>Communism and disillusionment with ideology</li>
-          <li>The power of landscape — the African veld is a moral and psychological space in her work</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Antheap – Analysis</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <span class="tag africa">Short Story</span><span class="tag africa">Realism</span><span class="tag africa">Colonialism</span>
-        <h4>Context</h4>
-        <p>"The Antheap" is a short story from <em>African Stories</em> (1964), set in colonial Southern Rhodesia (Zimbabwe), in a mining community.</p>
-        <h4>Plot</h4>
-        <ul>
-          <li><strong>Mr. Macintosh</strong> is a powerful, cynical white mine owner who runs a large gold mine in colonial Southern Rhodesia. He has fathered an illegitimate mixed-race son — <strong>Dirk</strong> — with a local Black woman, but refuses to publicly acknowledge him.</li>
-          <li><strong>Tommy</strong> is the white son of the Clarke family, engineers employed at the mine. He is sensitive and artistically inclined.</li>
-          <li><strong>Dirk</strong> is mixed-race (coloured) — proud, highly intelligent, and deeply angry about his condition of enforced invisibility. Despite being Macintosh's biological son, he is denied recognition and education.</li>
-          <li>Tommy and Dirk form a deep friendship: they study and create art together; Dirk is arguably the sharper intellect of the two.</li>
-          <li>Macintosh's relationship with both boys is deeply ambiguous — he provides for them financially but in a way that reinforces, rather than challenges, the racial hierarchy.</li>
-          <li>As they grow older, the colonial system forces them apart: Tommy is expected to leave for a proper school and take his place in white society; Dirk, despite his intelligence, is condemned to remain at the mine.</li>
-          <li>The story ends with the two boys managing to convince Macintosh to send them <strong>both</strong> to university — a hard-won, ambiguous victory. As Lessing writes: <em>"Now they had to begin again, in the long and difficult struggle to understand what they had won and how they would use it."</em> Macintosh is described as "defeated by something he did not begin to understand" — he concedes without truly comprehending the moral implications.</li>
-        </ul>
-        <h4>Literary Genre</h4>
-        <p><strong>Realist short story</strong> in the tradition of the colonial fiction subgenre — but from an anti-colonial perspective. The story is rich in social observation and psychological depth. It can also be read as a <strong>Bildungsroman</strong> fragment — a coming-of-age in a corrupted moral environment.</p>
-        <h4>Main Themes</h4>
-        <ul>
-          <li><strong>Racial injustice</strong>: intelligence and talent are irrelevant in a society organised by race</li>
-          <li><strong>Complicity</strong>: even a well-meaning white person ends up perpetuating the system</li>
-          <li><strong>Childhood friendship vs. adult racism</strong>: children see past race; adults enforce it</li>
-          <li><strong>Hybridity and exclusion</strong>: Dirk belongs to neither the white nor the Black world — the mine compound is his only space. His own biological father will not acknowledge him publicly.</li>
-          <li><strong>The coloniser as father who denies his son</strong>: Macintosh literally generates the "mixed-race problem" he refuses to solve — a powerful metaphor for colonialism: the coloniser creates the colonial subject, then denies and oppresses him.</li>
-          <li><strong>Education as power</strong>: access to learning is controlled by race; denying education is an instrument of oppression</li>
-        </ul>
-        <h4>The Symbol of the Antheap</h4>
-        <p>The termite mound (antheap) is a powerful symbol: it suggests a world of hidden, ceaseless labour; a rigid social hierarchy that appears natural but is constructed; and fragility — it can be destroyed, yet is rebuilt compulsively.</p>
-        <div class="highlight">Exam angle: Compare Lessing's approach to colonialism with Conrad's. Both are white European writers depicting non-European worlds — but Lessing's critique is sharper and more explicit. Conrad's narrator (Marlow) remains complicit; Lessing's authorial voice is firmly anti-colonial.</div>
-      </div>
-    </div>
-
-  </div><!-- /africa -->
-
-
-  <!-- ===== JOSEPH CONRAD ===== -->
-  <div class="module" id="conrad">
-    <div class="module-header">
-      <div class="module-icon">✒️</div>
-      <h2 class="module-title lit">Joseph Conrad</h2>
-    </div>
-
-    <div class="topic open">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Biography</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <ul>
-          <li><strong>Born</strong>: 3 December 1857, Berdychiv, Ukraine (then Russian Empire) as <em>Józef Teodor Konrad Korzeniowski</em></li>
-          <li>Polish by birth; his parents were Polish patriots imprisoned and exiled by Russia</li>
-          <li>Orphaned by 11; raised by his uncle in Kraków</li>
-          <li><strong>Joined the French merchant navy at 17</strong>; later the British merchant navy</li>
-          <li>Became a British subject in 1886; obtained his master mariner's certificate</li>
-          <li>Sailed to Africa (Congo, 1890) — the experience that inspired <em>Heart of Darkness</em></li>
-          <li>Began writing in English (his third language after Polish and French) in his 30s</li>
-          <li>Major novels: <em>Heart of Darkness</em> (1899/1902), <em>Lord Jim</em> (1900), <em>Nostromo</em> (1904), <em>The Secret Agent</em> (1907)</li>
-          <li>Died: 3 August 1924, Bishopsbourne, Kent</li>
-        </ul>
-        <div class="highlight">Key biographical fact: Conrad wrote his greatest English-language literature in a language he learned as an adult — a remarkable feat that itself reflects themes of displacement, identity, and belonging central to his work.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Heart of Darkness – Full Analysis</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <span class="tag lit">Novella</span><span class="tag lit">Modernism</span><span class="tag lit">Frame Narrative</span><span class="tag lit">Colonialism</span>
-        <h4>Publication</h4>
-        <p>First serialised in <em>Blackwood's Magazine</em> (1899); published as a book in <em>Youth: A Narrative, and Two Other Stories</em> (1902).</p>
-        <h4>Plot</h4>
-        <ul>
-          <li><strong>Frame narrative</strong>: An unnamed narrator tells us that <strong>Marlow</strong> is telling his story aboard a cruising yawl on the Thames, at night, to a group of men.</li>
-          <li>Marlow recounts how he secured a job as a riverboat captain for a Belgian trading company operating in the <strong>Congo</strong>.</li>
-          <li>He travels deep into the African interior to find <strong>Kurtz</strong> — the company's most successful ivory agent, who is reportedly ill and acting strangely.</li>
-          <li>The journey upriver is presented as a journey back in time — into "the heart of darkness," primitive Africa.</li>
-          <li>Arriving at Kurtz's Inner Station, Marlow discovers Kurtz has set himself up as a god among the local people; human heads on posts surround his compound.</li>
-          <li>Kurtz is brought back on the boat but dies on the return journey, his last words: <strong>"The horror! The horror!"</strong></li>
-          <li>Back in Europe, Marlow visits Kurtz's fiancée (the "Intended") and lies to her about Kurtz's last words, saying he spoke her name.</li>
-        </ul>
-        <h4>Literary Genre</h4>
-        <ul>
-          <li><strong>Novella</strong> (short novel — too long for a short story, too short for a novel)</li>
-          <li><strong>Frame narrative</strong> ("story within a story"): Narrator → Marlow → Kurtz</li>
-          <li><strong>Modernist fiction</strong>: psychological depth, unreliable/limited narrator, ambiguity, symbolism over realism</li>
-          <li>Also classified as <strong>adventure fiction</strong> (surface) and <strong>philosophical fiction</strong> (depth)</li>
-        </ul>
-        <h4>Modernist Elements</h4>
-        <ul>
-          <li><strong>Unreliable narrator</strong>: Marlow repeatedly admits he cannot fully understand or communicate what he experienced</li>
-          <li><strong>Stream of consciousness</strong> tendencies: impressionistic, fragmented narration</li>
-          <li><strong>Psychological focus</strong>: the journey is inward as much as outward — Kurtz embodies what the "civilised" man might become without social constraint</li>
-          <li><strong>Ambiguity</strong>: the text refuses easy moral judgements — Kurtz is monstrous but also magnificent; colonialism is critiqued but never cleanly rejected by Marlow</li>
-          <li><strong>Symbolism</strong>: the river, darkness, fog, the knitting women, the heads on stakes</li>
-          <li><strong>Frame narrative</strong> creates narrative unreliability and temporal distance</li>
-        </ul>
-        <h4>Main Themes</h4>
-        <ul>
-          <li><strong>Imperialism and colonialism</strong>: the Belgian operation in the Congo is portrayed as brutal hypocrisy — profit disguised as "civilising mission." The Africans are dehumanised by the system.</li>
-          <li><strong>The "heart of darkness"</strong>: ambiguous — is it Africa? or is it European civilization itself? Or human nature? The title suggests it is within us.</li>
-          <li><strong>Civilisation vs. savagery</strong>: Conrad questions the distinction. Kurtz, the pinnacle of "civilised" European culture, commits the most savage acts.</li>
-          <li><strong>Moral ambiguity and corruption</strong>: all European characters are complicit; Marlow is "saved" by work and restraint, not by superior morality.</li>
-          <li><strong>Truth and lies</strong>: Marlow's lie to the Intended at the end — does it protect her or reinforce patriarchal and colonial illusions?</li>
-          <li><strong>Kurtz as symbol</strong>: he represents the European idealism of the colonial project unmasked — what happens when power has no accountability.</li>
-        </ul>
-        <h4>Critical Controversy: Chinua Achebe's Challenge</h4>
-        <p>In his famous 1977 essay "An Image of Africa," Nigerian novelist <strong>Chinua Achebe</strong> accused Conrad of racism: Africa functions only as a backdrop for European psychological drama; Africans have no voice, no individuality, no humanity. Achebe called Conrad a "thoroughgoing racist."</p>
-        <p>Counter-argument: Conrad was critiquing colonialism more than any major writer of his era — but he could not escape the Eurocentric framework he inhabited.</p>
-        <div class="highlight">Key exam quote: <em>"The horror! The horror!"</em> — Kurtz's dying words. What is the horror? The horror of what he has done? The horror of what he has discovered about himself? The horror of European civilisation? This ambiguity is the point.</div>
-      </div>
-    </div>
-
-  </div><!-- /conrad -->
-
-
-  <!-- ===== STEVE JOBS ===== -->
-  <div class="module" id="jobs">
-    <div class="module-header">
-      <div class="module-icon">💻</div>
-      <h2 class="module-title tech">Steve Jobs</h2>
-    </div>
-
-    <div class="topic open">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Biography</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <ul>
-          <li><strong>Born</strong>: 24 February 1955, San Francisco, California</li>
-          <li>Biological parents: Joanne Schieble and Abdulfattah "John" Jandali (a Syrian immigrant) — given up for adoption</li>
-          <li>Adopted by Paul and Clara Jobs (working-class couple in Mountain View, California)</li>
-          <li>Attended <strong>Reed College, Portland</strong> (1972) — dropped out after one semester but audited classes, including calligraphy (which later influenced Mac typography)</li>
-          <li>Worked at <strong>Atari</strong> (video games); travelled to India seeking spiritual enlightenment (1974)</li>
-          <li>Became a practising <strong>Zen Buddhist</strong></li>
-          <li>Co-founded <strong>Apple Computer, 1976</strong></li>
-          <li>Forced out of Apple by board, 1985</li>
-          <li>Founded <strong>NeXT Computer</strong> (1985) and bought <strong>Pixar</strong> (1986)</li>
-          <li>Returned to Apple 1997 after Apple acquired NeXT</li>
-          <li>Diagnosed with <strong>pancreatic cancer</strong>, 2003 (delayed surgery controversially)</li>
-          <li>Resigned as Apple CEO in August 2011 due to health</li>
-          <li><strong>Died</strong>: 5 October 2011, Palo Alto, California</li>
-        </ul>
-        <div class="highlight">Personality note: Jobs was famously difficult — a "reality distortion field" that convinced his team the impossible was achievable. Brilliant but often cruel. The film <em>Jobs</em> (2013) and the later <em>Steve Jobs</em> (2015, Danny Boyle/Aaron Sorkin) explore this complexity.</div>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>The Founding of Apple</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>The Three Founders</h4>
-        <ul>
-          <li><strong>Steve Jobs</strong> – vision, marketing, design aesthetic</li>
-          <li><strong>Steve Wozniak</strong> ("Woz") – engineering genius, designed the first Apple computers</li>
-          <li><strong>Ronald Wayne</strong> – drew the first Apple logo; sold his 10% stake for $800 (now worth billions)</li>
-        </ul>
-        <h4>Timeline</h4>
-        <ul>
-          <li><strong>1 April 1976</strong>: Apple Computer Company founded in Jobs' family garage, Cupertino, CA</li>
-          <li><strong>1976</strong>: <em>Apple I</em> — circuit board built by Wozniak; Jobs sold it as a complete product to a local computer shop</li>
-          <li><strong>1977</strong>: <em>Apple II</em> — the breakthrough. First mass-market personal computer with colour graphics. Made Apple a serious company.</li>
-          <li><strong>1980</strong>: Apple IPO — one of the largest in US history to that point. Jobs and Wozniak became millionaires.</li>
-          <li><strong>1984</strong>: <em>Macintosh</em> — launched with the iconic Super Bowl ad "1984" directed by Ridley Scott. First mass-market computer with a graphical user interface (GUI) and mouse.</li>
-          <li><strong>1985</strong>: Board conflict with CEO John Sculley (whom Jobs had recruited). Jobs removed from operational role; resigned and founded NeXT.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Main Inventions & Products</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>First Apple Era (1976–1985)</h4>
-        <ul>
-          <li><strong>Apple II (1977)</strong>: first successful mass-market personal computer</li>
-          <li><strong>Macintosh (1984)</strong>: GUI, mouse, desktop metaphor — democratised computing</li>
-        </ul>
-        <h4>Second Apple Era (1997–2011) — The "Second Coming"</h4>
-        <ul>
-          <li><strong>iMac (1998)</strong>: colourful, user-friendly desktop; rescued Apple from near-bankruptcy</li>
-          <li><strong>iTunes & iPod (2001)</strong>: revolutionised how music is purchased and consumed; 1,000 songs in your pocket</li>
-          <li><strong>iTunes Store (2003)</strong>: first legal, successful digital music store — 99 cents per song</li>
-          <li><strong>iPhone (2007)</strong>: arguably the most significant consumer product of the 21st century. Combined phone, music player, and internet communicator. Killed the button — multitouch screen. Created the smartphone era and the app economy.</li>
-          <li><strong>App Store (2008)</strong>: created an entirely new software distribution model</li>
-          <li><strong>iPad (2010)</strong>: created the modern tablet market</li>
-        </ul>
-        <h4>NeXT & Pixar (1985–1997)</h4>
-        <ul>
-          <li><strong>NeXT</strong>: high-end workstations for education and business. Tim Berners-Lee invented the World Wide Web on a NeXT computer (1989). NeXT's OS became the foundation of macOS.</li>
-          <li><strong>Pixar</strong>: bought from George Lucas for $5 million; became the world's leading animation studio. <em>Toy Story</em> (1995) — first fully CGI feature film. Sold to Disney for $7.4 billion (2006).</li>
-        </ul>
-        <h4>Jobs' Design Philosophy</h4>
-        <ul>
-          <li>Obsessive attention to every detail, including what the user doesn't see</li>
-          <li>"Simplicity is the ultimate sophistication"</li>
-          <li>Technology should be intuitive — not require a manual</li>
-          <li>The intersection of <strong>technology and liberal arts</strong> — form and function as one</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>Jobs (2013 Film)</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-        <h4>Basic Info</h4>
-        <ul>
-          <li><strong>Director</strong>: Joshua Michael Stern</li>
-          <li><strong>Screenplay</strong>: Matt Whiteley</li>
-          <li><strong>Steve Jobs played by</strong>: Ashton Kutcher</li>
-          <li><strong>Wozniak played by</strong>: Josh Gad</li>
-          <li>Released August 2013</li>
-        </ul>
-        <h4>Plot Coverage</h4>
-        <p>The film covers Jobs' life from his time at Reed College (1974) through to the announcement of the iPod (2001). It focuses on his role in founding Apple, his obsessive perfectionism, his conflict with the Apple board, his exile, and his triumphant return.</p>
-        <h4>Themes of the Film</h4>
-        <ul>
-          <li><strong>Genius and obsession</strong>: how the qualities that make Jobs revolutionary also make him a difficult human being</li>
-          <li><strong>Corporate power and betrayal</strong>: even the visionary can be cast out by the machine he built</li>
-          <li><strong>Innovation vs. commerce</strong>: the tension between creating something beautiful and making money</li>
-          <li><strong>Leadership style</strong>: Jobs' demanding, sometimes cruel management — portrayed with complexity</li>
-        </ul>
-        <h4>Critical Reception</h4>
-        <p>Mixed. Praised for Kutcher's physical resemblance and performance; criticised for being hagiographic (too reverential) and for historical inaccuracies. Steve Wozniak himself criticised the portrayal of early Apple. The later <em>Steve Jobs</em> (2015, directed by Danny Boyle, written by Aaron Sorkin, starring Michael Fassbender) is generally considered the superior, more critical film.</p>
-        <div class="highlight">For the exam: the film can be used to discuss American entrepreneurial mythology, the cult of the individual genius, and the ethics of creative leadership. It's also a lens on digital technology's cultural impact.</div>
-      </div>
-    </div>
-
-  </div><!-- /jobs -->
-
-
-
   <!-- ===== QUESTIONS ===== -->
-  <div class="module" id="questions" style="scroll-margin-top:90px;">
-    <div class="module-header">
-      <div class="module-icon">❓</div>
-      <h2 class="module-title" style="color:#e74c3c;">Questions &amp; Answers</h2>
+  <div class="module" id="questions">
+    <div class="section-banner qbanner">
+      <div class="num">❓</div>
+      <div class="titles">
+        <div class="icon-label">Self-Assessment</div>
+        <h2>Questions &amp; Answers</h2>
+      </div>
     </div>
-    <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem;">Domande con risposta modello. Clicca su ogni domanda per vedere la risposta. Pensate per studenti di quinta superiore indirizzo informatico.</p>
+    <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem;">Domande con risposta modello, nello stesso ordine del programma. Clicca su ogni domanda per vedere la risposta.</p>
 
 
-    <!-- ===== WEB & INTERNET ===== -->
-    <div class="topic">
+    <!-- ===== AUSTRALIA & NEW ZEALAND ===== -->
+    <div class="topic open">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>🌐 The World Wide Web</h3>
+        <h3>🌊 Australia &amp; New Zealand</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
 
-        <h4>Web Apps &amp; Dark Web / Deep Web</h4>
+        <h4>Australia — Geography &amp; Colonization</h4>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a web app, and how does it differ from a native app?</div>
-          <div class="qa-a"><strong>A.</strong> A web app runs inside a browser via a URL rather than being installed on a device. It is cross-platform (works the same on any device with a browser), requires no installation, and is always up to date since the server delivers the latest version automatically. A native app, by contrast, must be downloaded and installed separately for each operating system (iOS, Android), but offers faster performance and full access to device hardware (camera, GPS, sensors). Progressive Web Apps (PWAs) blur this line, offering home-screen installation and limited offline use while still being fundamentally web-based.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is Canberra the capital of Australia rather than Sydney?</div>
+          <div class="qa-a"><strong>A.</strong> Canberra was purpose-built as a planned capital city, chosen as a compromise between Australia's two largest and rival cities, Sydney and Melbourne, when the country federated in 1901. Neither city wanted the other to have the prestige of being the capital, so a new, neutral location was selected in the Australian Capital Territory. This is a common point of confusion since Sydney is far better known internationally and is the country's largest city.</div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the difference between the Deep Web and the Dark Web?</div>
-          <div class="qa-a"><strong>A.</strong> The <strong>Deep Web</strong> is simply the part of the internet not indexed by search engines — it includes things like email inboxes, online banking, academic databases and cloud storage, and makes up the vast majority of the internet. Most of it is completely legal and mundane. The <strong>Dark Web</strong> is a small subset of the Deep Web that requires special anonymising software (most commonly Tor) to access. It hosts both legitimate uses (whistleblowing, circumventing censorship) and illegal markets. The common mistake is using "dark web" to mean anything private online — your inbox is deep web, not dark web.</div>
-        </div>
-
-        <h4>E-commerce &amp; Media</h4>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the main advantages and disadvantages of e-commerce?</div>
-          <div class="qa-a"><strong>A.</strong> <strong>Advantages</strong>: convenience (shop anytime, anywhere), a wider selection of products than any physical store could offer, easy price comparison, and personalised recommendations. <strong>Disadvantages</strong>: you cannot physically inspect products before buying, there are security risks like payment fraud and phishing, shipping can be slow or unreliable, small local businesses struggle to compete with large platforms, and packaging/returns generate significant environmental waste.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is "terra nullius," and why was it significant for the colonization of Australia?</div>
+          <div class="qa-a"><strong>A.</strong> <em>Terra nullius</em> is a Latin legal term meaning "land belonging to no one." When Captain Cook claimed eastern Australia for Britain in 1770, and when the First Fleet settled in 1788, the British treated the continent as if it were legally unowned — disregarding the fact that Aboriginal peoples had inhabited it for tens of thousands of years with their own systems of land ownership and law. This allowed Britain to claim sovereignty and distribute land to settlers without any treaty or compensation to Aboriginal peoples. The doctrine was only formally overturned in Australian law in 1992 (the Mabo case), over two centuries later.</div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How has streaming changed the television and cinema industry?</div>
-          <div class="qa-a"><strong>A.</strong> Streaming replaced the fixed-schedule broadcast model with on-demand access — viewers choose what to watch and when, enabling habits like binge-watching. Platforms like Netflix produce original content directly, using viewing data to decide what to commission, bypassing traditional studios and broadcasters. They release content simultaneously worldwide rather than country by country. Cinemas have responded by shortening the theatrical window before films move to streaming, and by relying more heavily on big-budget event films that benefit from the large-screen experience (IMAX, superhero franchises) to justify the trip to a physical theatre.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the First Fleet, and what was Britain's main motive for sending it?</div>
+          <div class="qa-a"><strong>A.</strong> The First Fleet was a convoy of 11 ships that arrived at Sydney Cove on 26 January 1788, carrying around 1,000 people, the majority of them convicts, under the command of Captain Arthur Phillip. Britain's primary motive was to establish a <strong>penal colony</strong> to relieve severely overcrowded prisons, especially after losing the option of transporting convicts to its former American colonies following the American Revolution. A secondary motive was establishing a strategic naval and trading base in the Pacific.</div>
         </div>
 
-        <h4>Accessibility, Web Generations &amp; the Semantic Web</h4>
+        <h4>Australia — The Aborigines</h4>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is web accessibility and why does it matter?</div>
-          <div class="qa-a"><strong>A.</strong> Web accessibility means designing websites so people with disabilities — visual, auditory, motor or cognitive — can use them effectively. The WCAG guidelines require content to be <strong>perceivable</strong> (e.g. alt text for screen readers), <strong>operable</strong> (usable via keyboard alone), <strong>understandable</strong>, and <strong>robust</strong> across assistive technologies. It matters both ethically and legally (laws like the European Accessibility Act require it), and it improves usability for everyone — captions help in noisy environments, clear navigation benefits all users, not only those with disabilities.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Explain the evolution from Web 1.0 to Web 2.0 to Web 3.0.</div>
-          <div class="qa-a"><strong>A.</strong> <strong>Web 1.0</strong> (early 1990s–2004) was a "read-only" web of static pages created by webmasters with no user interaction. <strong>Web 2.0</strong> (2004–today) became "read-write": users generate content through blogs, social media and wikis, and platforms like Facebook and YouTube turned the web into a space of participation. <strong>Web 3.0</strong> is a contested, still-emerging concept combining two ideas: the Semantic Web (machines understanding the meaning of data, not just displaying it) and a decentralised, blockchain-based web where users own their data and digital assets rather than relying on centralised platforms.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is "Dreamtime," and how does it differ from a Western concept of mythology?</div>
+          <div class="qa-a"><strong>A.</strong> Dreamtime (the Dreaming) is the Aboriginal spiritual framework explaining the creation of the world and the actions of ancestral beings. Unlike Western mythology, which is often treated as stories from the past with no bearing on the present, the Dreaming is understood as an <strong>ongoing spiritual reality</strong> — ancestral forces continue to shape the land, law and identity in the present moment. It is inseparable from a specific physical landscape: particular rocks, waterholes and mountains are themselves manifestations of ancestral beings, not just settings for stories about them.</div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the Semantic Web? Give a practical example.</div>
-          <div class="qa-a"><strong>A.</strong> The Semantic Web, a concept introduced by Tim Berners-Lee, is a vision of the web where data carries explicit meaning (metadata) that computers can understand and process, not just text for humans to read. Technologies like RDF and schema.org markup let websites tag information so machines know, for example, that a number represents a "price" or a date represents an "event." A practical example: when you search "best pizza near me" and Google instantly shows a map with ratings, opening hours and prices pulled directly from restaurant websites — that's the Semantic Web at work, because the search engine understood the structured meaning of the page, not just its raw text.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What were the main consequences of colonization for Aboriginal Australians?</div>
+          <div class="qa-a"><strong>A.</strong> Introduced diseases like smallpox devastated populations with no immunity — roughly half the Aboriginal population around Sydney died within a year of a 1789 outbreak. Settlers violently displaced Aboriginal communities from their land as farming expanded, leading to numerous massacres across the 19th and early 20th centuries. In the 20th century, government assimilation policies led to the forced removal of Aboriginal children from their families — known as the "Stolen Generations." Population estimates suggest the Aboriginal population fell from around 750,000 at first contact to a small fraction of that within a century.</div>
         </div>
 
-        <h4>Walls, Safety &amp; Dangers</h4>
+        <h4>New Zealand — Geography &amp; Colonization</h4>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the Great Firewall of China, and how does it work?</div>
-          <div class="qa-a"><strong>A.</strong> The Great Firewall of China is the Chinese government's system of legislative and technological measures to censor and control internet access within its borders. It blocks major foreign platforms (Google, Facebook, Instagram, X, YouTube) and filters content on politically sensitive topics like Tiananmen Square or Taiwan. In place of blocked foreign services, domestic alternatives flourish: Baidu (search), WeChat (messaging/payments), Weibo (microblogging). Citizens sometimes use VPNs to bypass the restrictions, although the government actively works to detect and block these too.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a "walled garden" in the context of commercial tech platforms?</div>
-          <div class="qa-a"><strong>A.</strong> A walled garden is a closed ecosystem where one company controls hardware, software, and content distribution, limiting how easily users or developers can interact with services outside that ecosystem. Apple's iPhone/iOS/App Store ecosystem is the classic example: Apple controls what apps can be installed, takes a commission from developers, and tightly integrates its hardware and software. Advantages include better security and a consistent user experience; disadvantages include reduced competition, vendor lock-in and higher costs for developers. National walls (like China's firewall) and commercial walls share a similar logic — both restrict the originally open, interconnected nature of the web, one for political control and one for market control.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who were the first inhabitants of New Zealand, and when did they arrive?</div>
+          <div class="qa-a"><strong>A.</strong> The Māori, of Polynesian origin, are believed to have settled New Zealand around the 13th century, having sailed from eastern Polynesia. This makes New Zealand one of the last major landmasses on Earth to be settled by humans. European contact came much later: the Dutch explorer Abel Tasman sighted the islands in 1642 without landing, and significant European settlement did not begin until the 1830s.</div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Name and explain three major dangers of the web.</div>
-          <div class="qa-a"><strong>A.</strong> <strong>Phishing</strong>: fraudulent messages impersonating trusted entities to trick users into revealing passwords or financial details. <strong>Malware</strong>: viruses, ransomware and spyware that infect devices to steal data or demand payment. <strong>Misinformation</strong>: false information that spreads rapidly because social media algorithms reward engagement, not accuracy — often amplifying sensational or emotionally charged (but false) content over careful, accurate reporting. Other major risks include cyberbullying, identity theft, online grooming targeting minors, and the mental health impact of excessive social media use, particularly among teenagers.</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ===== INDUSTRY 4.0 ===== -->
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>🤖 Industry 4.0 and the Future</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-
-        <h4>The Fourth Industrial Revolution</h4>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the four industrial revolutions, and what defines the fourth?</div>
-          <div class="qa-a"><strong>A.</strong> The <strong>1st</strong> (late 18th century) introduced steam power and mechanised textile production. The <strong>2nd</strong> (late 19th–early 20th century) brought electricity and mass production via assembly lines. The <strong>3rd</strong> (1970s onward) introduced electronics, computers and early automation. The <strong>4th</strong> — Industry 4.0, happening now — is defined by cyber-physical systems: the fusion of physical machinery with digital intelligence, connectivity and real-time data, enabling interconnected, self-adjusting "smart factories."</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the Treaty of Waitangi, and why is its meaning still contested today?</div>
+          <div class="qa-a"><strong>A.</strong> The Treaty of Waitangi was signed on 6 February 1840 between the British Crown and over 500 Māori chiefs, intended to formalise British governance while protecting Māori land rights. Its meaning is contested because the treaty exists in two versions with crucial differences: the <strong>English version</strong> has Māori ceding full "sovereignty" to the Crown, while the <strong>Māori version</strong> (Te Tiriti) is understood by many as ceding only <em>kāwanatanga</em> (governance) while Māori retained <em>tino rangatiratanga</em> (full chiefly authority) over their own lands and affairs. This translation gap led directly to decades of conflict and remains a live political issue, addressed today through the Waitangi Tribunal established in 1975.</div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the four key characteristics of Industry 4.0?</div>
-          <div class="qa-a"><strong>A.</strong> <strong>Interconnectivity</strong>: machines, sensors and people communicate via the Internet of Things. <strong>Information transparency</strong>: sensors generate vast real-time data that creates a digital copy ("digital twin") of physical processes. <strong>Technical assistance</strong>: systems support human decisions and physically help with tasks too dangerous or complex for humans alone. <strong>Decentralised decisions</strong>: cyber-physical systems make many decisions autonomously, with humans intervening mainly in exceptional situations.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What were the New Zealand Wars?</div>
+          <div class="qa-a"><strong>A.</strong> The New Zealand Wars (1845–1872) were a series of conflicts fought between the British Crown and colonial settlers on one side, and various Māori groups on the other, primarily over land and the conflicting interpretations of the Treaty of Waitangi. As a result of these wars, large amounts of Māori land were confiscated, even from groups that had not taken up arms — a major source of grievance that continues to be addressed through treaty settlement processes today.</div>
         </div>
 
-        <h4>IoT, AR &amp; 3D Printing</h4>
+        <h4>New Zealand — The Maori</h4>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the difference between IoT and IIoT?</div>
-          <div class="qa-a"><strong>A.</strong> <strong>IoT</strong> (Internet of Things) refers to everyday connected devices — smart thermostats, smartwatches, voice assistants — that collect and exchange data to improve convenience for consumers. <strong>IIoT</strong> (Industrial Internet of Things) applies the same sensor-and-connectivity principle to industrial settings: sensors on factory machinery monitor performance and wear in real time, enabling <strong>predictive maintenance</strong> — predicting failures before they happen rather than fixing machines on a fixed schedule or after they break. IoT prioritises convenience; IIoT prioritises efficiency, safety and productivity — but both rely on the same underlying technology stack.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is Augmented Reality, and how does it differ from Virtual Reality?</div>
-          <div class="qa-a"><strong>A.</strong> Augmented Reality (AR) overlays digital information — images, text, 3D models — onto the real world, typically viewed through a smartphone camera or AR glasses; the user still sees their actual surroundings (e.g. Pokémon GO, IKEA's furniture preview app). Virtual Reality (VR) replaces the real world entirely with a fully simulated digital environment, usually through an immersive headset. In industry, AR is used to overlay repair instructions directly onto machinery a technician is working on; in retail, it allows virtual try-on of clothes or furniture placement before purchase.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the haka, and what does it represent?</div>
+          <div class="qa-a"><strong>A.</strong> The haka is a ceremonial Māori dance involving forceful movements, foot-stamping, and rhythmic chanting. Traditionally performed before battle to intimidate opponents and demonstrate strength and unity, today it is performed at ceremonies, important occasions, and notably before international rugby matches by New Zealand's All Blacks team. It represents collective identity, strength, and the assertion of Māori cultural presence.</div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is 3D printing, and how does it differ from traditional manufacturing?</div>
-          <div class="qa-a"><strong>A.</strong> 3D printing (additive manufacturing) builds objects layer by layer from a digital 3D model, depositing material such as plastic filament, resin, or metal powder. Traditional manufacturing is often "subtractive" — cutting or drilling material away from a larger block. 3D printing enables rapid prototyping without expensive tooling, custom medical devices like prosthetics and dental implants, lightweight aerospace components impossible to make traditionally, and even on-demand printing of spare parts, reducing the need for large warehouse inventories. It represents a shift toward decentralised, customised, just-in-time production rather than standardised mass manufacturing.</div>
-        </div>
-
-        <h4>Human–Robot Collaboration &amp; Self-Driving Cars</h4>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a "cobot," and how does it differ from a traditional industrial robot?</div>
-          <div class="qa-a"><strong>A.</strong> Traditional industrial robots operate in caged, isolated areas for safety, strictly separated from human workers. A <strong>cobot</strong> (collaborative robot) is designed to work safely alongside humans in shared spaces: it is equipped with sensors that detect human presence and automatically slow down or stop to avoid collisions, and it is lightweight and easily reprogrammable for different tasks. Cobots typically handle repetitive or physically strenuous work, freeing humans for judgement-based or dexterity-intensive tasks — though this also raises legitimate concerns about job displacement and the need for worker retraining.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare Tesla's Full Self-Driving (Supervised) and Waymo's approach to autonomous driving.</div>
-          <div class="qa-a"><strong>A.</strong> Tesla FSD uses a <strong>camera-only approach</strong> (no lidar) based on the philosophy that since humans drive using only eyes and a neural network, cameras plus AI should eventually be sufficient. Despite its name, it is officially "Supervised" — SAE Level 2 — meaning a human driver must stay alert and ready to intervene at any time. Waymo, owned by Alphabet, uses a <strong>full sensor suite</strong> including cameras, radar and multiple lidar units, and operates as genuine <strong>SAE Level 4</strong> autonomy — no human driver required — but only within carefully geofenced, pre-mapped areas, as a paid robotaxi service. Tesla's bet is that more data and better AI can compensate for simpler sensors at lower cost; Waymo's bet is that sensor redundancy, especially lidar, is essential for safety even at higher cost and more limited geographic scope.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is lidar, and how does it work?</div>
-          <div class="qa-a"><strong>A.</strong> Lidar (Light Detection and Ranging) measures distance by emitting rapid pulses of laser light and timing how long they take to bounce back after hitting an object. Since the speed of light is known, this time delay converts directly into a precise distance measurement. By repeating this thousands of times per second across many directions, lidar builds a detailed, constantly updated 3D "point-cloud" map of the surrounding environment. It provides accurate depth perception directly — rather than inferring distance from 2D camera images using AI estimation — and works reliably in darkness, though it can be affected by heavy rain, fog or snow. Its main drawback has historically been cost, which is the central reason Tesla avoided it in favour of a cheaper, camera-only system.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does New Zealand's approach to reconciliation with the Māori compare to Australia's approach with Aboriginal peoples?</div>
+          <div class="qa-a"><strong>A.</strong> New Zealand's colonization involved a formal treaty (however imperfectly honoured), which provides a legal and moral basis for the ongoing Waitangi Tribunal process — investigating breaches and awarding land and financial settlements to Māori iwi. Australia's colonization, by contrast, was based on the legal fiction of <em>terra nullius</em> — no treaty was ever signed with Aboriginal peoples, since the land was simply claimed as belonging to no one. This means Australia lacks an equivalent formal mechanism; the 2023 referendum on constitutional recognition (the "Voice to Parliament") was rejected, highlighting how much further behind Australia remains in this process compared to New Zealand's, even though both nations' Indigenous peoples continue to face significant social and economic disparities.</div>
         </div>
 
       </div>
@@ -1669,7 +1839,7 @@
     <!-- ===== SOUTH AFRICA ===== -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
-        <h3>🌍 South Africa — Colonialism, Apartheid &amp; Literature</h3>
+        <h3>🌍 South Africa — Colonialism, Apartheid &amp; Mandela</h3>
         <span class="toggle">▼</span>
       </div>
       <div class="topic-body">
@@ -1740,7 +1910,19 @@
           <div class="qa-a"><strong>A.</strong> <strong>Similarities</strong>: both fought against racial oppression by European colonial powers; both were imprisoned; both became global symbols of resistance and dignity; both drew on moral authority rather than just political power. <strong>Differences</strong>: Gandhi rejected violence absolutely throughout his life; Mandela initially advocated non-violence but concluded after Sharpeville that armed resistance was justified when peaceful protest was met with massacre. Gandhi's movement was ultimately successful through non-cooperation alone; Mandela combined political negotiation, armed struggle and international pressure. Gandhi was assassinated; Mandela lived to govern the country he had fought for. Both, however, consistently distinguished between the oppressive system and the people within it.</div>
         </div>
 
-        <h4>Doris Lessing &amp; The Antheap</h4>
+      </div>
+    </div>
+
+
+    <!-- ===== DORIS LESSING ===== -->
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>📖 Doris Lessing — The Antheap</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <h4>Biography &amp; Context</h4>
 
         <div class="qa-item">
           <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does Lessing's biographical background influence her writing?</div>
@@ -1752,9 +1934,27 @@
           <div class="qa-a"><strong>A.</strong> A racist colonial society forces even well-meaning white people to perpetuate injustice, while denying intelligence and opportunity to those it has racially excluded — but resistance through friendship and education is possible, even if the victory is incomplete and its meaning uncertain.</div>
         </div>
 
+        <h4>Plot, Characters &amp; Themes</h4>
+
+
         <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> "The Antheap" was published in 1953, five years after apartheid began. Does this context change how you read it?</div>
-          <div class="qa-a"><strong>A.</strong> Yes, significantly. In 1953, apartheid was being systematically built — the Population Registration Act, the Group Areas Act and the Separate Amenities Act had all just been passed. Lessing was writing at the precise moment when the racial hierarchy she depicts in Rhodesia was being turned into law in neighbouring South Africa. The story is therefore not just historical: it is a direct commentary on contemporary events. The denial of education to Dirk mirrors the Bantu Education Act (1953), which deliberately provided inferior schooling to Black South Africans to limit their opportunities. Reading the story in this context makes its urgency and anger much clearer.</div>
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who are the three main characters and what is the relationship between them?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Mr. Macintosh</strong>: a powerful white mine owner in colonial Southern Rhodesia. <strong>Tommy</strong>: the son of the Clarke family, white engineers employed at the mine — sensitive, artistic, genuinely fond of Dirk. <strong>Dirk</strong>: Macintosh's illegitimate mixed-race son by a Black woman — highly intelligent, proud and angry at his condition. Macintosh is the biological father of Dirk but refuses to acknowledge him publicly. He takes a paternalistic interest in Tommy instead, paying for his education — making Tommy, in a sense, a substitute for the son he cannot officially recognise. The triangle of relationships encodes the whole structure of colonial hypocrisy.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What does the antheap (termite mound) symbolise?</div>
+          <div class="qa-a"><strong>A.</strong> The antheap works on several levels simultaneously. <strong>Literally</strong>: it is the termite mound where Tommy and Dirk meet secretly, away from adult eyes — a space outside the racial rules of the compound. <strong>Socially</strong>: it symbolises the colonial order itself — a rigid, apparently natural hierarchy built on hidden labour, where millions work unseen to sustain a structure that benefits only a few at the top. <strong>Structurally</strong>: the antheap is fragile — it can be destroyed, yet the insects rebuild compulsively. This suggests both the resilience and the absurdity of a system maintained by sheer force of habit rather than reason or justice.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does the story end, and is it a happy ending?</div>
+          <div class="qa-a"><strong>A.</strong> The story ends with Tommy and Dirk together convincing Macintosh to send them <em>both</em> to university — a real, hard-won victory. Macintosh concedes, described as "defeated by something he did not begin to understand." But Lessing's final line is cautious: <em>"Now they had to begin again, in the long and difficult struggle to understand what they had won and how they would use it."</em> It is an ambiguous ending: they have won something real, but the struggle is not over. The colonial system has been cracked slightly, not dismantled. The boys' future — a mixed-race man and a white man both university-educated in 1950s Rhodesia — will be far from easy.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Can you be complicit in injustice without meaning to be? Modern examples?</div>
+          <div class="qa-a"><strong>A.</strong> Tommy is a good person — he teaches Dirk, defends him, refuses to accept the racial rules. Yet he still goes to school, receives Macintosh's money, and moves into a future from which Dirk is structurally excluded. His goodness does not exit the system; it operates within it. This is the concept of <strong>structural complicity</strong>: you can benefit from an unjust system without personally endorsing it. Modern parallels: a student who benefits from an elite university system that systematically excludes poorer applicants; a consumer who buys cheap electronics made in exploitative conditions; a citizen of a wealthy country whose prosperity is partly built on cheap imported labour. Awareness and good intentions are necessary but not sufficient.</div>
         </div>
 
       </div>
@@ -1805,37 +2005,6 @@
       </div>
     </div>
 
-    <!-- THE ANTHEAP -->
-    <div class="topic">
-      <div class="topic-head" onclick="toggle(this)">
-        <h3>📖 The Antheap – Doris Lessing</h3>
-        <span class="toggle">▼</span>
-      </div>
-      <div class="topic-body">
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who are the three main characters and what is the relationship between them?</div>
-          <div class="qa-a"><strong>A.</strong> <strong>Mr. Macintosh</strong>: a powerful white mine owner in colonial Southern Rhodesia. <strong>Tommy</strong>: the son of the Clarke family, white engineers employed at the mine — sensitive, artistic, genuinely fond of Dirk. <strong>Dirk</strong>: Macintosh's illegitimate mixed-race son by a Black woman — highly intelligent, proud and angry at his condition. Macintosh is the biological father of Dirk but refuses to acknowledge him publicly. He takes a paternalistic interest in Tommy instead, paying for his education — making Tommy, in a sense, a substitute for the son he cannot officially recognise. The triangle of relationships encodes the whole structure of colonial hypocrisy.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What does the antheap (termite mound) symbolise?</div>
-          <div class="qa-a"><strong>A.</strong> The antheap works on several levels simultaneously. <strong>Literally</strong>: it is the termite mound where Tommy and Dirk meet secretly, away from adult eyes — a space outside the racial rules of the compound. <strong>Socially</strong>: it symbolises the colonial order itself — a rigid, apparently natural hierarchy built on hidden labour, where millions work unseen to sustain a structure that benefits only a few at the top. <strong>Structurally</strong>: the antheap is fragile — it can be destroyed, yet the insects rebuild compulsively. This suggests both the resilience and the absurdity of a system maintained by sheer force of habit rather than reason or justice.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does the story end, and is it a happy ending?</div>
-          <div class="qa-a"><strong>A.</strong> The story ends with Tommy and Dirk together convincing Macintosh to send them <em>both</em> to university — a real, hard-won victory. Macintosh concedes, described as "defeated by something he did not begin to understand." But Lessing's final line is cautious: <em>"Now they had to begin again, in the long and difficult struggle to understand what they had won and how they would use it."</em> It is an ambiguous ending: they have won something real, but the struggle is not over. The colonial system has been cracked slightly, not dismantled. The boys' future — a mixed-race man and a white man both university-educated in 1950s Rhodesia — will be far from easy.</div>
-        </div>
-
-        <div class="qa-item">
-          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Can you be complicit in injustice without meaning to be? Modern examples?</div>
-          <div class="qa-a"><strong>A.</strong> Tommy is a good person — he teaches Dirk, defends him, refuses to accept the racial rules. Yet he still goes to school, receives Macintosh's money, and moves into a future from which Dirk is structurally excluded. His goodness does not exit the system; it operates within it. This is the concept of <strong>structural complicity</strong>: you can benefit from an unjust system without personally endorsing it. Modern parallels: a student who benefits from an elite university system that systematically excludes poorer applicants; a consumer who buys cheap electronics made in exploitative conditions; a citizen of a wealthy country whose prosperity is partly built on cheap imported labour. Awareness and good intentions are necessary but not sufficient.</div>
-        </div>
-
-      </div>
-    </div>
-
     <!-- STEVE JOBS -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
@@ -1877,6 +2046,132 @@
       </div>
     </div>
 
+    <!-- ===== WEB & INTERNET ===== -->
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🌐 The World Wide Web</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <h4>Web Apps &amp; Dark Web / Deep Web</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a web app, and how does it differ from a native app?</div>
+          <div class="qa-a"><strong>A.</strong> A web app runs inside a browser via a URL rather than being installed on a device. It is cross-platform (works the same on any device with a browser), requires no installation, and is always up to date since the server delivers the latest version automatically. A native app, by contrast, must be downloaded and installed separately for each operating system (iOS, Android), but offers faster performance and full access to device hardware (camera, GPS, sensors). Progressive Web Apps (PWAs) blur this line, offering home-screen installation and limited offline use while still being fundamentally web-based.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the difference between the Deep Web and the Dark Web?</div>
+          <div class="qa-a"><strong>A.</strong> The <strong>Deep Web</strong> is simply the part of the internet not indexed by search engines — it includes things like email inboxes, online banking, academic databases and cloud storage, and makes up the vast majority of the internet. Most of it is completely legal and mundane. The <strong>Dark Web</strong> is a small subset of the Deep Web that requires special anonymising software (most commonly Tor) to access. It hosts both legitimate uses (whistleblowing, circumventing censorship) and illegal markets. The common mistake is using "dark web" to mean anything private online — your inbox is deep web, not dark web.</div>
+        </div>
+
+        <h4>E-commerce &amp; Media</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the main advantages and disadvantages of e-commerce?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Advantages</strong>: convenience (shop anytime, anywhere), a wider selection of products than any physical store could offer, easy price comparison, and personalised recommendations. <strong>Disadvantages</strong>: you cannot physically inspect products before buying, there are security risks like payment fraud and phishing, shipping can be slow or unreliable, small local businesses struggle to compete with large platforms, and packaging/returns generate significant environmental waste.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How has streaming changed the television and cinema industry?</div>
+          <div class="qa-a"><strong>A.</strong> Streaming replaced the fixed-schedule broadcast model with on-demand access — viewers choose what to watch and when, enabling habits like binge-watching. Platforms like Netflix produce original content directly, using viewing data to decide what to commission, bypassing traditional studios and broadcasters. They release content simultaneously worldwide rather than country by country. Cinemas have responded by shortening the theatrical window before films move to streaming, and by relying more heavily on big-budget event films that benefit from the large-screen experience (IMAX, superhero franchises) to justify the trip to a physical theatre.</div>
+        </div>
+
+        <h4>Accessibility, Web Generations &amp; the Semantic Web</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is web accessibility and why does it matter?</div>
+          <div class="qa-a"><strong>A.</strong> Web accessibility means designing websites so people with disabilities — visual, auditory, motor or cognitive — can use them effectively. The WCAG guidelines require content to be <strong>perceivable</strong> (e.g. alt text for screen readers), <strong>operable</strong> (usable via keyboard alone), <strong>understandable</strong>, and <strong>robust</strong> across assistive technologies. It matters both ethically and legally (laws like the European Accessibility Act require it), and it improves usability for everyone — captions help in noisy environments, clear navigation benefits all users, not only those with disabilities.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Explain the evolution from Web 1.0 to Web 2.0 to Web 3.0.</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Web 1.0</strong> (early 1990s–2004) was a "read-only" web of static pages created by webmasters with no user interaction. <strong>Web 2.0</strong> (2004–today) became "read-write": users generate content through blogs, social media and wikis, and platforms like Facebook and YouTube turned the web into a space of participation. <strong>Web 3.0</strong> is a contested, still-emerging concept combining two ideas: the Semantic Web (machines understanding the meaning of data, not just displaying it) and a decentralised, blockchain-based web where users own their data and digital assets rather than relying on centralised platforms.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the Semantic Web? Give a practical example.</div>
+          <div class="qa-a"><strong>A.</strong> The Semantic Web, a concept introduced by Tim Berners-Lee, is a vision of the web where data carries explicit meaning (metadata) that computers can understand and process, not just text for humans to read. Technologies like RDF and schema.org markup let websites tag information so machines know, for example, that a number represents a "price" or a date represents an "event." A practical example: when you search "best pizza near me" and Google instantly shows a map with ratings, opening hours and prices pulled directly from restaurant websites — that's the Semantic Web at work, because the search engine understood the structured meaning of the page, not just its raw text.</div>
+        </div>
+
+        <h4>Walls, Safety &amp; Dangers</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the Great Firewall of China, and how does it work?</div>
+          <div class="qa-a"><strong>A.</strong> The Great Firewall of China is the Chinese government's system of legislative and technological measures to censor and control internet access within its borders. It blocks major foreign platforms (Google, Facebook, Instagram, X, YouTube) and filters content on politically sensitive topics like Tiananmen Square or Taiwan. In place of blocked foreign services, domestic alternatives flourish: Baidu (search), WeChat (messaging/payments), Weibo (microblogging). Citizens sometimes use VPNs to bypass the restrictions, although the government actively works to detect and block these too.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a "walled garden" in the context of commercial tech platforms?</div>
+          <div class="qa-a"><strong>A.</strong> A walled garden is a closed ecosystem where one company controls hardware, software, and content distribution, limiting how easily users or developers can interact with services outside that ecosystem. Apple's iPhone/iOS/App Store ecosystem is the classic example: Apple controls what apps can be installed, takes a commission from developers, and tightly integrates its hardware and software. Advantages include better security and a consistent user experience; disadvantages include reduced competition, vendor lock-in and higher costs for developers. National walls (like China's firewall) and commercial walls share a similar logic — both restrict the originally open, interconnected nature of the web, one for political control and one for market control.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Name and explain three major dangers of the web.</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Phishing</strong>: fraudulent messages impersonating trusted entities to trick users into revealing passwords or financial details. <strong>Malware</strong>: viruses, ransomware and spyware that infect devices to steal data or demand payment. <strong>Misinformation</strong>: false information that spreads rapidly because social media algorithms reward engagement, not accuracy — often amplifying sensational or emotionally charged (but false) content over careful, accurate reporting. Other major risks include cyberbullying, identity theft, online grooming targeting minors, and the mental health impact of excessive social media use, particularly among teenagers.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== INDUSTRY 4.0 ===== -->
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🤖 Industry 4.0 and the Future</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <h4>The Fourth Industrial Revolution</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the four industrial revolutions, and what defines the fourth?</div>
+          <div class="qa-a"><strong>A.</strong> The <strong>1st</strong> (late 18th century) introduced steam power and mechanised textile production. The <strong>2nd</strong> (late 19th–early 20th century) brought electricity and mass production via assembly lines. The <strong>3rd</strong> (1970s onward) introduced electronics, computers and early automation. The <strong>4th</strong> — Industry 4.0, happening now — is defined by cyber-physical systems: the fusion of physical machinery with digital intelligence, connectivity and real-time data, enabling interconnected, self-adjusting "smart factories."</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the four key characteristics of Industry 4.0?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>Interconnectivity</strong>: machines, sensors and people communicate via the Internet of Things. <strong>Information transparency</strong>: sensors generate vast real-time data that creates a digital copy ("digital twin") of physical processes. <strong>Technical assistance</strong>: systems support human decisions and physically help with tasks too dangerous or complex for humans alone. <strong>Decentralised decisions</strong>: cyber-physical systems make many decisions autonomously, with humans intervening mainly in exceptional situations.</div>
+        </div>
+
+        <h4>IoT, AR &amp; 3D Printing</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the difference between IoT and IIoT?</div>
+          <div class="qa-a"><strong>A.</strong> <strong>IoT</strong> (Internet of Things) refers to everyday connected devices — smart thermostats, smartwatches, voice assistants — that collect and exchange data to improve convenience for consumers. <strong>IIoT</strong> (Industrial Internet of Things) applies the same sensor-and-connectivity principle to industrial settings: sensors on factory machinery monitor performance and wear in real time, enabling <strong>predictive maintenance</strong> — predicting failures before they happen rather than fixing machines on a fixed schedule or after they break. IoT prioritises convenience; IIoT prioritises efficiency, safety and productivity — but both rely on the same underlying technology stack.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is Augmented Reality, and how does it differ from Virtual Reality?</div>
+          <div class="qa-a"><strong>A.</strong> Augmented Reality (AR) overlays digital information — images, text, 3D models — onto the real world, typically viewed through a smartphone camera or AR glasses; the user still sees their actual surroundings (e.g. Pokémon GO, IKEA's furniture preview app). Virtual Reality (VR) replaces the real world entirely with a fully simulated digital environment, usually through an immersive headset. In industry, AR is used to overlay repair instructions directly onto machinery a technician is working on; in retail, it allows virtual try-on of clothes or furniture placement before purchase.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is 3D printing, and how does it differ from traditional manufacturing?</div>
+          <div class="qa-a"><strong>A.</strong> 3D printing (additive manufacturing) builds objects layer by layer from a digital 3D model, depositing material such as plastic filament, resin, or metal powder. Traditional manufacturing is often "subtractive" — cutting or drilling material away from a larger block. 3D printing enables rapid prototyping without expensive tooling, custom medical devices like prosthetics and dental implants, lightweight aerospace components impossible to make traditionally, and even on-demand printing of spare parts, reducing the need for large warehouse inventories. It represents a shift toward decentralised, customised, just-in-time production rather than standardised mass manufacturing.</div>
+        </div>
+
+        <h4>Human–Robot Collaboration &amp; Self-Driving Cars</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is a "cobot," and how does it differ from a traditional industrial robot?</div>
+          <div class="qa-a"><strong>A.</strong> Traditional industrial robots operate in caged, isolated areas for safety, strictly separated from human workers. A <strong>cobot</strong> (collaborative robot) is designed to work safely alongside humans in shared spaces: it is equipped with sensors that detect human presence and automatically slow down or stop to avoid collisions, and it is lightweight and easily reprogrammable for different tasks. Cobots typically handle repetitive or physically strenuous work, freeing humans for judgement-based or dexterity-intensive tasks — though this also raises legitimate concerns about job displacement and the need for worker retraining.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare Tesla's Full Self-Driving (Supervised) and Waymo's approach to autonomous driving.</div>
+          <div class="qa-a"><strong>A.</strong> Tesla FSD uses a <strong>camera-only approach</strong> (no lidar) based on the philosophy that since humans drive using only eyes and a neural network, cameras plus AI should eventually be sufficient. Despite its name, it is officially "Supervised" — SAE Level 2 — meaning a human driver must stay alert and ready to intervene at any time. Waymo, owned by Alphabet, uses a <strong>full sensor suite</strong> including cameras, radar and multiple lidar units, and operates as genuine <strong>SAE Level 4</strong> autonomy — no human driver required — but only within carefully geofenced, pre-mapped areas, as a paid robotaxi service. Tesla's bet is that more data and better AI can compensate for simpler sensors at lower cost; Waymo's bet is that sensor redundancy, especially lidar, is essential for safety even at higher cost and more limited geographic scope.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is lidar, and how does it work?</div>
+          <div class="qa-a"><strong>A.</strong> Lidar (Light Detection and Ranging) measures distance by emitting rapid pulses of laser light and timing how long they take to bounce back after hitting an object. Since the speed of light is known, this time delay converts directly into a precise distance measurement. By repeating this thousands of times per second across many directions, lidar builds a detailed, constantly updated 3D "point-cloud" map of the surrounding environment. It provides accurate depth perception directly — rather than inferring distance from 2D camera images using AI estimation — and works reliably in darkness, though it can be affected by heavy rain, fog or snow. Its main drawback has historically been cost, which is the central reason Tesla avoided it in favour of a cheaper, camera-only system.</div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- CROSS-TOPIC -->
     <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
@@ -1908,6 +2203,7 @@
 
       </div>
     </div>
+
 
   </div><!-- /questions -->
 
