@@ -22,12 +22,16 @@
     --tech: #2980b9;
     --oceania: #16a085;
     --textbook: #b8860b;
+    --usa: #c0392b;
+    --canada: #d35400;
     --accent-india: rgba(230,126,34,0.12);
     --accent-africa: rgba(39,174,96,0.12);
     --accent-lit: rgba(142,68,173,0.12);
     --accent-tech: rgba(41,128,185,0.12);
     --accent-oceania: rgba(22,160,133,0.12);
     --accent-textbook: rgba(184,134,11,0.12);
+    --accent-usa: rgba(192,57,43,0.12);
+    --accent-canada: rgba(211,84,0,0.12);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -99,6 +103,8 @@
   nav a.lit { border-color: var(--lit); color: var(--lit); background: var(--accent-lit);}
   nav a.tech { border-color: var(--tech); color: var(--tech); background: var(--accent-tech);}
   nav a.textbook { border-color: var(--textbook); color: var(--textbook); background: var(--accent-textbook);}
+  nav a.usa { border-color: var(--usa); color: var(--usa); background: var(--accent-usa);}
+  nav a.canada { border-color: var(--canada); color: var(--canada); background: var(--accent-canada);}
 
   main { max-width: 900px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
 
@@ -155,6 +161,10 @@
   .section-banner.qbanner .num { color: #e74c3c; }
   .section-banner.textbook { border-left-color: var(--textbook); }
   .section-banner.textbook .num { color: var(--textbook); }
+  .section-banner.usa { border-left-color: var(--usa); }
+  .section-banner.usa .num { color: var(--usa); }
+  .section-banner.canada { border-left-color: var(--canada); }
+  .section-banner.canada .num { color: var(--canada); }
 
   .module { margin-bottom: 3.5rem; }
 
@@ -286,6 +296,8 @@
 </header>
 
 <nav>
+  <a href="#usa" class="usa">🇺🇸 USA</a>
+  <a href="#canada" class="canada">🍁 Canada</a>
   <a href="#oceania" class="oceania">🌊 Australia &amp; NZ</a>
   <a href="#india" class="india">🇮🇳 India</a>
   <a href="#africa" class="africa">🌍 South Africa</a>
@@ -329,10 +341,387 @@
     </div>
   </div>
 
-  <!-- ===== 1. AUSTRALIA & NEW ZEALAND ===== -->
+  <!-- ===== 1. THE UNITED STATES OF AMERICA ===== -->
+  <div class="module" id="usa">
+    <div class="section-banner usa first">
+      <div class="num">1</div>
+      <div class="titles">
+        <div class="icon-label">🇺🇸 North America</div>
+        <h2>The United States of America</h2>
+      </div>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Geography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>The United States is the world's third or fourth largest country by area (depending on how territories are counted), spanning a continent from the Atlantic to the Pacific Ocean, plus the non-contiguous states of Alaska and Hawaii.</p>
+        <h4>Key Physical Features</h4>
+        <ul>
+          <li><strong>The Appalachian Mountains</strong>: an old, rounded mountain range running along the east, historically a barrier to westward expansion</li>
+          <li><strong>The Rocky Mountains</strong>: a younger, higher range in the west, dividing the continent's river systems</li>
+          <li><strong>The Great Plains</strong>: vast, flat agricultural heartland between the two mountain ranges — "America's breadbasket"</li>
+          <li><strong>The Mississippi River</strong>: the country's principal river system, historically central to trade, transport and the development of the South and Midwest</li>
+          <li><strong>Climate diversity</strong>: from Arctic conditions in Alaska to tropical in Florida and Hawaii, arid desert in the Southwest, and temperate elsewhere — a direct consequence of the country's enormous size</li>
+        </ul>
+        <h4>Quick Facts</h4>
+        <ul>
+          <li><strong>Capital</strong>: Washington, D.C. (not New York, a common misconception — chosen as a neutral federal district, not within any state)</li>
+          <li><strong>Largest city</strong>: New York City</li>
+          <li><strong>50 states</strong> plus the federal district of Washington, D.C.; a federal system in which considerable power (education, criminal law, elections) rests with individual states, not just the central government</li>
+          <li><strong>Government</strong>: federal presidential constitutional republic, with a system of checks and balances between Executive, Legislative (Congress) and Judicial (Supreme Court) branches</li>
+        </ul>
+        <div class="highlight">The sheer geographical scale and diversity of the USA is one key to understanding both its regional cultural differences (the conservative rural South vs. the liberal coastal cities, for example) and its history of westward expansion ("Manifest Destiny") across the 19th century.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Social Stratification</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p><strong>Social stratification</strong> refers to the way a society is structured into hierarchical layers based on wealth, income, education, race and occupation. Although the USA is often associated with the ideal of the "self-made" individual and equal opportunity (the "American Dream"), in practice American society shows significant and persistent stratification.</p>
+        <h4>Key Dimensions of Stratification</h4>
+        <ul>
+          <li><strong>Economic class</strong>: the USA has one of the highest levels of income inequality among wealthy nations; wealth is heavily concentrated at the top, while wages for the middle and working classes have stagnated relative to economic growth since the 1970s</li>
+          <li><strong>Race and ethnicity</strong>: deep historical inequalities persist between white Americans and Black, Hispanic/Latino and Native American communities, in income, wealth accumulation, access to healthcare, education and incarceration rates — a direct legacy of slavery, segregation and discriminatory policy (e.g. "redlining" in housing)</li>
+          <li><strong>Education</strong>: access to quality education is strongly tied to family income and neighbourhood, since public schools are largely funded through local property taxes — creating a cycle where wealthy areas have better-funded schools</li>
+          <li><strong>Geography</strong>: stratification also has a regional and urban/rural dimension — wealthy coastal metropolitan areas contrast with economically struggling rural regions and post-industrial "Rust Belt" cities</li>
+        </ul>
+        <h4>The "American Dream" — Myth and Reality</h4>
+        <p>The American Dream is the cultural belief that anyone, regardless of background, can achieve success and prosperity through hard work. Critics point out that **social mobility** (the chance of moving to a higher economic class than one's parents) is actually lower in the USA than in many European countries, challenging the myth that America is uniquely a land of opportunity.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Immigration and the Role of Ellis Island</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>The United States has been shaped fundamentally by waves of immigration since its founding, earning it the description of a "nation of immigrants."</p>
+        <h4>Ellis Island</h4>
+        <ul>
+          <li><strong>Ellis Island</strong>, in New York Harbor near the Statue of Liberty, was the USA's busiest immigrant inspection and processing station, operating from <strong>1892 to 1954</strong></li>
+          <li>An estimated <strong>12 million immigrants</strong> passed through Ellis Island, primarily from Europe (Italy, Ireland, Eastern Europe, Germany) during the great wave of immigration between the 1880s and 1920s</li>
+          <li>Immigrants underwent medical inspections and legal questioning; the vast majority (over 98%) were admitted, though some were detained or turned back due to illness or legal issues</li>
+          <li>Ellis Island today is a museum and a powerful symbol of the immigrant experience and the formation of American identity</li>
+        </ul>
+        <h4>Waves of Immigration</h4>
+        <ul>
+          <li><strong>19th century</strong>: large-scale immigration from Ireland (especially after the Great Famine, 1840s) and Germany</li>
+          <li><strong>Late 19th–early 20th century</strong>: "new immigration" from Southern and Eastern Europe (Italy, Poland, Russia, Greece), often facing discrimination from earlier-established communities</li>
+          <li><strong>Immigration Act of 1924</strong>: introduced strict national quotas favouring northern Europeans, drastically reducing immigration from Southern/Eastern Europe and Asia — reflecting the era's racial and nativist prejudices</li>
+          <li><strong>Immigration and Nationality Act of 1965</strong>: abolished the national-origin quota system, opening the door to much greater immigration from Latin America, Asia and Africa, fundamentally reshaping the ethnic composition of the country in subsequent decades</li>
+          <li><strong>Today</strong>: immigration remains a major and contentious political issue, particularly regarding undocumented immigration across the US-Mexico border and policy debates over asylum, deportation and pathways to citizenship</li>
+        </ul>
+        <div class="highlight">The phrase on the Statue of Liberty's pedestal — from Emma Lazarus's poem "The New Colossus" ("Give me your tired, your poor...") — remains an iconic, if idealised, expression of America's self-image as a refuge for immigrants.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Multiculturalism, Melting Pot, Mosaic</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Two competing metaphors are commonly used to describe how immigrant cultures relate to mainstream American society.</p>
+        <h4>The "Melting Pot"</h4>
+        <ul>
+          <li>The older, traditional metaphor (popularised by a 1908 play of that title) suggests that immigrants from different cultures gradually blend together, abandoning distinctive ethnic traits to form a single, unified American culture and identity</li>
+          <li>Critics argue this model implicitly pressures minorities to assimilate into a dominant (historically white, Anglo-Protestant) culture, erasing valuable cultural differences</li>
+        </ul>
+        <h4>The "Mosaic" / "Salad Bowl"</h4>
+        <ul>
+          <li>An alternative, more contemporary metaphor (sometimes called the "salad bowl" or "cultural mosaic") suggests that different ethnic and cultural groups maintain their distinct identities, languages and traditions side by side, contributing to a diverse whole rather than blending into one — like the distinct, identifiable pieces of a mosaic, or ingredients of a salad, each retaining its own character</li>
+          <li>This model is associated with the broader concept of <strong>multiculturalism</strong>: the active recognition, celebration and protection of cultural diversity within a society, rather than enforced assimilation</li>
+        </ul>
+        <h4>Key Exam Point</h4>
+        <p>This shift in metaphor — from "melting pot" to "mosaic" — reflects a real historical and ideological shift in how Americans (and policymakers) have thought about immigration and cultural identity: from 20th-century assimilationism to today's greater (though still contested) emphasis on multicultural identity and the right to maintain heritage culture.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Old and New Trends in American Cuisine</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Traditional American Cuisine</h4>
+        <ul>
+          <li>American food culture historically reflects the country's regional and immigrant diversity: Southern "soul food" and barbecue, Tex-Mex in the Southwest, New England seafood (clam chowder, lobster), Cajun/Creole cuisine in Louisiana</li>
+          <li><strong>Fast food</strong> emerged as a distinctly American 20th-century innovation: McDonald's (founded 1940/1955), standardising and industrialising food production for speed, low cost and consistency, and later spreading globally as a symbol of American cultural influence ("globalisation" / "McDonaldisation")</li>
+          <li>Heavy reliance on processed, convenience and pre-packaged foods grew throughout the 20th century, linked to the post-war consumer boom and the rise of supermarkets and car culture (drive-thru restaurants)</li>
+        </ul>
+        <h4>New Trends</h4>
+        <ul>
+          <li><strong>Farm-to-table movement</strong>: a reaction against industrial food, emphasising fresh, local, seasonal ingredients sourced directly from farms, often connected to concerns about sustainability and food quality</li>
+          <li><strong>Organic and health-conscious eating</strong>: growing demand for organic, non-GMO, and "clean label" products, reflecting greater public awareness of nutrition and food production methods</li>
+          <li><strong>Fusion cuisine</strong>: blending culinary traditions from different cultures (e.g. Korean-Mexican tacos), reflecting the country's increasing diversity and the "mosaic" model in culinary form</li>
+          <li><strong>Plant-based and alternative diets</strong>: rising popularity of vegetarian, vegan and flexitarian diets, partly driven by environmental and health concerns, supported by a growing market for plant-based meat and dairy alternatives</li>
+          <li><strong>Food trucks and street food culture</strong>: a more recent (21st-century) trend bringing diverse, often immigrant-influenced cuisine into mainstream urban food culture at accessible prices</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Obesity: A Social Problem in the USA</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Obesity is widely discussed as one of the major public health crises in the United States, with significant social, economic and health implications.</p>
+        <h4>Scale of the Problem</h4>
+        <ul>
+          <li>The USA has one of the highest obesity rates among developed nations, with over a third of adults classified as obese according to public health data, and childhood obesity also a major and growing concern</li>
+          <li>Obesity is linked to serious health conditions: type 2 diabetes, heart disease, certain cancers, and reduced life expectancy — placing significant strain on the healthcare system</li>
+        </ul>
+        <h4>Social and Economic Causes</h4>
+        <ul>
+          <li><strong>"Food deserts"</strong>: many low-income urban and rural areas lack access to affordable fresh produce, while cheap, calorie-dense fast food is widely available — linking obesity directly to economic inequality and social stratification</li>
+          <li><strong>Portion sizes and food marketing</strong>: American food culture is associated with unusually large portion sizes, and aggressive marketing of sugary and processed foods, particularly targeting children</li>
+          <li><strong>Car-dependent urban design</strong>: many American cities and suburbs are designed around car use rather than walking or cycling, contributing to sedentary lifestyles</li>
+          <li><strong>Socioeconomic correlation</strong>: obesity rates are disproportionately higher among lower-income groups and certain minority communities, reflecting and reinforcing existing social stratification</li>
+        </ul>
+        <h4>Responses</h4>
+        <p>Public health campaigns (such as Michelle Obama's "Let's Move!" initiative during the Obama administration), proposed "soda taxes" in some cities, nutritional labelling requirements, and school lunch reform have all been attempted as policy responses, with mixed and contested success.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Sport and Integration</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Sport has played a uniquely significant role in American society as both a reflection of racial and social divisions and, at key moments, a powerful force for integration and social change.</p>
+        <h4>Jackie Robinson and the Breaking of the Colour Barrier</h4>
+        <ul>
+          <li>In <strong>1947</strong>, <strong>Jackie Robinson</strong> became the first African American to play in Major League Baseball in the modern era, signing with the Brooklyn Dodgers — breaking baseball's long-standing racial segregation ("colour barrier"), seven years before the landmark Brown v. Board of Education school desegregation ruling</li>
+          <li>Robinson faced intense racism from opposing players, fans and even some teammates, but his success on the field is widely regarded as a milestone moment that helped pave the way for the broader Civil Rights Movement of the 1950s–60s</li>
+        </ul>
+        <h4>Sport as a Stage for Civil Rights Protest</h4>
+        <ul>
+          <li><strong>1968 Mexico City Olympics</strong>: African American athletes <strong>Tommie Smith and John Carlos</strong> raised black-gloved fists on the podium during the US national anthem — a "Black Power salute" protesting racial injustice, which caused major controversy and led to their expulsion from the Olympic team</li>
+          <li><strong>Muhammad Ali</strong>: world heavyweight boxing champion who refused induction into the army during the Vietnam War on religious and political grounds, was stripped of his title, and became a global symbol linking sport, race and political resistance</li>
+          <li><strong>Colin Kaepernick</strong> (2016 onward): NFL quarterback who began kneeling during the national anthem to protest police brutality and racial injustice — reigniting national debate about the relationship between sport, patriotism and protest, and directly connecting to the more recent Black Lives Matter movement</li>
+        </ul>
+        <h4>Sport as Integration Today</h4>
+        <p>Professional sports leagues (NBA, NFL) are often cited as relatively successful examples of racial integration and meritocracy in employment, with a significant proportion of Black athletes — although questions remain about the under-representation of minorities in coaching, management and ownership positions, showing that integration on the field has not always extended fully to positions of power off it.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Cultural Changes in America: The '50s and '60s — The Beat Generation</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>Post-War Conformity of the 1950s</h4>
+        <p>The 1950s in America are often characterised by economic prosperity, suburban expansion, traditional family values, and a cultural emphasis on conformity and consumerism (epitomised by the rise of suburbs, television and the nuclear family ideal) — the backdrop against which the Beat Generation rebelled.</p>
+        <h4>The Beat Generation</h4>
+        <ul>
+          <li>A group of writers and artists, active primarily in the 1950s, who rejected mainstream American materialism and conformity in favour of spiritual exploration, spontaneous creativity, sexual liberation, and interest in Eastern philosophy (especially Zen Buddhism)</li>
+          <li><strong>Key figures</strong>: <strong>Jack Kerouac</strong> (author of <em>On the Road</em>, 1957 — a semi-autobiographical novel celebrating spontaneous travel, freedom and rejection of conventional life), <strong>Allen Ginsberg</strong> (poet, author of <em>Howl</em>, 1956 — a raw, confrontational poem that was the subject of an obscenity trial), and <strong>William S. Burroughs</strong> (author of the experimental, controversial novel <em>Naked Lunch</em>)</li>
+          <li>The Beats experimented with non-linear, stream-of-consciousness writing styles, influenced by jazz improvisation, and openly explored drug use, alternative sexuality and anti-establishment politics — themes considered shocking for the era</li>
+          <li>The Beat Generation is widely regarded as a direct precursor to the 1960s counterculture movement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>1968 — The Revolution: Bob Dylan and the Hippie Movement</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>1968: A Pivotal Year</h4>
+        <p><strong>1968</strong> is often considered the most turbulent year of post-war American history, marked by the assassinations of <strong>Martin Luther King Jr.</strong> and <strong>Robert F. Kennedy</strong>, mass protests against the <strong>Vietnam War</strong>, violent clashes at the Democratic National Convention in Chicago, and the height of the civil rights and countercultural movements.</p>
+        <h4>The Hippie Movement and Counterculture</h4>
+        <ul>
+          <li>The <strong>hippie movement</strong> emerged from the Beat Generation's legacy, rejecting mainstream American values: materialism, the Vietnam War, traditional sexual morality, and conventional authority structures</li>
+          <li>Centred culturally around San Francisco's <strong>Haight-Ashbury</strong> neighbourhood, the movement promoted communal living, psychedelic drug use, sexual freedom ("free love"), Eastern spirituality, and environmental consciousness</li>
+          <li><strong>Woodstock Festival (August 1969)</strong>: a defining cultural event — a massive outdoor music festival in upstate New York attended by roughly 400,000 people, widely seen as the symbolic high point of hippie counterculture and the "Summer of Love" era</li>
+          <li>The peace symbol and slogans like "Make love, not war" became iconic expressions of anti-Vietnam War sentiment and broader cultural rebellion</li>
+        </ul>
+        <h4>Bob Dylan</h4>
+        <ul>
+          <li><strong>Bob Dylan</strong> emerged as the most influential singer-songwriter of the era, transforming folk music into a vehicle for social and political commentary</li>
+          <li>Songs like <em>"Blowin' in the Wind"</em> (1962) and <em>"The Times They Are a-Changin'"</em> (1964) became anthems of the civil rights movement and broader social change, asking pointed questions about war, injustice and freedom</li>
+          <li>Dylan's controversial shift from acoustic folk to electric rock (notably at the 1965 Newport Folk Festival) is seen as symbolically bridging folk's political tradition with rock's cultural reach — widening his influence over the emerging counterculture</li>
+          <li>Awarded the <strong>Nobel Prize in Literature in 2016</strong> "for having created new poetic expressions within the great American song tradition" — a recognition that elevated song lyrics to the status of serious literature</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>The '70s and '80s</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The 1970s — Disillusionment and Transition</h4>
+        <ul>
+          <li>A decade shaped by disillusionment following Vietnam (the war ended in 1975 with the fall of Saigon) and the <strong>Watergate scandal</strong> (1972–74), which led to President Richard Nixon's resignation and a deep erosion of public trust in government institutions</li>
+          <li>Economic difficulties: the 1973 oil crisis, "stagflation" (simultaneous high inflation and unemployment), and the decline of traditional manufacturing industries began to be felt</li>
+          <li>Culturally, the era saw the rise of disco music and culture, the continuation of the feminist and gay rights movements (the Stonewall riots of 1969 had launched the modern LGBTQ+ rights movement), and a general cultural shift toward individualism following the collectivist idealism of the 1960s</li>
+        </ul>
+        <h4>The 1980s — Conservatism and Consumerism</h4>
+        <ul>
+          <li>Dominated politically by the presidency of <strong>Ronald Reagan</strong> (1981–89), associated with conservative politics, tax cuts, deregulation, increased military spending, and a hard-line stance against the Soviet Union in the final phase of the Cold War</li>
+          <li>"Reaganomics": supply-side economic policy emphasising free markets and reduced government intervention, which critics argue widened economic inequality, a theme connecting back to social stratification</li>
+          <li>A cultural shift toward materialism and consumerism, often summarised by the (somewhat exaggerated) image of the decade as one of greed and excess ("Greed is good," from the 1987 film <em>Wall Street</em>)</li>
+          <li>The rise of MTV (launched 1981) transformed popular music culture through music videos; the personal computer began entering American homes (notably Apple, see the Steve Jobs section), setting the stage for the digital revolution of subsequent decades</li>
+          <li>The AIDS crisis emerged as a major public health and social issue from the early 1980s, disproportionately affecting the gay community and met initially with widespread government inaction and social stigma</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>From the '90s to the End of the Century; The New Millennium</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <h4>The 1990s</h4>
+        <ul>
+          <li>The end of the <strong>Cold War</strong> (the Soviet Union dissolved in 1991) left the USA as the world's sole superpower, ushering in a period often described as one of relative peace, prosperity and optimism, sometimes called the "End of History" moment</li>
+          <li>Economic boom driven significantly by the rise of <strong>personal computing and the early Internet</strong> — the "dot-com" boom of the late 1990s, connecting directly to the technological themes explored in the Web/Industry 4.0 section of this guide</li>
+          <li>Globalisation accelerated through trade agreements like NAFTA (1994), increasing economic interdependence between the USA, Canada and Mexico</li>
+          <li>Culturally, the decade saw growing diversity in mainstream entertainment and continued debates over multiculturalism (see above), alongside the emergence of grunge music, hip-hop's mainstream rise, and the early reality-TV era</li>
+        </ul>
+        <h4>The New Millennium</h4>
+        <ul>
+          <li>The <strong>September 11, 2001 terrorist attacks</strong> fundamentally reshaped American foreign and domestic policy, leading to the "War on Terror," the invasions of Afghanistan and Iraq, and significant new domestic security measures (the Patriot Act, the creation of the Department of Homeland Security)</li>
+          <li>The <strong>2008 financial crisis</strong> exposed deep structural problems in the American (and global) financial system, leading to a severe recession, widespread home foreclosures, and renewed public debate over economic inequality — directly connected to the theme of social stratification</li>
+          <li>The election of <strong>Barack Obama in 2008</strong> as the first African American president was seen as a landmark moment in the long arc of the civil rights struggle discussed in the "Sport and Integration" section</li>
+          <li>The rise of <strong>social media and smartphones</strong> (Facebook founded 2004, the iPhone launched 2007 — see the Steve Jobs section) transformed communication, culture, business and politics throughout the 2010s</li>
+          <li>The 2010s and 2020s saw intensified political polarisation, the Black Lives Matter movement (following the deaths of unarmed Black Americans at the hands of police, notably George Floyd in 2020), ongoing debates over immigration policy, and the COVID-19 pandemic (2020–22), which exposed and exacerbated many existing social and economic inequalities discussed throughout this section.</li>
+        </ul>
+        <div class="highlight">Exam tip: this final period (1990s–today) connects naturally to the Web/Industry 4.0 section of this guide — the rise of the internet, smartphones, social media and AI are central threads running through both the cultural history of recent America and the technology syllabus.</div>
+      </div>
+    </div>
+
+  </div><!-- /usa -->
+
+
+  <!-- ===== 2. CANADA ===== -->
+  <div class="module" id="canada">
+    <div class="section-banner canada">
+      <div class="num">2</div>
+      <div class="titles">
+        <div class="icon-label">🍁 North America</div>
+        <h2>Canada</h2>
+      </div>
+    </div>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Geography</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Canada is the world's <strong>second-largest country by total area</strong> (after Russia), yet has a relatively small population of around 40 million — making it one of the most sparsely populated countries on Earth.</p>
+        <h4>Key Physical Features</h4>
+        <ul>
+          <li><strong>Vast geographical diversity</strong>: from the Pacific coastal mountains in British Columbia, through the prairies of the central provinces, to the Canadian Shield (a huge area of ancient rock, lakes and forest), to the Atlantic coast in the east, and the Arctic tundra in the far north</li>
+          <li><strong>The Great Lakes</strong>: shared with the USA, central to industry, trade and population settlement in Ontario and Quebec</li>
+          <li><strong>Extreme climate range</strong>: severe winters across most of the country, with the Arctic north experiencing permafrost and polar conditions, while the southernmost areas (around the Great Lakes) have a milder, more temperate climate</li>
+          <li>The population is heavily concentrated in a narrow band close to the US border, particularly in the corridor between Quebec City, Montreal, Toronto and Ottawa</li>
+        </ul>
+        <h4>Quick Facts</h4>
+        <ul>
+          <li><strong>Capital</strong>: Ottawa (not Toronto, a common misconception — Toronto is the largest city but not the capital)</li>
+          <li><strong>Largest city</strong>: Toronto</li>
+          <li><strong>Official languages</strong>: English and French (Canada is officially bilingual at the federal level)</li>
+          <li><strong>Government</strong>: a federal parliamentary democracy and constitutional monarchy — the British monarch remains the formal head of state, represented domestically by the Governor General</li>
+          <li><strong>10 provinces and 3 territories</strong>, with significant powers devolved to provincial governments, similar in spirit to the US federal system</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>A Multicultural Approach</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Unlike the USA's historically dominant "melting pot" ideal, Canada has officially and explicitly adopted <strong>multiculturalism</strong> as a core national policy and identity.</p>
+        <h4>Official Policy</h4>
+        <ul>
+          <li>Canada became, in <strong>1971</strong>, the <strong>first country in the world to adopt an official policy of multiculturalism</strong>, under Prime Minister Pierre Trudeau, explicitly rejecting the assimilationist "melting pot" model in favour of the "mosaic" approach (see the USA section above for direct comparison)</li>
+          <li>This was formalised further in the <strong>Canadian Multiculturalism Act of 1988</strong>, which legally enshrined the preservation and enhancement of multiculturalism as a fundamental characteristic of Canadian society and heritage</li>
+          <li>The <strong>Canadian Charter of Rights and Freedoms</strong> (1982) guarantees fundamental rights and explicitly references multiculturalism in its interpretation clause</li>
+        </ul>
+        <h4>Bilingualism</h4>
+        <ul>
+          <li>The <strong>Official Languages Act (1969)</strong> established English and French as Canada's two official languages at the federal level, a direct response to historical tensions between English-speaking and French-speaking (mainly in Quebec) communities</li>
+          <li><strong>Quebec</strong>, predominantly French-speaking, has a distinct cultural and legal identity within Canada (it follows a civil law system in private law matters, unlike the common law used elsewhere in the country), and has a long history of debate over sovereignty, including two referendums on independence (1980 and 1995, both rejected, the second by a very narrow margin)</li>
+        </ul>
+        <h4>Immigration and Diversity Today</h4>
+        <p>Canada has one of the highest per-capita immigration rates in the world, with policies generally framed around welcoming skilled immigrants and refugees, and actively promoting integration through multicultural policy rather than assimilation. Toronto and Vancouver in particular are among the most ethnically diverse cities globally.</p>
+        <div class="highlight">Exam comparison: contrast Canada's explicit, government-mandated multiculturalism with the more informal, evolving and contested "melting pot vs. mosaic" debate in the USA — Canada institutionalised the "mosaic" model decades before it became a widely accepted framework south of the border.</div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>Indigenous Peoples</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Canada's Indigenous peoples are officially recognised in three constitutionally distinct groups: <strong>First Nations</strong>, <strong>Inuit</strong>, and <strong>Métis</strong> — together referred to as Indigenous or Aboriginal peoples.</p>
+        <h4>The Three Groups</h4>
+        <ul>
+          <li><strong>First Nations</strong>: the many distinct Indigenous nations across Canada (excluding the Inuit and Métis), each with its own language, culture, and history, predating European contact by thousands of years</li>
+          <li><strong>Inuit</strong>: the Indigenous peoples of the Arctic regions (notably Nunavut), traditionally adapted to extreme cold-climate life, hunting and fishing</li>
+          <li><strong>Métis</strong>: a distinct people of mixed Indigenous and European (mainly French) ancestry, with their own recognised culture and history, particularly associated with the fur trade era and the Canadian Prairies</li>
+        </ul>
+        <h4>Colonial History and Its Legacy</h4>
+        <ul>
+          <li>From the 19th century, the Canadian government pursued policies of forced assimilation, including numbered <strong>Treaties</strong> that confined Indigenous peoples to reserves, often under coercive and unequal conditions</li>
+          <li><strong>Residential Schools</strong>: from the late 19th century until the late 20th century (the last school closed in 1996), the government and church-run institutions forcibly removed Indigenous children from their families to "assimilate" them into European-Canadian culture, banning Indigenous languages and customs — a policy now widely recognised as having caused severe, lasting cultural, psychological and intergenerational harm, with documented physical and sexual abuse and many child deaths</li>
+          <li>In 2008, the government established a <strong>Truth and Reconciliation Commission</strong> to investigate the residential school system; its final report (2015) declared the policy a form of <strong>"cultural genocide."</strong></li>
+          <li>The discovery of unmarked graves at former residential school sites (widely reported from 2021 onward) brought renewed national and international attention to this history</li>
+        </ul>
+        <h4>Reconciliation Today</h4>
+        <p>Canada continues an ongoing, contested process of reconciliation, including land claim settlements, self-government agreements, the creation of the Inuit-majority territory of Nunavut (1999), and efforts to revitalise Indigenous languages — though significant social and economic disparities between Indigenous and non-Indigenous Canadians persist, a parallel to the situations of Aboriginal Australians and Māori New Zealanders discussed elsewhere in this guide.</p>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>A Landscape-Oriented Literature</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+        <p>Canadian literature in English has been strongly characterised by a deep engagement with the country's vast, often harsh and dominant natural landscape — a recurring theme that critics and writers have identified as central to Canadian national identity and storytelling.</p>
+        <h4>Key Concepts</h4>
+        <ul>
+          <li><strong>Survival as a literary theme</strong>: the critic and novelist <strong>Margaret Atwood</strong>, in her influential study <em>Survival: A Thematic Guide to Canadian Literature</em> (1972), argued that "survival" against a harsh, indifferent natural environment is the central, defining theme of Canadian literature — in contrast to American literature's frontier optimism or British literature's social comedy of manners</li>
+          <li>The vastness, remoteness and severity of Canadian geography (forests, the Arctic, the Prairies) is frequently depicted not merely as a backdrop but as an active, almost character-like force shaping human experience, isolation and identity</li>
+          <li>This landscape-focus is connected to a broader exploration of Canadian identity as something defined partly in relation to nature, partly in contrast to its more dominant neighbour (the USA), and partly through the experience of immigrant and Indigenous communities living within that landscape</li>
+        </ul>
+        <h4>Key Authors</h4>
+        <ul>
+          <li><strong>Margaret Atwood</strong>: Canada's most internationally celebrated author; besides her literary criticism, her fiction (e.g. <em>Surfacing</em>, 1972; <em>The Handmaid's Tale</em>, 1985) often engages with wilderness, isolation, and the relationship between humans, nature and power</li>
+          <li><strong>Alice Munro</strong>: Nobel Prize in Literature (2013) — short story writer renowned for depicting rural and small-town life in southwestern Ontario with psychological depth tied closely to a specific regional landscape</li>
+          <li><strong>Margaret Laurence</strong>: known for her "Manawaka" cycle of novels set in a fictional Prairie town, exploring the harsh realities and resilience of Prairie life</li>
+        </ul>
+        <div class="highlight">Exam angle: this landscape-oriented tradition can be usefully compared to Conrad's use of landscape (the Congo River as a journey "into the heart of darkness") and to Lessing's use of the African veld as a moral and psychological space — in all three cases, the natural landscape functions as far more than scenery; it actively shapes identity, morality and meaning in the text.</div>
+      </div>
+    </div>
+
+  </div><!-- /canada -->
+
+
+  <!-- ===== 3. AUSTRALIA & NEW ZEALAND ===== -->
   <div class="module" id="oceania">
     <div class="section-banner oceania first">
-      <div class="num">1</div>
+      <div class="num">3</div>
       <div class="titles">
         <div class="icon-label">🌊 Oceania</div>
         <h2>Australia &amp; New Zealand</h2>
@@ -503,7 +892,7 @@
   <!-- ===== INDIA ===== -->
   <div class="module" id="india">
     <div class="section-banner india">
-      <div class="num">2</div>
+      <div class="num">4</div>
       <div class="titles">
         <div class="icon-label">🇮🇳 South Asia</div>
         <h2>India</h2>
@@ -760,7 +1149,7 @@
   <!-- ===== SOUTH AFRICA ===== -->
   <div class="module" id="africa">
     <div class="section-banner africa">
-      <div class="num">3</div>
+      <div class="num">5</div>
       <div class="titles">
         <div class="icon-label">🌍 Southern Africa</div>
         <h2>South Africa</h2>
@@ -862,7 +1251,7 @@
   <!-- ===== 4. DORIS LESSING ===== -->
   <div class="module" id="lessing">
     <div class="section-banner africa">
-      <div class="num">4</div>
+      <div class="num">6</div>
       <div class="titles">
         <div class="icon-label">📖 Author Study</div>
         <h2>Doris Lessing</h2>
@@ -942,7 +1331,7 @@
   <!-- ===== JOSEPH CONRAD ===== -->
   <div class="module" id="conrad">
     <div class="section-banner lit">
-      <div class="num">5</div>
+      <div class="num">7</div>
       <div class="titles">
         <div class="icon-label">✒️ Author Study</div>
         <h2>Joseph Conrad</h2>
@@ -1027,7 +1416,7 @@
   <!-- ===== STEVE JOBS ===== -->
   <div class="module" id="jobs">
     <div class="section-banner tech">
-      <div class="num">6</div>
+      <div class="num">8</div>
       <div class="titles">
         <div class="icon-label">💻 Biography &amp; Technology</div>
         <h2>Steve Jobs</h2>
@@ -1154,7 +1543,7 @@
   <!-- ===== WEB & INTERNET ===== -->
   <div class="module" id="web">
     <div class="section-banner tech">
-      <div class="num">7</div>
+      <div class="num">9</div>
       <div class="titles">
         <div class="icon-label">🌐 Digital Civilisation</div>
         <h2>The World Wide Web</h2>
@@ -1413,7 +1802,7 @@
   <!-- ===== INDUSTRY 4.0 ===== -->
   <div class="module" id="industry40">
     <div class="section-banner tech">
-      <div class="num">8</div>
+      <div class="num">10</div>
       <div class="titles">
         <div class="icon-label">🤖 Technology &amp; Society</div>
         <h2>Industry 4.0 and the Future</h2>
@@ -1591,7 +1980,7 @@
   <!-- ===== DAL LIBRO DI TESTO ===== -->
   <div class="module" id="textbook">
     <div class="section-banner textbook">
-      <div class="num">9</div>
+      <div class="num">11</div>
       <div class="titles">
         <div class="icon-label">📘 Performer B2 — Unit 14, 15, 16, 17</div>
         <h2>Dal Libro di Testo della Classe</h2>
@@ -2019,8 +2408,171 @@
     <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem;">Domande con risposta modello, nello stesso ordine del programma. Clicca su ogni domanda per vedere la risposta.</p>
 
 
-    <!-- ===== AUSTRALIA & NEW ZEALAND ===== -->
+    <!-- ===== USA ===== -->
     <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🇺🇸 The United States of America</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <h4>Geography &amp; Social Stratification</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is Washington, D.C. the capital of the USA rather than New York City?</div>
+          <div class="qa-a"><strong>A.</strong> Washington, D.C. was deliberately created as a neutral federal district, not belonging to any single state, as part of a political compromise between northern and southern states after independence. New York City, while the largest and most economically important city, was never chosen as capital partly to avoid giving any individual state outsized political influence over the federal government. This mirrors the same logic used in Canberra (Australia) and Ottawa (Canada): a purpose-built, neutral capital chosen as a compromise.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is meant by "social stratification" in the context of the USA?</div>
+          <div class="qa-a"><strong>A.</strong> Social stratification refers to how American society is structured into hierarchical layers based on wealth, race, education and geography. Despite the cultural ideal of the "American Dream" (the belief that anyone can succeed through hard work), the USA has one of the highest levels of income inequality among wealthy nations, with deep and persistent disparities between racial groups, between urban and rural areas, and between different regions — disparities often reinforced by how public education is funded locally through property taxes.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Is the "American Dream" still achievable today? What does the data on social mobility suggest?</div>
+          <div class="qa-a"><strong>A.</strong> The American Dream is the belief that hard work alone can guarantee upward social mobility regardless of one's starting point. However, studies on intergenerational social mobility show that a person's economic outcome in the USA is, on average, more closely tied to their parents' income than in many other developed countries (including several in Europe). This challenges the myth of America as uniquely a land of opportunity, and is directly linked to unequal access to education, healthcare and capital across different social and racial groups.</div>
+        </div>
+
+        <h4>Immigration &amp; Ellis Island</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was Ellis Island, and why is it significant in American history?</div>
+          <div class="qa-a"><strong>A.</strong> Ellis Island, in New York Harbor, was the USA's primary immigrant inspection station from 1892 to 1954, processing an estimated 12 million immigrants, mostly from Europe. It is significant because it symbolises the foundational role of immigration in shaping American identity — the vast majority of arrivals were admitted after medical and legal checks, and the site (together with the nearby Statue of Liberty) remains one of the most powerful cultural symbols of the immigrant experience and the idea of America as a refuge and land of opportunity.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How did US immigration policy change between the 1920s and the 1960s?</div>
+          <div class="qa-a"><strong>A.</strong> The Immigration Act of 1924 introduced strict national quotas that heavily favoured immigrants from northern Europe while drastically restricting immigration from Southern/Eastern Europe and Asia, reflecting the racial and nativist prejudices of the era. This system was completely overturned by the Immigration and Nationality Act of 1965, which abolished national-origin quotas and opened the door to far greater immigration from Latin America, Asia and Africa — fundamentally and permanently reshaping the ethnic composition of the United States over subsequent decades.</div>
+        </div>
+
+        <h4>Multiculturalism: Melting Pot vs. Mosaic</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the difference between the "melting pot" and the "mosaic" models of integration?</div>
+          <div class="qa-a"><strong>A.</strong> The "melting pot" model, dominant for much of the 20th century, suggests immigrants should gradually blend into a single, unified American culture, abandoning distinctive ethnic traits. The "mosaic" (or "salad bowl") model, which has gained ground more recently, suggests that different cultural groups should retain their distinct identities and traditions side by side, contributing to a diverse whole — like the distinguishable pieces of a mosaic — rather than dissolving into a single culture. The shift in metaphor reflects a real ideological shift from assimilationism toward multiculturalism.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Compare the USA's approach to multiculturalism with Canada's. Which model is more "official"?</div>
+          <div class="qa-a"><strong>A.</strong> Canada's multiculturalism is explicitly enshrined in government policy — it became the first country in the world to adopt an official multiculturalism policy in 1971, later formalised in the Canadian Multiculturalism Act (1988). The USA, by contrast, has no equivalent official federal policy: its shift from "melting pot" toward a more "mosaic"-style multiculturalism has been a gradual, informal, and still contested cultural and political evolution rather than a single legislated framework. This is a key point of comparison between the two countries' approaches to diversity.</div>
+        </div>
+
+        <h4>Food Culture &amp; Obesity</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How has American food culture changed from the rise of fast food to today's "farm-to-table" trend?</div>
+          <div class="qa-a"><strong>A.</strong> Twentieth-century American food culture was shaped by the rise of fast food (e.g. McDonald's), which industrialised and standardised meals for speed and low cost, fitting a car-dependent, consumer-driven society. In recent decades, a reaction has emerged in the form of the "farm-to-table" movement, emphasising fresh, local, seasonal ingredients, alongside growing interest in organic food, plant-based diets, and fusion cuisine that reflects the country's increasing ethnic diversity.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is obesity described as a "social problem" rather than purely a medical one in the USA?</div>
+          <div class="qa-a"><strong>A.</strong> Obesity in the USA is closely tied to social stratification: low-income areas are often "food deserts" with limited access to affordable fresh produce but easy access to cheap, calorie-dense fast food. Car-dependent urban planning discourages walking, and aggressive marketing of processed foods (especially to children) compounds the problem. Because obesity rates are disproportionately higher among lower-income and minority communities, it is widely framed as a social and economic issue as much as a medical one.</div>
+        </div>
+
+        <h4>Sport and Integration</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is Jackie Robinson significant in the history of American sport and civil rights?</div>
+          <div class="qa-a"><strong>A.</strong> In 1947, Jackie Robinson became the first African American to play Major League Baseball in the modern era, breaking the sport's long-standing racial segregation seven years before the Brown v. Board of Education school desegregation ruling. Despite facing intense racism, his success on the field is regarded as a landmark moment that helped pave the way for the broader Civil Rights Movement, showing how sport could become a stage for social change before formal legal equality was achieved.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How has sport been used as a form of political protest in the USA, from 1968 to today?</div>
+          <div class="qa-a"><strong>A.</strong> At the 1968 Mexico City Olympics, Tommie Smith and John Carlos raised black-gloved fists on the podium to protest racial injustice. Muhammad Ali refused induction into the army during the Vietnam War on religious and political grounds and was stripped of his title. More recently, Colin Kaepernick began kneeling during the national anthem from 2016 to protest police brutality, reigniting national debate over the relationship between sport, patriotism and protest, and connecting directly to the Black Lives Matter movement.</div>
+        </div>
+
+        <h4>Cultural Changes: From the Beat Generation to the New Millennium</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Who were the Beat Generation, and what did they reject?</div>
+          <div class="qa-a"><strong>A.</strong> The Beat Generation, active mainly in the 1950s, were writers like Jack Kerouac (<em>On the Road</em>), Allen Ginsberg (<em>Howl</em>) and William S. Burroughs who rejected the conformity, materialism and traditional values of post-war American society in favour of spontaneous creativity, spiritual exploration (especially Eastern philosophy), and personal freedom. They experimented with non-linear writing influenced by jazz improvisation and openly explored themes (drug use, alternative sexuality) considered shocking for their time, paving the way for the 1960s counterculture.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is 1968 considered such a pivotal year in American history, and how did Bob Dylan and the hippie movement fit into it?</div>
+          <div class="qa-a"><strong>A.</strong> 1968 saw the assassinations of Martin Luther King Jr. and Robert F. Kennedy, mass protests against the Vietnam War, and violent unrest, making it the most turbulent year of post-war American history. The hippie movement, centred culturally around San Francisco, rejected mainstream materialism and the Vietnam War in favour of communal living, "free love" and Eastern spirituality, culminating symbolically in the 1969 Woodstock Festival. Bob Dylan transformed folk music into a vehicle for political commentary with songs like "Blowin' in the Wind," becoming an anthem-writer for the civil rights and anti-war movements, and was later awarded the Nobel Prize in Literature (2016) for elevating song lyrics to serious literary status.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What were the main cultural and political shifts in America during the 1970s and 1980s?</div>
+          <div class="qa-a"><strong>A.</strong> The 1970s were marked by disillusionment following the Vietnam War and the Watergate scandal, which eroded public trust in government, alongside economic difficulties like the oil crisis and "stagflation." The 1980s, dominated by President Ronald Reagan, saw a shift toward conservative politics, tax cuts and deregulation ("Reaganomics"), alongside growing consumerism and the rise of MTV and personal computing — while the emerging AIDS crisis was met initially with government inaction, a major social issue of the decade.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How did the events of the 1990s and the new millennium shape contemporary America?</div>
+          <div class="qa-a"><strong>A.</strong> The 1990s brought relative prosperity following the end of the Cold War, driven significantly by the rise of personal computing and the early Internet ("dot-com boom"). The new millennium was reshaped by the September 11, 2001 attacks (leading to the "War on Terror"), the 2008 financial crisis (which exposed deep economic inequality), the election of Barack Obama as the first African American president (2008), and the rise of social media and smartphones — all of which connect directly to the ongoing themes of social stratification, integration and technological change explored throughout this guide.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== CANADA ===== -->
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🍁 Canada</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <h4>Geography &amp; Government</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is Ottawa the capital of Canada rather than Toronto?</div>
+          <div class="qa-a"><strong>A.</strong> Like Washington, D.C. and Canberra, Ottawa was chosen as a politically neutral compromise location, situated on the border between English-speaking Ontario and French-speaking Quebec, rather than favouring either of the country's two dominant linguistic communities. Toronto, although the largest city and economic centre, was never the capital — a useful point of comparison with similar "purpose-built neutral capital" stories in Australia (Canberra) and the USA (Washington, D.C.).</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What explains the extreme contrast between Canada's huge land area and its relatively small population?</div>
+          <div class="qa-a"><strong>A.</strong> Canada is the world's second-largest country by area but has only around 40 million inhabitants, because vast portions of its territory — the Arctic north, the Canadian Shield, much of the boreal forest — are inhospitable to large-scale settlement due to extreme cold, poor soil, and remoteness. As a result, the population is heavily concentrated in a narrow band close to the US border, particularly around the Quebec City–Windsor corridor.</div>
+        </div>
+
+        <h4>Multiculturalism</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> Why is Canada considered a pioneer of official multiculturalism?</div>
+          <div class="qa-a"><strong>A.</strong> In 1971, Canada became the first country in the world to adopt an official government policy of multiculturalism, explicitly rejecting the "melting pot" assimilationist model in favour of a "mosaic" approach that encourages cultural groups to preserve their distinct identities. This was further entrenched in law through the Canadian Multiculturalism Act of 1988 and is referenced directly in the Canadian Charter of Rights and Freedoms (1982) — making Canada's commitment to multiculturalism uniquely formal and constitutionally embedded compared to most other countries.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What is the significance of Canada's official bilingualism, and how does Quebec fit into this picture?</div>
+          <div class="qa-a"><strong>A.</strong> The Official Languages Act of 1969 established English and French as Canada's two official languages at the federal level, a direct response to historical tensions between English-speaking Canada and the predominantly French-speaking province of Quebec. Quebec has a distinct cultural and legal identity (including a civil law system for private matters) and has held two independence referendums (1980 and 1995), both rejected — the second by an extremely narrow margin — reflecting ongoing, unresolved debates about Quebec's place within the Canadian federation.</div>
+        </div>
+
+        <h4>Indigenous Peoples</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What are the three constitutionally recognised groups of Indigenous peoples in Canada?</div>
+          <div class="qa-a"><strong>A.</strong> Canada officially recognises three distinct groups: <strong>First Nations</strong> (the many separate Indigenous nations across the country, excluding Inuit and Métis), the <strong>Inuit</strong> (Indigenous peoples of the Arctic regions, notably Nunavut), and the <strong>Métis</strong> (a distinct people of mixed Indigenous and European, mainly French, ancestry, historically tied to the fur trade and the Prairies). Each has its own history, culture and relationship with the Canadian state.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> What was the residential school system, and why has it been called "cultural genocide"?</div>
+          <div class="qa-a"><strong>A.</strong> From the late 19th century until 1996, the Canadian government and church-run institutions forcibly removed Indigenous children from their families to "assimilate" them into European-Canadian culture, banning their languages and customs; many children suffered abuse, and many died. Canada's Truth and Reconciliation Commission, in its 2015 final report, concluded that this policy amounted to "cultural genocide" because of its systematic, deliberate effort to destroy Indigenous languages, family structures and cultural identity. The discovery of unmarked graves at former school sites from 2021 onward renewed national and international attention to this legacy.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How does Canada's relationship with its Indigenous peoples compare to Australia's with Aboriginal peoples, or New Zealand's with the Māori?</div>
+          <div class="qa-a"><strong>A.</strong> All three countries share a history of colonial dispossession, forced assimilation policies and ongoing reconciliation efforts, but with different formal mechanisms: New Zealand has a negotiated treaty (Waitangi) and an active Tribunal process; Australia never signed any treaty with Aboriginal peoples (relying instead on the doctrine of <em>terra nullius</em>) and lacks an equivalent national reconciliation framework; Canada occupies a middle position, with numbered historical treaties, a Truth and Reconciliation Commission (established 2008), and the creation of the Inuit-majority territory of Nunavut (1999) — though, as in Australia and New Zealand, significant social and economic disparities between Indigenous and non-Indigenous populations persist in all three countries.</div>
+        </div>
+
+        <h4>Canadian Literature</h4>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> According to Margaret Atwood, what is the defining theme of Canadian literature?</div>
+          <div class="qa-a"><strong>A.</strong> In her influential study <em>Survival: A Thematic Guide to Canadian Literature</em> (1972), Margaret Atwood argued that "survival" against a harsh, indifferent natural environment is the central, defining theme of Canadian literature — in contrast to, for example, American literature's frontier optimism. The vastness and severity of the Canadian landscape (forests, the Arctic, the Prairies) is treated not merely as scenery but as an active force shaping identity, isolation and human experience.</div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA(this)"><span class="qa-arrow">▶</span> How can Canada's "landscape-oriented" literary tradition be compared to Conrad's or Lessing's use of landscape?</div>
+          <div class="qa-a"><strong>A.</strong> In Canadian literature (as theorised by Atwood, and seen in authors like Margaret Laurence), the natural landscape actively shapes character and identity rather than serving as a passive backdrop. This is directly comparable to Conrad's Congo River in <em>Heart of Darkness</em>, which represents a journey "into the heart of darkness" within the self, and to Lessing's African veld in "The Antheap," which functions as a moral and psychological space reflecting the colonial order. In all three traditions, landscape becomes a vehicle for exploring deeper questions of identity, morality and power, rather than simply providing geographical setting.</div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ===== AUSTRALIA & NEW ZEALAND ===== -->
+    <div class="topic">
       <div class="topic-head" onclick="toggle(this)">
         <h3>🌊 Australia &amp; New Zealand</h3>
         <span class="toggle">▼</span>
