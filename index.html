@@ -24,6 +24,7 @@
     --textbook: #b8860b;
     --usa: #c0392b;
     --canada: #d35400;
+    --links: #6c5ce7;
     --accent-india: rgba(230,126,34,0.12);
     --accent-africa: rgba(39,174,96,0.12);
     --accent-lit: rgba(142,68,173,0.12);
@@ -32,6 +33,7 @@
     --accent-textbook: rgba(184,134,11,0.12);
     --accent-usa: rgba(192,57,43,0.12);
     --accent-canada: rgba(211,84,0,0.12);
+    --accent-links: rgba(108,92,231,0.12);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -105,6 +107,7 @@
   nav a.textbook { border-color: var(--textbook); color: var(--textbook); background: var(--accent-textbook);}
   nav a.usa { border-color: var(--usa); color: var(--usa); background: var(--accent-usa);}
   nav a.canada { border-color: var(--canada); color: var(--canada); background: var(--accent-canada);}
+  nav a.links { border-color: var(--links); color: var(--links); background: var(--accent-links);}
 
   main { max-width: 900px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
 
@@ -165,6 +168,8 @@
   .section-banner.usa .num { color: var(--usa); }
   .section-banner.canada { border-left-color: var(--canada); }
   .section-banner.canada .num { color: var(--canada); }
+  .section-banner.links { border-left-color: var(--links); }
+  .section-banner.links .num { color: var(--links); }
 
   .module { margin-bottom: 3.5rem; }
 
@@ -228,6 +233,37 @@
     font-size: 0.88rem;
     color: var(--muted);
     font-style: italic;
+  }
+  .link-card {
+    background: var(--accent-links);
+    border: 1px solid rgba(108,92,231,0.3);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .link-card h4 {
+    color: var(--links);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+  }
+  .link-card .link-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .link-card .link-pair span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.15rem 0.55rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .link-card p {
+    margin: 0.3rem 0;
+    font-size: 0.92rem;
   }
   .tag {
     display: inline-block;
@@ -307,6 +343,7 @@
   <a href="#web" class="tech">🌐 Web &amp; Internet</a>
   <a href="#industry40" class="tech">🤖 Industry 4.0</a>
   <a href="#textbook" class="textbook">📘 Dal Libro di Testo</a>
+  <a href="#links" class="links">🔗 Interdisciplinary Connections</a>
   <a href="#dates">📅 Date Chiave</a>
   <a href="#questions" style="border-color:#e74c3c;color:#e74c3c;background:rgba(231,76,60,0.12)">❓ Questions</a>
 </nav>
@@ -2394,6 +2431,203 @@
     </div>
 
   </div><!-- /textbook -->
+
+  <!-- ===== COLLEGAMENTI INTERDISCIPLINARI ===== -->
+  <!-- ===== INTERDISCIPLINARY CONNECTIONS ===== -->
+  <div class="module" id="links">
+    <div class="section-banner links">
+      <div class="num">12</div>
+      <div class="titles">
+        <div class="icon-label">🔗 Cross-Curricular Synthesis</div>
+        <h2>Interdisciplinary Connections</h2>
+      </div>
+    </div>
+    <p style="color:var(--muted); font-style:italic; margin-bottom:1.2rem;">This section gathers cross-curricular connections between the civilisation/literature topics and the IT/technology topics (Web, Industry 4.0). They are designed as prompts for the oral exam: they demonstrate the ability to synthesise across the syllabus and can be used to build a personal route through several topics in a coherent way.</p>
+
+    <div class="topic open">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>✒️ Literature ↔ Technology</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <div class="link-card">
+          <h4>Joseph Conrad — Heart of Darkness ↔ Digital Colonialism and Big Data</h4>
+          <div class="link-pair"><span>Conrad</span><span>Facebook/Centra</span><span>Web 3.0/4.0</span></div>
+          <p>Conrad uses the Congo River as the channel through which "civilised" Europe penetrates and exploits Africa, masking economic greed (ivory) behind a discourse of progress and civilisation. The same pattern repeats today: tech companies talk about "connection" and "progress" while collecting data for profit — the Facebook/Centra case (Unit 16) is the perfect example, with a company publicly denying a tracking tool while actively using it.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Kurtz ↔ AI Without Ethical Control</h4>
+          <div class="link-pair"><span>Conrad</span><span>AlphaGo Zero</span><span>Industry 4.0 — ethical issues</span></div>
+          <p>Kurtz represents what happens when power develops with no moral limits: "The horror, the horror" can be read as a warning about what happens when an extremely powerful tool breaks free of human control and ethics. This is the same kind of risk the textbook explicitly associates with Industry 4.0 ("it also introduces important ethical issues") and with the "alien," unpredictable behaviour of AlphaGo Zero, which surpasses its own creators without them fully understanding its internal logic anymore.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>The "Darkness" of the Congo ↔ the Deep Web and Dark Web</h4>
+          <div class="link-pair"><span>Conrad</span><span>Deep Web</span><span>Dark Web</span></div>
+          <p>The Congo River pushes into "unmapped" territories, blank spaces on the map that fill with mystery — the narrative equivalent of the Deep Web (90% of the web, existing but not indexed, "invisible" to the official system) and even more so of the Dark Web: real, active territory deliberately excluded from the "official" map and accessible only through special tools (Tor), much as Conrad's jungle requires a special guide and boat to be crossed at all.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Marlow as Narrator ↔ the Illusion of Data Objectivity</h4>
+          <div class="link-pair"><span>Conrad</span><span>Big Data</span></div>
+          <p>Marlow tells a filtered, partial, subjective story — a point of view presented as direct testimony but in fact mediated by narrative choices. This is a useful contrast with the (often false) idea that Big Data or algorithms are "objective": data, like Marlow's narration, is always mediated by a perspective, by how it is collected, and by what it chooses to measure or ignore.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Doris Lessing — "The Antheap" ↔ Deep Learning and Emergent Intelligence</h4>
+          <div class="link-pair"><span>Lessing</span><span>AlphaGo</span><span>Deep Learning</span></div>
+          <p>"The Antheap" explores how intelligence and creativity can emerge in unexpected conditions, through a process not planned from above: the relationship between Tommy and Dirk grows beyond the racial barriers imposed by the colonial system, without anyone having "designed" it. This is a direct parallel with deep learning: AlphaGo does not follow rules programmed from above, but "learns" by playing against itself millions of times, developing an intelligence its own creators describe as "alien" — an emergent intelligence, not a prescribed one, just like the relationship between the two boys in the story.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🌍 Countries &amp; History ↔ Technology</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <div class="link-card">
+          <h4>Australia &amp; New Zealand — Terra Nullius ↔ the Deep Web and Dark Web</h4>
+          <div class="link-pair"><span>Oceania</span><span>Deep Web</span><span>Dark Web</span></div>
+          <p>The doctrine of <em>terra nullius</em>, used by British colonisers to declare Australia "no one's land" despite the presence of Aboriginal peoples, is an act of denying something that exists but is not officially "seen" or recognised. This is a direct parallel with the Deep Web (existing but not indexed, hence "invisible" to the official system) and even more with the Dark Web, deliberately excluded from the "official" map. New Zealand, through the Treaty of Waitangi, instead chose the path of formal recognition — a useful contrast with the lack of regulation of the Dark Web versus the (imperfect) regulation of the surface web.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>South Africa — Apartheid and Mandela ↔ the Digital Divide</h4>
+          <div class="link-pair"><span>South Africa</span><span>Mandela</span><span>Digital Divide</span></div>
+          <p>Apartheid is a system of segregation that systematically denies access to resources, education and opportunity based on a characteristic imposed at birth. The digital divide (Unit 14) describes the same dynamic in a contemporary form: access to technology and IT skills often follows the same lines of economic and geographic inequality that already exist. Mandela and the end of Apartheid represent the historical struggle against exclusion; the digital divide is the new frontier of the same battle — no longer legal and racial, but economic and infrastructural.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>India — Mahatma Gandhi ↔ the Ethics of Industry 4.0</h4>
+          <div class="link-pair"><span>India</span><span>Gandhi</span><span>Industry 4.0 — ethics</span><span>Neuralink/PETA</span></div>
+          <p>Gandhi is famous for his critique of technological progress as an end in itself, devoid of moral responsibility — the concept of "swadeshi" (self-sufficiency) was also born as a rejection of industrial modernisation imposed without consideration for human wellbeing. This connects naturally to the ethical issues of Industry 4.0: the textbook itself states that "Industry 4.0 has the potential to improve the lives of us all, but it also introduces important ethical issues" — the same Gandhian tension between technical progress and ethical responsibility, of which Neuralink and PETA's criticisms are a contemporary example.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>India — Multiculturalism/Mosaic ↔ the Architecture of the Web (HTML, CSS, JS)</h4>
+          <div class="link-pair"><span>India</span><span>Mosaic vs Melting Pot</span><span>HTML/CSS/JS</span></div>
+          <p>India is often described through the metaphor of a cultural mosaic: very different languages, religions and traditions (Hinduism, the Puja, Diwali, multiple languages) coexisting as distinct elements without merging into one homogeneous culture — the same logic as the "mosaic/salad bowl" model seen for Canada/USA, as opposed to the "melting pot." The technical connection: HTML, CSS and JavaScript work together on a web page while each keeps its own distinct function (structure, style, interactivity) but collaborates to create a coherent experience — an almost literal metaphor for the mosaic model applied to code.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>USA — '80s Consumerism / E-commerce ↔ Industry 4.0 and the Production Chain</h4>
+          <div class="link-pair"><span>USA — '80s</span><span>E-commerce</span><span>Industry 4.0</span></div>
+          <p>American consumerism in the 1980s (Reaganomics, materialism, "Greed is good") can be read as the cultural root of an economy centred on easy, instant purchasing — of which e-commerce is the natural digital evolution. On the business side, e-commerce is today the final point of a chain that includes RFID, robotics, 3D printing and drone delivery (Starship Technologies): an online order can trigger automated warehouses, robots that assemble the product, and delivery by drone — the entire chain described in "Foundations of Industry 4.0."</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🎵 Music &amp; the Arts ↔ The Web Today</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <div class="link-card">
+          <h4>Streaming Services ↔ the Transformation of Music Consumption</h4>
+          <div class="link-pair"><span>Streaming services</span><span>Spotify</span><span>Big Data</span></div>
+          <p>The textbook describes how streaming changed the film industry's business model (Netflix, Disney+, Amazon Studios), moving from ownership (DVD) to continuous subscription. The exact same shift happened in music with Spotify: you pay for the right to access a huge catalogue, no longer to own a single work. Direct consequence: artists are paid per stream (not per copy sold), and songs today tend to be shorter, with the chorus arriving earlier, because streaming algorithms favour tracks that hold attention in the first few seconds — art adapting to the logic of the platform.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Algorithmic Playlists ↔ Big Data and Behavioural Profiling</h4>
+          <div class="link-pair"><span>Web 3.0/4.0</span><span>Big Data</span><span>Spotify/playlists</span></div>
+          <p>An album was conceived as a coherent work to be listened to in sequence. Algorithm-generated playlists fragment this unity: the listener receives isolated songs chosen by a system that learns their preferences — the same predictive, profiling logic seen in Web 3.0/Web 4.0 (location data, behaviour manipulation through Big Data) applied to musical taste instead of geolocation.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Bob Dylan and Protest ↔ Web 2.0 as a New Collective Space</h4>
+          <div class="link-pair"><span>Bob Dylan</span><span>'60s protest</span><span>Web 2.0</span><span>Social media</span></div>
+          <p>If in the 1960s protest songs circulated through radio, concerts and physical records, today social movements (Black Lives Matter, global protests) organise and spread through social media and Web 2.0 (blogs, Twitter, viral content). The principle is the same — music/art as a collective voice for change — but the channel has changed radically: from a one-directional flow (artist → audience via record/radio) to the bi-directional flow of Web 2.0, where the audience itself creates, remixes and spreads content.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Generative AI ↔ Creativity and Authorship in Art</h4>
+          <div class="link-pair"><span>AlphaGo Zero</span><span>Deep Learning</span><span>Generative AI</span></div>
+          <p>AlphaGo Zero develops an "alien," unpredictable intelligence, going beyond its initial human training — behaviour that left Lee Sedol himself "stunned" with moves no human would ever have conceived. This is a direct parallel with art and music generated by artificial intelligence today: systems trained on huge quantities of existing works that produce new, sometimes surprising results, reopening debates about authorship, originality, and what it really means to "create."</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Web Accessibility ↔ Accessibility in Art and Music</h4>
+          <div class="link-pair"><span>HCI</span><span>Web Accessibility</span><span>Inclusive art</span></div>
+          <p>The HCI/Web Accessibility section (alternative text for images, screen readers, transcripts for podcasts) has a direct parallel in the arts: subtitles for the deaf at concerts and films, audio descriptions of artworks for the blind in museums, lyric transcripts for songs. It is the same principle — making a sensory experience accessible to those who cannot access it in the "standard" way — applied to art rather than the web, and it also connects to the UN Convention on the Rights of Persons with Disabilities mentioned in the Web section.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>🌐 Evolution of the Web ↔ History &amp; Literature</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <div class="link-card">
+          <h4>Web 1.0 → 2.0 ↔ Colonialism: from a Single Voice to Many Voices</h4>
+          <div class="link-pair"><span>Evolution of the Web</span><span>Terra Nullius</span><span>Indigenous Peoples</span></div>
+          <p>Web 1.0 was one-directional: information flowed from website to user, who remained passive. This mirrors the structure of colonial narration: a single "authorised" voice (the coloniser) tells the story of a place without those who actually live there being able to respond or correct it. Web 2.0 — where users become content creators themselves — instead mirrors the historical shift toward previously silenced voices telling their own story directly: Aboriginal Australian communities and Indigenous groups in Canada, for example, now use social media to share their own history and perspective, bypassing the "top-down" mediation that once represented (or ignored) them entirely.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Wikipedia (Sharing of Knowledge) ↔ Gandhi and Knowledge as a Collective Good</h4>
+          <div class="link-pair"><span>Wikipedia</span><span>Mahatma Gandhi</span><span>Swadeshi</span></div>
+          <p>Wikipedia is built on the principle that knowledge should not belong to a single central authority but be shared and built collectively by ordinary contributors. This echoes, in a different domain, the Gandhian idea of self-sufficiency and shared responsibility (<em>swadeshi</em>) — here applied to knowledge rather than to economic production: both reject the idea that progress or understanding should be controlled from the top down by a privileged few.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Blogging / Twitter ↔ the Beat Generation's Personal Voice as an Act of Rebellion</h4>
+          <div class="link-pair"><span>Blogging</span><span>Beat Generation</span><span>Kerouac/Ginsberg</span></div>
+          <p>Blogs emerged as a form of "online diary" — personal, immediate, often anti-institutional self-expression. This is the same impulse that drove the Beat Generation poets (Ginsberg, Kerouac): giving voice to personal, spontaneous experience outside the "official" channels of literature. The blog can be seen as the technological heir to the Beat Generation's spontaneous, anti-conformist writing — both reject the idea that personal expression needs institutional validation to be legitimate.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Virtual Worlds / Second Life ↔ Survival and the Canadian Landscape</h4>
+          <div class="link-pair"><span>Second Life</span><span>Canadian Literature</span><span>Atwood — Survival</span></div>
+          <p>Second Life creates an entirely constructed digital world, where identity (the avatar) is freely chosen and shaped by the user — total control over one's environment. This is the exact opposite of the relationship described in Canadian literature, where, according to Margaret Atwood's theory of "survival," human identity is shaped by confronting a real, untameable landscape that humans do <em>not</em> control. An effective contrast: a fully customisable virtual world versus a real nature that dominates and shapes the human being, rather than the other way around.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-head" onclick="toggle(this)">
+        <h3>💡 Other Connections</h3>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="topic-body">
+
+        <div class="link-card">
+          <h4>Steve Jobs ↔ Joseph Conrad's Kurtz: the Power and Danger of a Singular Vision</h4>
+          <div class="link-pair"><span>Steve Jobs</span><span>Conrad — Kurtz</span></div>
+          <p>Both Steve Jobs and Conrad's Kurtz are defined by an uncompromising, almost obsessive personal vision that reshapes everything around them — in Jobs's case, an entire industry and the way people interact with technology; in Kurtz's case, the trading post he comes to dominate. Both figures are celebrated for their extraordinary ability to impose a singular vision on reality, yet both also raise uncomfortable questions about the human cost of that vision: Jobs was famously demanding and difficult toward those who worked for him, just as Kurtz's "civilising" mission conceals a brutal, unchecked exercise of personal power. The comparison invites a reflection on where visionary ambition ends and ethically troubling control begins — a tension also present in the discussion of Industry 4.0's "ethical issues."</p>
+        </div>
+
+        <div class="link-card">
+          <h4>E-commerce and the Cashless Society ↔ Apartheid and Economic Exclusion in South Africa</h4>
+          <div class="link-pair"><span>E-commerce</span><span>South Africa</span><span>Social Stratification</span></div>
+          <p>E-commerce requires a credit card, a stable address, and digital literacy — resources that are not equally distributed. This recalls, in a different form, the logic of Apartheid: a system that legally and systematically denied access to economic participation based on an imposed characteristic. While e-commerce does not exclude by law, the textbook's own discussion of the "digital divide" shows how unequal access to technology and financial infrastructure can reproduce similar patterns of exclusion along economic and geographic lines — proof that formal legal equality (the end of Apartheid) does not automatically guarantee equal practical access to new economic opportunities.</p>
+        </div>
+
+        <div class="link-card">
+          <h4>Human-Computer Interaction (HCI) ↔ India's Linguistic and Religious Diversity</h4>
+          <div class="link-pair"><span>HCI</span><span>India</span><span>Web Accessibility</span></div>
+          <p>HCI is fundamentally concerned with designing interfaces that work for users with very different needs, languages and abilities — the textbook stresses that "the web must be designed to work for everyone, whatever their hardware, software, language, culture or physical or mental ability." India presents the same design challenge on a human scale: a single country with dozens of major languages, multiple religions (Hinduism, Islam, Sikhism and others) and enormous regional diversity, all of which must somehow be accommodated within unifying national institutions and infrastructure. Both cases show that true accessibility — digital or social — requires deliberately designing for difference, rather than assuming a single "default" user or citizen.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /links -->
+
 
 
 
